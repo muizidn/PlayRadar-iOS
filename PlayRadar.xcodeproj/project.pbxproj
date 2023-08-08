@@ -14,7 +14,7 @@
 		220C64A22A824F2500CA12B3 /* PlayRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 220C64A02A824F2500CA12B3 /* PlayRadar.xcdatamodeld */; };
 		220C64A42A824F2700CA12B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 220C64A32A824F2700CA12B3 /* Assets.xcassets */; };
 		220C64A72A824F2700CA12B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220C64A52A824F2700CA12B3 /* LaunchScreen.storyboard */; };
-		220C64B22A824F2700CA12B3 /* PlayRadarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64B12A824F2700CA12B3 /* PlayRadarTests.swift */; };
+		220C64B22A824F2700CA12B3 /* GameCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64B12A824F2700CA12B3 /* GameCellTests.swift */; };
 		220C64BC2A824F2700CA12B3 /* PlayRadarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64BB2A824F2700CA12B3 /* PlayRadarUITests.swift */; };
 		220C64BE2A824F2700CA12B3 /* PlayRadarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64BD2A824F2700CA12B3 /* PlayRadarUITestsLaunchTests.swift */; };
 		220C64CB2A82501100CA12B3 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64CA2A82501100CA12B3 /* GameCell.swift */; };
@@ -51,7 +51,7 @@
 		220C64A62A824F2700CA12B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		220C64A82A824F2700CA12B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		220C64AD2A824F2700CA12B3 /* PlayRadarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayRadarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		220C64B12A824F2700CA12B3 /* PlayRadarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarTests.swift; sourceTree = "<group>"; };
+		220C64B12A824F2700CA12B3 /* GameCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCellTests.swift; sourceTree = "<group>"; };
 		220C64B72A824F2700CA12B3 /* PlayRadarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayRadarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		220C64BB2A824F2700CA12B3 /* PlayRadarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarUITests.swift; sourceTree = "<group>"; };
 		220C64BD2A824F2700CA12B3 /* PlayRadarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		220C64B02A824F2700CA12B3 /* PlayRadarTests */ = {
 			isa = PBXGroup;
 			children = (
-				220C64B12A824F2700CA12B3 /* PlayRadarTests.swift */,
+				220C64B12A824F2700CA12B3 /* GameCellTests.swift */,
 			);
 			path = PlayRadarTests;
 			sourceTree = "<group>";
@@ -288,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				220C64B22A824F2700CA12B3 /* PlayRadarTests.swift in Sources */,
+				220C64B22A824F2700CA12B3 /* GameCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

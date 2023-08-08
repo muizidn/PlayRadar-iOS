@@ -7,33 +7,38 @@
 
 import UIKit
 
-class GameTableViewCell: UITableViewCell {
-    private let coverImageView: UIImageView = {
+class GameCell: UITableViewCell {
+    let coverImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 8
         return imageView
     }()
     
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
-    private let releaseDateLabel: UILabel = {
+    let releaseDateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
-    private let starImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "star")
-        return imageView
+    let starImageView: UIView = {
+        let label = UILabel()
+        label.text = "⭐️"
+        return label
     }()
     
-    private let ratingLabel: UILabel = {
+    let ratingLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         return label
@@ -59,21 +64,46 @@ class GameTableViewCell: UITableViewCell {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
+        // Create layout constraints
+        let spacing: CGFloat = 8
+        
+        // coverImageView constraints
         NSLayoutConstraint.activate([
-            coverImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            coverImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            coverImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-            coverImageView.widthAnchor.constraint(equalToConstant: 80),
-            
-            titleLabel.leadingAnchor.constraint(equalTo: coverImageView.trailingAnchor, constant: 16),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            
-            releaseDateLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            releaseDateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
-            
-            starImageView.leadingAnchor.constraint(equalTo: releaseDateLabel.trailingAnchor, constant: 8),
-            starImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            coverImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: spacing),
+            coverImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: spacing),
+            coverImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -spacing*2),
+            coverImageView.widthAnchor.constraint(equalTo: coverImageView.heightAnchor, multiplier: 1.2),
         ])
+        
+        // titleLabel constraints
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: spacing),
+            titleLabel.leadingAnchor.constraint(equalTo: coverImageView.trailingAnchor, constant: spacing),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
+        
+        // releaseDateLabel constraints
+        NSLayoutConstraint.activate([
+            releaseDateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: spacing),
+            releaseDateLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            releaseDateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
+        
+        // starImageView constraints
+        NSLayoutConstraint.activate([
+            starImageView.topAnchor.constraint(equalTo: releaseDateLabel.bottomAnchor, constant: spacing),
+            starImageView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            starImageView.widthAnchor.constraint(equalToConstant: 20),
+            starImageView.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        // ratingLabel constraints
+        NSLayoutConstraint.activate([
+            ratingLabel.topAnchor.constraint(equalTo: releaseDateLabel.bottomAnchor, constant: spacing),
+            ratingLabel.leadingAnchor.constraint(equalTo: starImageView.trailingAnchor, constant: spacing),
+            ratingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: spacing)
+        ])
+        
     }
     
     func configure(with game: GameViewModel) {
@@ -82,20 +112,21 @@ class GameTableViewCell: UITableViewCell {
         }
         titleLabel.text = game.title
         releaseDateLabel.text = game.releaseDate.description
+        ratingLabel.text = game.rating.description
     }
 }
 
 #if DEBUG
 import SwiftUI
 
-struct GameTableViewCell_Previews: PreviewProvider {
+struct GameCell_Previews: PreviewProvider {
     static var previews: some View {
         PreviewContainer {
-            let view = GameTableViewCell(style: .default, reuseIdentifier: "foo")
-            view.frame = .init(x: 0, y: 0, width: 100, height: 100)
-            view.configure(with: GameViewModel(coverImage: nil, title: "Foo", releaseDate: Date(), rating: 10))
+            let view = GameCell(style: .default, reuseIdentifier: "foo")
+            view.configure(with: GameViewModel(coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"), title: "BioShock 2 Remastered Japan Version", releaseDate: Date(), rating: 4.2))
             return view
         }
+        .frame(height: 150)
     }
 }
 #endif
