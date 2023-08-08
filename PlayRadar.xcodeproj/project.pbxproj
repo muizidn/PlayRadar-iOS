@@ -17,6 +17,10 @@
 		220C64B22A824F2700CA12B3 /* PlayRadarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64B12A824F2700CA12B3 /* PlayRadarTests.swift */; };
 		220C64BC2A824F2700CA12B3 /* PlayRadarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64BB2A824F2700CA12B3 /* PlayRadarUITests.swift */; };
 		220C64BE2A824F2700CA12B3 /* PlayRadarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64BD2A824F2700CA12B3 /* PlayRadarUITestsLaunchTests.swift */; };
+		220C64CB2A82501100CA12B3 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64CA2A82501100CA12B3 /* GameCell.swift */; };
+		220C64CD2A82502400CA12B3 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64CC2A82502400CA12B3 /* GameModel.swift */; };
+		220C64CF2A8250DB00CA12B3 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64CE2A8250DB00CA12B3 /* UIImageView+Extension.swift */; };
+		220C64D12A8251EB00CA12B3 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64D02A8251EB00CA12B3 /* PreviewContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		220C64B72A824F2700CA12B3 /* PlayRadarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayRadarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		220C64BB2A824F2700CA12B3 /* PlayRadarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarUITests.swift; sourceTree = "<group>"; };
 		220C64BD2A824F2700CA12B3 /* PlayRadarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		220C64CA2A82501100CA12B3 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
+		220C64CC2A82502400CA12B3 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		220C64CE2A8250DB00CA12B3 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		220C64D02A8251EB00CA12B3 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +112,10 @@
 				220C64972A824F2500CA12B3 /* AppDelegate.swift */,
 				220C64992A824F2500CA12B3 /* SceneDelegate.swift */,
 				220C649B2A824F2500CA12B3 /* ViewController.swift */,
+				220C64CA2A82501100CA12B3 /* GameCell.swift */,
+				220C64D02A8251EB00CA12B3 /* PreviewContainer.swift */,
+				220C64CE2A8250DB00CA12B3 /* UIImageView+Extension.swift */,
+				220C64CC2A82502400CA12B3 /* GameModel.swift */,
 				220C649D2A824F2500CA12B3 /* Main.storyboard */,
 				220C64A32A824F2700CA12B3 /* Assets.xcassets */,
 				220C64A52A824F2700CA12B3 /* LaunchScreen.storyboard */,
@@ -261,10 +273,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				220C64CB2A82501100CA12B3 /* GameCell.swift in Sources */,
 				220C649C2A824F2500CA12B3 /* ViewController.swift in Sources */,
+				220C64CF2A8250DB00CA12B3 /* UIImageView+Extension.swift in Sources */,
 				220C64982A824F2500CA12B3 /* AppDelegate.swift in Sources */,
 				220C64A22A824F2500CA12B3 /* PlayRadar.xcdatamodeld in Sources */,
 				220C649A2A824F2500CA12B3 /* SceneDelegate.swift in Sources */,
+				220C64D12A8251EB00CA12B3 /* PreviewContainer.swift in Sources */,
+				220C64CD2A82502400CA12B3 /* GameModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
