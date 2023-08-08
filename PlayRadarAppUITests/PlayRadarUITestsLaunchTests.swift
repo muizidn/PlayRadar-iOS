@@ -1,6 +1,6 @@
 //
 //  PlayRadarUITestsLaunchTests.swift
-//  PlayRadarUITests
+//  PlayRadarAppUITests
 //
 //  Created by Muhammad Muizzsuddin on 08/08/23.
 //
