@@ -12,6 +12,13 @@ class DashboardViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        forceRouterPreviewLoad()
+    }
+    
+    @inline(__always)
+    private func forceRouterPreviewLoad() {
+        viewControllers = [UIViewController()]
+        viewControllers = []
     }
     
 }

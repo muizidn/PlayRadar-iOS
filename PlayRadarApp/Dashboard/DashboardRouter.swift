@@ -15,13 +15,12 @@ final class DashboardRouter: Router {
     func launch() -> UIViewController {
         vc = DashboardViewController()
         vc.viewDidLoad()
-        vc.viewControllers = []
         
         let gameListRouter = GameListTabBarChildRouter(tabBar: vc)
         gameListRouter.launch()
         
-        let gameListRouter2 = GameListTabBarChildRouter(tabBar: vc)
-        gameListRouter2.launch()
+        let favoriteListRouter = FavoriteTabBarChildRouter(tabBar: vc)
+        favoriteListRouter.launch()
         
         return vc
     }
