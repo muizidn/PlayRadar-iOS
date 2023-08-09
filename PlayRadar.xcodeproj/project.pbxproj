@@ -40,6 +40,7 @@
 		2252A22E2A83D9AB005F21D9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22D2A83D9AB005F21D9 /* Router.swift */; };
 		2252A2302A83DAED005F21D9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */; };
 		2252A2352A83E0EA005F21D9 /* FavoriteListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A2342A83E0EA005F21D9 /* FavoriteListRouter.swift */; };
+		22B2C64E2A83E49600CFF952 /* GameDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C64D2A83E49600CFF952 /* GameDetailRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		2252A22D2A83D9AB005F21D9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
 		2252A2342A83E0EA005F21D9 /* FavoriteListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListRouter.swift; sourceTree = "<group>"; };
+		22B2C64D2A83E49600CFF952 /* GameDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +210,7 @@
 				2252A2312A83E0B2005F21D9 /* GameList */,
 				2252A22D2A83D9AB005F21D9 /* Router.swift */,
 				2252A2332A83E0E1005F21D9 /* Favorite */,
-				223FC8132A83268A007B8F02 /* GameDetailViewController.swift */,
+				22B2C64C2A83E48C00CFF952 /* GameDetail */,
 				223FC8152A832BD1007B8F02 /* lorem_ipsum.swift */,
 				220C64CA2A82501100CA12B3 /* GameCell.swift */,
 				220C64D02A8251EB00CA12B3 /* PreviewContainer.swift */,
@@ -310,6 +312,15 @@
 				2252A2342A83E0EA005F21D9 /* FavoriteListRouter.swift */,
 			);
 			path = Favorite;
+			sourceTree = "<group>";
+		};
+		22B2C64C2A83E48C00CFF952 /* GameDetail */ = {
+			isa = PBXGroup;
+			children = (
+				223FC8132A83268A007B8F02 /* GameDetailViewController.swift */,
+				22B2C64D2A83E49600CFF952 /* GameDetailRouter.swift */,
+			);
+			path = GameDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,6 +538,7 @@
 				220C64982A824F2500CA12B3 /* AppDelegate.swift in Sources */,
 				223FC8142A83268A007B8F02 /* GameDetailViewController.swift in Sources */,
 				220C649A2A824F2500CA12B3 /* SceneDelegate.swift in Sources */,
+				22B2C64E2A83E49600CFF952 /* GameDetailRouter.swift in Sources */,
 				220C64D12A8251EB00CA12B3 /* PreviewContainer.swift in Sources */,
 				223FC81A2A8334C2007B8F02 /* FavoriteListViewContoller.swift in Sources */,
 				2252A2302A83DAED005F21D9 /* DashboardRouter.swift in Sources */,
