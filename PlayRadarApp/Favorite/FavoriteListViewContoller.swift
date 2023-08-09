@@ -1,5 +1,5 @@
 //
-//  GameListViewController.swift
+//  FavoriteListViewController.swift
 //  PlayRadarApp
 //
 //  Created by Muhammad Muizzsuddin on 09/08/23.
@@ -8,7 +8,19 @@
 import UIKit
 import PlayRadar
 
-class FavoriteGameListViewController: UIViewController {
+class FavoriteListViewController: UIViewController {
+    
+    private let presenter: IGameListPresenter
+    
+    init(presenter: IGameListPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Properties
     
     let tableView: UITableView = {
@@ -22,19 +34,19 @@ class FavoriteGameListViewController: UIViewController {
         GameViewModel(
             id: "",
             coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-            title: "foo",
+            title: "game box sample Title",
             releaseDate: Date(),
             rating: 4.5),
         GameViewModel(
             id: "",
             coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-            title: "foo",
+            title: "game box sample Title",
             releaseDate: Date(),
             rating: 4.5),
         GameViewModel(
             id: "",
             coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-            title: "foo",
+            title: "game box sample Title",
             releaseDate: Date(),
             rating: 4.5)
     ]
@@ -67,7 +79,7 @@ class FavoriteGameListViewController: UIViewController {
 
 // MARK: - UITableViewDataSource & UITableViewDelegate
 
-extension FavoriteGameListViewController: UITableViewDataSource, UITableViewDelegate {
+extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return games.count
     }
@@ -91,13 +103,17 @@ extension FavoriteGameListViewController: UITableViewDataSource, UITableViewDele
 #if DEBUG
 import SwiftUI
 
-struct FavoriteGameListViewController_Previews: PreviewProvider {
+struct FavoriteListViewController_Previews: PreviewProvider {
     static var previews: some View {
         ControllerPreviewContainer {
-            let vc = FavoriteGameListViewController()
+            let vc = FavoriteListViewController(
+                presenter: StubPresenter()
+            )
             vc.viewDidLoad()
             return vc
         }
     }
+    
+    class StubPresenter: IGameListPresenter {}
 }
 #endif
