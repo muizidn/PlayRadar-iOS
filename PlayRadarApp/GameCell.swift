@@ -9,6 +9,9 @@ import UIKit
 import PlayRadar
 
 class GameCell: UITableViewCell {
+    static let reuseIdentifier = "GameCell"
+    static let cellHeight: CGFloat = 150
+    
     let coverImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill

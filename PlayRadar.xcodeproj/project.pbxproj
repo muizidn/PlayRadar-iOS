@@ -34,6 +34,7 @@
 		220C650F2A831A6A00CA12B3 /* GameDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C650E2A831A6A00CA12B3 /* GameDetailInteractor.swift */; };
 		223FC8142A83268A007B8F02 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8132A83268A007B8F02 /* GameDetailViewController.swift */; };
 		223FC8162A832BD1007B8F02 /* lorem_ipsum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8152A832BD1007B8F02 /* lorem_ipsum.swift */; };
+		223FC8182A832FEB007B8F02 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8172A832FEB007B8F02 /* GameListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		220C650E2A831A6A00CA12B3 /* GameDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailInteractor.swift; sourceTree = "<group>"; };
 		223FC8132A83268A007B8F02 /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		223FC8152A832BD1007B8F02 /* lorem_ipsum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lorem_ipsum.swift; sourceTree = "<group>"; };
+		223FC8172A832FEB007B8F02 /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				220C64972A824F2500CA12B3 /* AppDelegate.swift */,
 				220C64992A824F2500CA12B3 /* SceneDelegate.swift */,
 				220C649B2A824F2500CA12B3 /* ViewController.swift */,
+				223FC8172A832FEB007B8F02 /* GameListViewController.swift */,
 				223FC8132A83268A007B8F02 /* GameDetailViewController.swift */,
 				223FC8152A832BD1007B8F02 /* lorem_ipsum.swift */,
 				220C64CA2A82501100CA12B3 /* GameCell.swift */,
@@ -478,6 +481,7 @@
 				220C64CB2A82501100CA12B3 /* GameCell.swift in Sources */,
 				220C649C2A824F2500CA12B3 /* ViewController.swift in Sources */,
 				220C64CF2A8250DB00CA12B3 /* UIImageView+Extension.swift in Sources */,
+				223FC8182A832FEB007B8F02 /* GameListViewController.swift in Sources */,
 				220C64982A824F2500CA12B3 /* AppDelegate.swift in Sources */,
 				223FC8142A83268A007B8F02 /* GameDetailViewController.swift in Sources */,
 				220C649A2A824F2500CA12B3 /* SceneDelegate.swift in Sources */,
