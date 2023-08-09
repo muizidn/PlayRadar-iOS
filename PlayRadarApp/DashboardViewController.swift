@@ -6,27 +6,12 @@
 //
 
 import UIKit
+import PlayRadar
 
 class DashboardViewController: UITabBarController {
-
-    private let gameList = GameListViewController()
-    private let favoriteList = FavoriteGameListViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameList.tabBarItem = UITabBarItem(
-            title: "Home",
-            image: UIImage(named: "Home"),
-            selectedImage: UIImage(named: "Home_fill"))
-        favoriteList.tabBarItem = UITabBarItem(
-            title: "Favorite",
-            image: UIImage(named: "Favorite"),
-            selectedImage: UIImage(named: "Favorite_fill"))
-        
-        viewControllers = [
-            gameList,
-            favoriteList
-        ]
     }
     
 }

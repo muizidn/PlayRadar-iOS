@@ -46,4 +46,20 @@ struct ControllerPreviewContainer<T: UIViewController>: UIViewControllerRepresen
         // No need to implement an update method for UIViewControllers
     }
 }
+
+struct RouterPreviewContainer<T: Router>: UIViewControllerRepresentable {
+    let router: T
+
+    init(_ routerBuilder: @escaping () -> T) {
+        router = routerBuilder()
+    }
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        return router.launch()
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // No need to implement an update method for UIViewControllers
+    }
+}
 #endif

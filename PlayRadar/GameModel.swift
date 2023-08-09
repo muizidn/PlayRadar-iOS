@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct GameModel {
-    let id: String
-    let cover: URL?
-    let title: String
-    let release: Date
-    let rating: Double
+public struct GameModel {
+    public let id: String
+    public let cover: URL?
+    public let title: String
+    public let release: Date
+    public let rating: Double
 }

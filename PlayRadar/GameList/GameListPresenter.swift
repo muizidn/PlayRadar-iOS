@@ -8,7 +8,11 @@
 import Foundation
 import Combine
 
-final class GameListPresenter {
+public protocol IGameListPresenter {
+    
+}
+
+public final class GameListPresenter: IGameListPresenter {
     let games: AnyPublisher<[GameViewModel], Never>
     let error: AnyPublisher<Error, Never>
     
@@ -18,13 +22,13 @@ final class GameListPresenter {
     private let interactor: GameListInteractor
     private var nextPage = 1
     
-    init(interactor: GameListInteractor) {
+    public init(interactor: GameListInteractor) {
         games = sGames.eraseToAnyPublisher()
         error = sError.eraseToAnyPublisher()
         self.interactor = interactor
     }
     
-    func loadGames() async {
+    public func loadGames() async {
         switch await interactor.loadGames(page: nextPage) {
         case .success(let result):
             sGames.send(result.data.map({ .from($0) }))
@@ -33,7 +37,7 @@ final class GameListPresenter {
         }
     }
     
-    func searchGames(query: String) async {
+    public func searchGames(query: String) async {
         switch await interactor.searchGames(query: query) {
         case .success(let result):
             sGames.send(result.map({ .from($0) }))

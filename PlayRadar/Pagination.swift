@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Pagination<T> {
-    let data: [T]
-    let page: Int
-    let count: Int
+public struct Pagination<T> {
+    public let data: [T]
+    public let page: Int
+    public let count: Int
 }

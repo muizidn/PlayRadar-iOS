@@ -9,6 +9,18 @@ import UIKit
 import PlayRadar
 
 class GameListViewController: UIViewController {
+    
+    private let presenter: IGameListPresenter
+    
+    init(presenter: IGameListPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Properties
     
     let tableView: UITableView = {
@@ -94,10 +106,14 @@ import SwiftUI
 struct GameListViewController_Previews: PreviewProvider {
     static var previews: some View {
         ControllerPreviewContainer {
-            let vc = GameListViewController()
+            let vc = GameListViewController(
+                presenter: StubPresenter()
+            )
             vc.viewDidLoad()
             return vc
         }
     }
+    
+    class StubPresenter: IGameListPresenter {}
 }
 #endif
