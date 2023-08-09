@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		220C64982A824F2500CA12B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64972A824F2500CA12B3 /* AppDelegate.swift */; };
 		220C649A2A824F2500CA12B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C64992A824F2500CA12B3 /* SceneDelegate.swift */; };
-		220C649C2A824F2500CA12B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C649B2A824F2500CA12B3 /* ViewController.swift */; };
+		220C649C2A824F2500CA12B3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C649B2A824F2500CA12B3 /* DashboardViewController.swift */; };
 		220C649F2A824F2500CA12B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220C649D2A824F2500CA12B3 /* Main.storyboard */; };
 		220C64A42A824F2700CA12B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 220C64A32A824F2700CA12B3 /* Assets.xcassets */; };
 		220C64A72A824F2700CA12B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220C64A52A824F2700CA12B3 /* LaunchScreen.storyboard */; };
@@ -94,7 +94,7 @@
 		220C64942A824F2500CA12B3 /* PlayRadarApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayRadarApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		220C64972A824F2500CA12B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		220C64992A824F2500CA12B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		220C649B2A824F2500CA12B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		220C649B2A824F2500CA12B3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		220C649E2A824F2500CA12B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		220C64A32A824F2700CA12B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		220C64A62A824F2700CA12B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 			children = (
 				220C64972A824F2500CA12B3 /* AppDelegate.swift */,
 				220C64992A824F2500CA12B3 /* SceneDelegate.swift */,
-				220C649B2A824F2500CA12B3 /* ViewController.swift */,
+				220C649B2A824F2500CA12B3 /* DashboardViewController.swift */,
 				223FC8172A832FEB007B8F02 /* GameListViewController.swift */,
 				223FC8192A8334C2007B8F02 /* FavoriteGameListViewContoller.swift */,
 				223FC8132A83268A007B8F02 /* GameDetailViewController.swift */,
@@ -482,7 +482,7 @@
 			files = (
 				223FC8162A832BD1007B8F02 /* lorem_ipsum.swift in Sources */,
 				220C64CB2A82501100CA12B3 /* GameCell.swift in Sources */,
-				220C649C2A824F2500CA12B3 /* ViewController.swift in Sources */,
+				220C649C2A824F2500CA12B3 /* DashboardViewController.swift in Sources */,
 				220C64CF2A8250DB00CA12B3 /* UIImageView+Extension.swift in Sources */,
 				223FC8182A832FEB007B8F02 /* GameListViewController.swift in Sources */,
 				220C64982A824F2500CA12B3 /* AppDelegate.swift in Sources */,

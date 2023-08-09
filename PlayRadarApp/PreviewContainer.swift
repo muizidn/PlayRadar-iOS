@@ -32,14 +32,14 @@ struct PreviewContainer<T: UIView>: UIViewRepresentable {
 }
 
 struct ControllerPreviewContainer<T: UIViewController>: UIViewControllerRepresentable {
-    let viewController: T
+    let DashboardViewController: T
 
     init(_ viewControllerBuilder: @escaping () -> T) {
-        viewController = viewControllerBuilder()
+        DashboardViewController = viewControllerBuilder()
     }
 
     func makeUIViewController(context: Context) -> T {
-        return viewController
+        return DashboardViewController
     }
 
     func updateUIViewController(_ uiViewController: T, context: Context) {
