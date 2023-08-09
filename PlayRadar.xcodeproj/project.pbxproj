@@ -204,8 +204,7 @@
 				220C64992A824F2500CA12B3 /* SceneDelegate.swift */,
 				220C649B2A824F2500CA12B3 /* DashboardViewController.swift */,
 				2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */,
-				223FC8172A832FEB007B8F02 /* GameListViewController.swift */,
-				2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */,
+				2252A2312A83E0B2005F21D9 /* GameList */,
 				2252A22D2A83D9AB005F21D9 /* Router.swift */,
 				223FC8192A8334C2007B8F02 /* FavoriteGameListViewContoller.swift */,
 				223FC8132A83268A007B8F02 /* GameDetailViewController.swift */,
@@ -283,6 +282,15 @@
 				220C650E2A831A6A00CA12B3 /* GameDetailInteractor.swift */,
 			);
 			path = GameDetail;
+			sourceTree = "<group>";
+		};
+		2252A2312A83E0B2005F21D9 /* GameList */ = {
+			isa = PBXGroup;
+			children = (
+				223FC8172A832FEB007B8F02 /* GameListViewController.swift */,
+				2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */,
+			);
+			path = GameList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
