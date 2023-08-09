@@ -44,7 +44,7 @@ class FavoriteListViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
-        title = "Favorite"
+        title = "Favorite Games"
         
         presenter.games
             .receive(on: DispatchQueue.main)

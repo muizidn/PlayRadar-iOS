@@ -41,7 +41,7 @@ class GameListViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
-        title = "Game List"
+        title = "Games For You"
      
         presenter.games
             .receive(on: DispatchQueue.main)
