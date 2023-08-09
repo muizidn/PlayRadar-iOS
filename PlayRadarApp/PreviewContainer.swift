@@ -5,6 +5,10 @@
 //  Created by Muhammad Muizzsuddin on 08/08/23.
 //
 
+/**
+ Helper for Xcode 14
+ */
+
 #if DEBUG
 import SwiftUI
 import UIKit
@@ -24,6 +28,22 @@ struct PreviewContainer<T: UIView>: UIViewRepresentable {
         // Set content hugging priority to maintain layout
         uiView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         uiView.setContentHuggingPriority(.defaultHigh, for: .vertical)
+    }
+}
+
+struct ControllerPreviewContainer<T: UIViewController>: UIViewControllerRepresentable {
+    let viewController: T
+
+    init(_ viewControllerBuilder: @escaping () -> T) {
+        viewController = viewControllerBuilder()
+    }
+
+    func makeUIViewController(context: Context) -> T {
+        return viewController
+    }
+
+    func updateUIViewController(_ uiViewController: T, context: Context) {
+        // No need to implement an update method for UIViewControllers
     }
 }
 #endif
