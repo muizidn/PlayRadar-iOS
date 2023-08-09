@@ -12,11 +12,13 @@ import Combine
 class GameListPresenterTests: XCTestCase {
 
     var presenter: GameListPresenter!
+    var stubInteractor: StubGameListInteractor!
     var cancellables: Set<AnyCancellable> = []
 
     override func setUp() {
         super.setUp()
-        presenter = GameListPresenter()
+        stubInteractor = StubGameListInteractor()
+        presenter = GameListPresenter(interactor: stubInteractor)
     }
 
     override func tearDown() {
@@ -105,5 +107,27 @@ extension GameViewModel: CustomDebugStringConvertible {
           rating:\(rating)
         }
         """
+    }
+}
+
+final class StubGameListInteractor: GameListInteractor {
+    func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
+        return .success(.init(data: [
+            GameModel(
+                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                release: Date(),
+                rating: 4.2),
+            GameModel(
+                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                release: Date(),
+                rating: 4.2),
+            GameModel(
+                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                release: Date(),
+                rating: 4.2)
+        ], page: page, count: 3))
     }
 }
