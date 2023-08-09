@@ -202,8 +202,7 @@
 			children = (
 				220C64972A824F2500CA12B3 /* AppDelegate.swift */,
 				220C64992A824F2500CA12B3 /* SceneDelegate.swift */,
-				220C649B2A824F2500CA12B3 /* DashboardViewController.swift */,
-				2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */,
+				2252A2322A83E0CB005F21D9 /* Dashboard */,
 				2252A2312A83E0B2005F21D9 /* GameList */,
 				2252A22D2A83D9AB005F21D9 /* Router.swift */,
 				223FC8192A8334C2007B8F02 /* FavoriteGameListViewContoller.swift */,
@@ -291,6 +290,15 @@
 				2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */,
 			);
 			path = GameList;
+			sourceTree = "<group>";
+		};
+		2252A2322A83E0CB005F21D9 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				220C649B2A824F2500CA12B3 /* DashboardViewController.swift */,
+				2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
