@@ -33,26 +33,10 @@ class FavoriteListViewController: UIViewController {
         return tableView
     }()
     
-    let games: [GameViewModel] = [
-        GameViewModel(
-            id: "",
-            coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-            title: "game box sample Title",
-            releaseDate: Date(),
-            rating: 4.5),
-        GameViewModel(
-            id: "",
-            coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-            title: "game box sample Title",
-            releaseDate: Date(),
-            rating: 4.5),
-        GameViewModel(
-            id: "",
-            coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-            title: "game box sample Title",
-            releaseDate: Date(),
-            rating: 4.5)
-    ]
+    private var games: [GameViewModel] = []
+    
+    private var cancellables = Set<AnyCancellable>()
+    
     
     // MARK: - View Lifecycle
     
@@ -61,6 +45,18 @@ class FavoriteListViewController: UIViewController {
         setupUI()
         
         title = "Favorite"
+        
+        presenter.games
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] games in
+                self.games = games
+                self.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+        
+        Task {
+            await presenter.loadGames()
+        }
     }
     
     // MARK: - UI Setup

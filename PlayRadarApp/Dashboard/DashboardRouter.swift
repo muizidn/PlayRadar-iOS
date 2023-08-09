@@ -10,16 +10,18 @@ import PlayRadar
 
 final class DashboardRouter: Router {
     private var vc: DashboardViewController!
+    private var gameListRouter: GameListRouter!
+    private var favoriteListRouter: FavoriteListRouter!
     
     @discardableResult
     func launch() -> UIViewController {
         vc = DashboardViewController()
         vc.viewDidLoad()
         
-        let gameListRouter = GameListTabBarChildRouter(tabBar: vc)
+        gameListRouter = GameListTabBarChildRouter(tabBar: vc)
         gameListRouter.launch()
         
-        let favoriteListRouter = FavoriteTabBarChildRouter(tabBar: vc)
+        favoriteListRouter = FavoriteTabBarChildRouter(tabBar: vc)
         favoriteListRouter.launch()
         
         return vc

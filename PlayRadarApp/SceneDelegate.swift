@@ -12,12 +12,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     
+    private let router = DashboardRouter()
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
         
-        let rootViewController = DashboardRouter().launch()
+        let rootViewController = router.launch()
         
         window.rootViewController = rootViewController
         
