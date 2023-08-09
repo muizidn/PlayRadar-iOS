@@ -54,6 +54,36 @@ class GameListPresenterTests: XCTestCase {
                 rating: 4.2)
         ])
     }
+    
+    func testSearchGames() async {
+        var games = [GameViewModel]()
+        
+        presenter.games
+            .sink { _games in
+                games = _games
+            }
+            .store(in: &cancellables)
+        
+        await presenter.searchGames(query: "The World Voyage")
+        
+        XCTAssertEqual(games, [
+            GameViewModel(
+                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "The World Voyage 3 USA Version",
+                releaseDate: Date(),
+                rating: 4.2),
+            GameViewModel(
+                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "The World Voyage 3 USA Version",
+                releaseDate: Date(),
+                rating: 4.2),
+            GameViewModel(
+                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "The World Voyage 3 USA Version",
+                releaseDate: Date(),
+                rating: 4.2)
+        ])
+    }
 }
 
 extension GameViewModel: Equatable {
