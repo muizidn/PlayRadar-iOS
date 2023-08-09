@@ -45,6 +45,10 @@ struct FavoriteListRouter_Previews: PreviewProvider {
         }
     }
     
-    class StubPresenter: IGameListPresenter {}
+    class DummyPresenter: IGameListPresenter {
+        func getGame(at index: Int) -> GameModel {
+            fatalError()
+        }
+    }
 }
 #endif

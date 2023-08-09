@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 public protocol IGameListPresenter {
-    
+    func getGame(at index: Int) -> GameModel
 }
 
 public final class GameListPresenter: IGameListPresenter {
@@ -18,6 +18,8 @@ public final class GameListPresenter: IGameListPresenter {
     
     private let sGames = CurrentValueSubject<[GameViewModel], Never>([])
     private let sError = PassthroughSubject<Error, Never>()
+    
+    private var gamesModel = [GameModel]()
     
     private let interactor: GameListInteractor
     private var nextPage = 1
@@ -44,6 +46,10 @@ public final class GameListPresenter: IGameListPresenter {
         case .failure(let error):
             sError.send(error)
         }
+    }
+    
+    public func getGame(at index: Int) -> GameModel {
+        return gamesModel[index]
     }
 }
 

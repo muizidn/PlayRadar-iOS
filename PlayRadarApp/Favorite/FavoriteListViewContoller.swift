@@ -107,13 +107,17 @@ struct FavoriteListViewController_Previews: PreviewProvider {
     static var previews: some View {
         ControllerPreviewContainer {
             let vc = FavoriteListViewController(
-                presenter: StubPresenter()
+                presenter: DummyPresenter()
             )
             vc.viewDidLoad()
             return vc
         }
     }
     
-    class StubPresenter: IGameListPresenter {}
+    class DummyPresenter: IGameListPresenter {
+        func getGame(at index: Int) -> GameModel {
+            fatalError()
+        }
+    }
 }
 #endif

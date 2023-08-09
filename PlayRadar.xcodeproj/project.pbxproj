@@ -41,6 +41,7 @@
 		2252A2302A83DAED005F21D9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */; };
 		2252A2352A83E0EA005F21D9 /* FavoriteListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A2342A83E0EA005F21D9 /* FavoriteListRouter.swift */; };
 		22B2C64E2A83E49600CFF952 /* GameDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C64D2A83E49600CFF952 /* GameDetailRouter.swift */; };
+		22B2C6502A83E78200CFF952 /* WeakProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C64F2A83E78200CFF952 /* WeakProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
 		2252A2342A83E0EA005F21D9 /* FavoriteListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListRouter.swift; sourceTree = "<group>"; };
 		22B2C64D2A83E49600CFF952 /* GameDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailRouter.swift; sourceTree = "<group>"; };
+		22B2C64F2A83E78200CFF952 /* WeakProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				2252A2332A83E0E1005F21D9 /* Favorite */,
 				22B2C64C2A83E48C00CFF952 /* GameDetail */,
 				223FC8152A832BD1007B8F02 /* lorem_ipsum.swift */,
+				22B2C64F2A83E78200CFF952 /* WeakProxy.swift */,
 				220C64CA2A82501100CA12B3 /* GameCell.swift */,
 				220C64D02A8251EB00CA12B3 /* PreviewContainer.swift */,
 				220C64CE2A8250DB00CA12B3 /* UIImageView+Extension.swift */,
@@ -531,6 +534,7 @@
 				220C64CB2A82501100CA12B3 /* GameCell.swift in Sources */,
 				220C649C2A824F2500CA12B3 /* DashboardViewController.swift in Sources */,
 				220C64CF2A8250DB00CA12B3 /* UIImageView+Extension.swift in Sources */,
+				22B2C6502A83E78200CFF952 /* WeakProxy.swift in Sources */,
 				2252A22E2A83D9AB005F21D9 /* Router.swift in Sources */,
 				2252A22C2A83D7DF005F21D9 /* GameListRouter.swift in Sources */,
 				2252A2352A83E0EA005F21D9 /* FavoriteListRouter.swift in Sources */,

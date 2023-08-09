@@ -11,3 +11,9 @@ protocol Router {
     @discardableResult
     func launch() -> UIViewController
 }
+
+extension WeakProxy: Router where T: Router {
+    func launch() -> UIViewController {
+        proxy!.launch()
+    }
+}

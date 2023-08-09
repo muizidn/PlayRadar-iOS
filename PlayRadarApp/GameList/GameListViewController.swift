@@ -11,9 +11,11 @@ import PlayRadar
 class GameListViewController: UIViewController {
     
     private let presenter: IGameListPresenter
+    private let router: GameListRouter
     
-    init(presenter: IGameListPresenter) {
+    init(presenter: IGameListPresenter, router: GameListRouter) {
         self.presenter = presenter
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -98,6 +100,10 @@ extension GameListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return GameCell.cellHeight
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router.launchDetail(game: presenter.getGame(at: indexPath.row))
+    }
 }
 
 #if DEBUG
@@ -107,13 +113,25 @@ struct GameListViewController_Previews: PreviewProvider {
     static var previews: some View {
         ControllerPreviewContainer {
             let vc = GameListViewController(
-                presenter: StubPresenter()
+                presenter: DummyPresenter(),
+                router: DummyRouter()
             )
             vc.viewDidLoad()
             return vc
         }
     }
     
-    class StubPresenter: IGameListPresenter {}
+    class DummyPresenter: IGameListPresenter {
+        func getGame(at index: Int) -> GameModel {
+            fatalError()
+        }
+    }
+    class DummyRouter: GameListRouter {
+        func launch() -> UIViewController {
+            return UIViewController()
+        }
+        func launchDetail(game: GameModel) {
+        }
+    }
 }
 #endif
