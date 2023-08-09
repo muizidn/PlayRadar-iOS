@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PlayRadar
 
 class GameCell: UITableViewCell {
     let coverImageView: UIImageView = {

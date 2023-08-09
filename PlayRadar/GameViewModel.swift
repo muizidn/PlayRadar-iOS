@@ -7,14 +7,14 @@
 
 import Foundation
 
-final class GameViewModel {
+public final class GameViewModel {
     private static let dateFormatter: DateFormatter = {
        let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
         return df
     }()
     
-    init(coverImage: URL?, title: String, releaseDate: Date, rating: Double) {
+    public init(coverImage: URL?, title: String, releaseDate: Date, rating: Double) {
         self.coverImage = coverImage
         self.title = title
         self.releaseDate = "Released date \(Self.dateFormatter.string(from: releaseDate))"
@@ -29,8 +29,8 @@ final class GameViewModel {
         return value != Double(Int(value))
     }
     
-    let coverImage: URL?
-    let title: String
-    let releaseDate: String
-    let rating: String
+    public let coverImage: URL?
+    public let title: String
+    public let releaseDate: String
+    public let rating: String
 }
