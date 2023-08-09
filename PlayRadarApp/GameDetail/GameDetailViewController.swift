@@ -100,6 +100,9 @@ class GameDetailViewController: UIViewController {
     }
     
     func setupUI() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Favorite"), style: .plain, target: self, action: nil)
+        title = "Detail"
+        
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
@@ -163,7 +166,7 @@ struct GameDetailViewController_Previews: PreviewProvider {
         ControllerPreviewContainer {
             let vc = GameDetailViewController()
             vc.viewDidLoad()
-            return vc
+            return UINavigationController(rootViewController: vc)
         }
     }
 }

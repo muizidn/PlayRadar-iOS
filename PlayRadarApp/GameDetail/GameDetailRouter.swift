@@ -8,12 +8,17 @@
 import UIKit
 import PlayRadar
 
-final class GameDetailRouter: Router {
+final class PushGameDetailRouter: Router {
     private var vc: GameDetailViewController!
+    private let navigationController: UINavigationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
     
     @discardableResult
     func launch() -> UIViewController {
         vc = GameDetailViewController()
+        navigationController.pushViewController(vc, animated: true)
         return vc
     }
 }
@@ -23,8 +28,11 @@ import SwiftUI
 
 struct GameDetailRouter_Previews: PreviewProvider {
     static var previews: some View {
-        RouterPreviewContainer {
-            GameDetailRouter()
+        ControllerPreviewContainer {
+            let nav = UINavigationController()
+            PushGameDetailRouter(navigationController: nav)
+                .launch()
+            return nav
         }
     }
 }
