@@ -8,21 +8,26 @@
 import UIKit
 import PlayRadar
 
-final class FavoriteTabBarChildRouter: Router {
+protocol FavoriteListRouter: Router {
+    func launchDetail(game: GameModel)
+}
+
+final class FavoriteTabBarChildRouter: NSObject, FavoriteListRouter {
     private let tabBar: UITabBarController
     
     init(tabBar: UITabBarController) {
         self.tabBar = tabBar
     }
     
-    private(set) weak var viewController: UIViewController!
+    private(set) var viewController: UIViewController!
     
     @discardableResult
     func launch() -> UIViewController {
         let vc = FavoriteListViewController(
             presenter: GameListPresenter(
                 interactor: GameListAPIInteractor()
-            )
+            ),
+            router: WeakProxy(self)
         )
         self.viewController = vc
         
@@ -32,6 +37,17 @@ final class FavoriteTabBarChildRouter: Router {
             selectedImage: UIImage(named: "Favorite_fill"))
         tabBar.viewControllers?.append(vc)
         return vc
+    }
+    
+    func launchDetail(game: GameModel) {
+        let router = PushGameDetailRouter(navigationController: viewController.navigationController!)
+        router.launch()
+    }
+}
+
+extension WeakProxy: FavoriteListRouter where T: FavoriteListRouter {
+    func launchDetail(game: GameModel) {
+        proxy!.launchDetail(game: game)
     }
 }
 

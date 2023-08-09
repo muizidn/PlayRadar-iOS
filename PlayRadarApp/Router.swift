@@ -17,3 +17,11 @@ extension WeakProxy: Router where T: Router {
         proxy!.launch()
     }
 }
+
+#if DEBUG
+class DummyRouterBase: Router {
+    func launch() -> UIViewController {
+        fatalError()
+    }
+}
+#endif

@@ -11,9 +11,11 @@ import PlayRadar
 class FavoriteListViewController: UIViewController {
     
     private let presenter: IGameListPresenter
+    private let router: FavoriteListRouter
     
-    init(presenter: IGameListPresenter) {
+    init(presenter: IGameListPresenter, router: FavoriteListRouter) {
         self.presenter = presenter
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -98,6 +100,10 @@ extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return GameCell.cellHeight
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router.launchDetail(game: presenter.getGame(at: indexPath.row))
+    }
 }
 
 #if DEBUG
@@ -107,7 +113,8 @@ struct FavoriteListViewController_Previews: PreviewProvider {
     static var previews: some View {
         ControllerPreviewContainer {
             let vc = FavoriteListViewController(
-                presenter: DummyPresenter()
+                presenter: DummyPresenter(),
+                router: DummyRouter()
             )
             vc.viewDidLoad()
             return vc
@@ -117,6 +124,11 @@ struct FavoriteListViewController_Previews: PreviewProvider {
     class DummyPresenter: IGameListPresenter {
         func getGame(at index: Int) -> GameModel {
             fatalError()
+        }
+    }
+    class DummyRouter: DummyRouterBase ,FavoriteListRouter {
+        func launchDetail(game: GameModel) {
+            
         }
     }
 }
