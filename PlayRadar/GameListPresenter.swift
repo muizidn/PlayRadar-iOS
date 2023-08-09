@@ -34,23 +34,12 @@ final class GameListPresenter {
     }
     
     func searchGames(query: String) async {
-        sGames.send([
-            GameViewModel(
-                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "The World Voyage 3 USA Version",
-                releaseDate: Date(),
-                rating: 4.2),
-            GameViewModel(
-                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "The World Voyage 3 USA Version",
-                releaseDate: Date(),
-                rating: 4.2),
-            GameViewModel(
-                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "The World Voyage 3 USA Version",
-                releaseDate: Date(),
-                rating: 4.2)
-        ])
+        switch await interactor.searchGames(query: query) {
+        case .success(let result):
+            sGames.send(result.map({ .from($0) }))
+        case .failure(let error):
+            sError.send(error)
+        }
     }
 }
 

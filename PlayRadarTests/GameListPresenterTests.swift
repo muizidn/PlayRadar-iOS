@@ -130,4 +130,24 @@ final class StubGameListInteractor: GameListInteractor {
                 rating: 4.2)
         ], page: page, count: 3))
     }
+    
+    func searchGames(query: String) async -> Result<[GameModel], Error> {
+        return .success([
+            GameModel(
+                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "The World Voyage 3 USA Version",
+                release: Date(),
+                rating: 4.2),
+            GameModel(
+                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "The World Voyage 3 USA Version",
+                release: Date(),
+                rating: 4.2),
+            GameModel(
+                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "The World Voyage 3 USA Version",
+                release: Date(),
+                rating: 4.2)
+        ])
+    }
 }
