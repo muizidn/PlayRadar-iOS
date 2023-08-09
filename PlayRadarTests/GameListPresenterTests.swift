@@ -40,16 +40,19 @@ class GameListPresenterTests: XCTestCase {
         
         XCTAssertEqual(games, [
             GameViewModel(
+                id: "1",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 releaseDate: Date(),
                 rating: 4.2),
             GameViewModel(
+                id: "1",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 releaseDate: Date(),
                 rating: 4.2),
             GameViewModel(
+                id: "1",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 releaseDate: Date(),
@@ -70,16 +73,19 @@ class GameListPresenterTests: XCTestCase {
         
         XCTAssertEqual(games, [
             GameViewModel(
+                id: "1",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "The World Voyage 3 USA Version",
                 releaseDate: Date(),
                 rating: 4.2),
             GameViewModel(
+                id: "2",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "The World Voyage 3 USA Version",
                 releaseDate: Date(),
                 rating: 4.2),
             GameViewModel(
+                id: "3",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "The World Voyage 3 USA Version",
                 releaseDate: Date(),
@@ -114,16 +120,19 @@ final class StubGameListInteractor: GameListInteractor {
     func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
         return .success(.init(data: [
             GameModel(
+                id: "1",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 release: Date(),
                 rating: 4.2),
             GameModel(
+                id: "2",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 release: Date(),
                 rating: 4.2),
             GameModel(
+                id: "3",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 release: Date(),
@@ -134,16 +143,19 @@ final class StubGameListInteractor: GameListInteractor {
     func searchGames(query: String) async -> Result<[GameModel], Error> {
         return .success([
             GameModel(
+                id: "1",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "The World Voyage 3 USA Version",
                 release: Date(),
                 rating: 4.2),
             GameModel(
+                id: "2",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "The World Voyage 3 USA Version",
                 release: Date(),
                 rating: 4.2),
             GameModel(
+                id: "3",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "The World Voyage 3 USA Version",
                 release: Date(),

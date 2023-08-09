@@ -46,6 +46,6 @@ final class GameListPresenter {
 
 extension GameViewModel {
     static func from(_ game: GameModel) -> GameViewModel {
-        return .init(coverImage: game.cover, title: game.title, releaseDate: game.release, rating: game.rating)
+        return .init(id:game.id, coverImage: game.cover, title: game.title, releaseDate: game.release, rating: game.rating)
     }
 }

@@ -14,7 +14,8 @@ public final class GameViewModel {
         return df
     }()
     
-    public init(coverImage: URL?, title: String, releaseDate: Date, rating: Double) {
+    public init(id: String, coverImage: URL?, title: String, releaseDate: Date, rating: Double) {
+        self.id = id
         self.coverImage = coverImage
         self.title = title
         self.releaseDate = "Released date \(Self.dateFormatter.string(from: releaseDate))"
@@ -29,6 +30,7 @@ public final class GameViewModel {
         return value != Double(Int(value))
     }
     
+    public let id: String
     public let coverImage: URL?
     public let title: String
     public let releaseDate: String

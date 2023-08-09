@@ -25,6 +25,7 @@ class GameCellTests: XCTestCase {
     
     func testConfigureTitleLabel() {
         let game = GameViewModel(
+            id: "1",
             coverImage: nil,
             title: "Title World From Best Movie",
             releaseDate: createDate(0, 0, 0),
@@ -37,6 +38,7 @@ class GameCellTests: XCTestCase {
     
     func testConfigureReleaseLabel() {
         let game = GameViewModel(
+            id: "1",
             coverImage: nil,
             title: "",
             releaseDate: createDate(2025, 12, 08),
@@ -49,6 +51,7 @@ class GameCellTests: XCTestCase {
     
     func testConfigureRatingLabel() {
         let game = GameViewModel(
+            id: "1",
             coverImage: nil,
             title: "",
             releaseDate: createDate(0, 0, 0),
@@ -61,6 +64,7 @@ class GameCellTests: XCTestCase {
     
     func testConfigureWithRatingLabelEven() {
         let game = GameViewModel(
+            id: "1",
             coverImage: nil,
             title: "",
             releaseDate: createDate(0, 0, 0),

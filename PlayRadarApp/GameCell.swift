@@ -124,7 +124,12 @@ struct GameCell_Previews: PreviewProvider {
     static var previews: some View {
         PreviewContainer {
             let view = GameCell(style: .default, reuseIdentifier: "foo")
-            view.configure(with: GameViewModel(coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"), title: "BioShock 2 Remastered Japan Version", releaseDate: Date(), rating: 4.2))
+            view.configure(with: GameViewModel(
+                id: "",
+                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                releaseDate: Date(),
+                rating: 4.2))
             return view
         }
         .frame(height: 150)

@@ -8,6 +8,7 @@
 import Foundation
 
 struct GameModel {
+    let id: String
     let cover: URL?
     let title: String
     let release: Date
