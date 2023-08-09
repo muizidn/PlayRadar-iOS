@@ -217,8 +217,7 @@
 			children = (
 				220C64DC2A830A5200CA12B3 /* PlayRadar.h */,
 				220C64CC2A82502400CA12B3 /* GameViewModel.swift */,
-				220C64F82A830C9200CA12B3 /* GameListPresenter.swift */,
-				220C65022A83121500CA12B3 /* GameListInteractor.swift */,
+				220C650A2A83181700CA12B3 /* GameList */,
 				220C65062A83129E00CA12B3 /* Pagination.swift */,
 				220C65042A83127400CA12B3 /* GameModel.swift */,
 				220C64DD2A830A5200CA12B3 /* PlayRadar.docc */,
@@ -240,6 +239,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		220C650A2A83181700CA12B3 /* GameList */ = {
+			isa = PBXGroup;
+			children = (
+				220C64F82A830C9200CA12B3 /* GameListPresenter.swift */,
+				220C65022A83121500CA12B3 /* GameListInteractor.swift */,
+			);
+			path = GameList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
