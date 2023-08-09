@@ -41,6 +41,8 @@
 		2252A2352A83E0EA005F21D9 /* FavoriteListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A2342A83E0EA005F21D9 /* FavoriteListRouter.swift */; };
 		22B2C64E2A83E49600CFF952 /* GameDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C64D2A83E49600CFF952 /* GameDetailRouter.swift */; };
 		22B2C6502A83E78200CFF952 /* WeakProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C64F2A83E78200CFF952 /* WeakProxy.swift */; };
+		22B2C6552A83F9D900CFF952 /* PlayRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C6532A83F9D800CFF952 /* PlayRadar.xcdatamodeld */; };
+		22B2C6572A83FA3C00CFF952 /* CoreDataDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C6562A83FA3C00CFF952 /* CoreDataDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,8 @@
 		2252A2342A83E0EA005F21D9 /* FavoriteListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListRouter.swift; sourceTree = "<group>"; };
 		22B2C64D2A83E49600CFF952 /* GameDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailRouter.swift; sourceTree = "<group>"; };
 		22B2C64F2A83E78200CFF952 /* WeakProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakProxy.swift; sourceTree = "<group>"; };
+		22B2C6542A83F9D800CFF952 /* PlayRadar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayRadar.xcdatamodel; sourceTree = "<group>"; };
+		22B2C6562A83FA3C00CFF952 /* CoreDataDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +220,8 @@
 				220C64CA2A82501100CA12B3 /* GameCell.swift */,
 				220C64D02A8251EB00CA12B3 /* PreviewContainer.swift */,
 				220C64CE2A8250DB00CA12B3 /* UIImageView+Extension.swift */,
+				22B2C6532A83F9D800CFF952 /* PlayRadar.xcdatamodeld */,
+				22B2C6562A83FA3C00CFF952 /* CoreDataDatabase.swift */,
 				220C64A32A824F2700CA12B3 /* Assets.xcassets */,
 				220C64A52A824F2700CA12B3 /* LaunchScreen.storyboard */,
 				220C64A82A824F2700CA12B3 /* Info.plist */,
@@ -533,8 +539,10 @@
 				22B2C6502A83E78200CFF952 /* WeakProxy.swift in Sources */,
 				2252A22E2A83D9AB005F21D9 /* Router.swift in Sources */,
 				2252A22C2A83D7DF005F21D9 /* GameListRouter.swift in Sources */,
+				22B2C6572A83FA3C00CFF952 /* CoreDataDatabase.swift in Sources */,
 				2252A2352A83E0EA005F21D9 /* FavoriteListRouter.swift in Sources */,
 				223FC8182A832FEB007B8F02 /* GameListViewController.swift in Sources */,
+				22B2C6552A83F9D900CFF952 /* PlayRadar.xcdatamodeld in Sources */,
 				220C64982A824F2500CA12B3 /* AppDelegate.swift in Sources */,
 				223FC8142A83268A007B8F02 /* GameDetailViewController.swift in Sources */,
 				220C649A2A824F2500CA12B3 /* SceneDelegate.swift in Sources */,
@@ -1031,6 +1039,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		22B2C6532A83F9D800CFF952 /* PlayRadar.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				22B2C6542A83F9D800CFF952 /* PlayRadar.xcdatamodel */,
+			);
+			currentVersion = 22B2C6542A83F9D800CFF952 /* PlayRadar.xcdatamodel */;
+			path = PlayRadar.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 220C648C2A824F2500CA12B3 /* Project object */;
 }
