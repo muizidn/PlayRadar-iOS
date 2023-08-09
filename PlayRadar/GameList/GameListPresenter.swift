@@ -9,11 +9,13 @@ import Foundation
 import Combine
 
 public protocol IGameListPresenter {
+    var games: AnyPublisher<[GameViewModel], Never> { get }
+    func loadGames() async
     func getGame(at index: Int) -> GameModel
 }
 
 public final class GameListPresenter: IGameListPresenter {
-    let games: AnyPublisher<[GameViewModel], Never>
+    public let games: AnyPublisher<[GameViewModel], Never>
     let error: AnyPublisher<Error, Never>
     
     private let sGames = CurrentValueSubject<[GameViewModel], Never>([])
@@ -34,6 +36,7 @@ public final class GameListPresenter: IGameListPresenter {
         switch await interactor.loadGames(page: nextPage) {
         case .success(let result):
             sGames.send(result.data.map({ .from($0) }))
+            gamesModel.append(contentsOf: result.data)
         case .failure(let error):
             sError.send(error)
         }

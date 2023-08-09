@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 import PlayRadar
 
 class FavoriteListViewController: UIViewController {
@@ -58,6 +59,8 @@ class FavoriteListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        title = "Favorite"
     }
     
     // MARK: - UI Setup
@@ -122,6 +125,33 @@ struct FavoriteListViewController_Previews: PreviewProvider {
     }
     
     class DummyPresenter: IGameListPresenter {
+        var games: AnyPublisher<[GameViewModel], Never> {
+            Just([
+                GameViewModel(
+                    id: "",
+                    coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "game box sample Title",
+                    releaseDate: Date(),
+                    rating: 4.5),
+                GameViewModel(
+                    id: "",
+                    coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "game box sample Title",
+                    releaseDate: Date(),
+                    rating: 4.5),
+                GameViewModel(
+                    id: "",
+                    coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "game box sample Title",
+                    releaseDate: Date(),
+                    rating: 4.5)
+            ])
+            .eraseToAnyPublisher()
+        }
+        
+        func loadGames() async {
+        }
+        
         func getGame(at index: Int) -> GameModel {
             fatalError()
         }

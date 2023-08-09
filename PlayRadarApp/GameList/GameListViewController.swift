@@ -12,6 +12,7 @@ class GameListViewController: UIViewController {
     
     private let presenter: IGameListPresenter
     private let router: GameListRouter
+    private var cancellables = Set<AnyCancellable>()
     
     init(presenter: IGameListPresenter, router: GameListRouter) {
         self.presenter = presenter
@@ -25,6 +26,8 @@ class GameListViewController: UIViewController {
     
     // MARK: - Properties
     
+    private var games = [GameViewModel]()
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,32 +35,25 @@ class GameListViewController: UIViewController {
         return tableView
     }()
     
-    let games: [GameViewModel] = [
-        GameViewModel(
-            id: "",
-            coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-            title: "game box sample Title",
-            releaseDate: Date(),
-            rating: 4.5),
-        GameViewModel(
-            id: "",
-            coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-            title: "game box sample Title",
-            releaseDate: Date(),
-            rating: 4.5),
-        GameViewModel(
-            id: "",
-            coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-            title: "game box sample Title",
-            releaseDate: Date(),
-            rating: 4.5)
-    ]
-    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        title = "Game List"
+     
+        presenter.games
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] games in
+                self.games = games
+                self.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+        
+        Task {
+            await presenter.loadGames()
+        }
     }
     
     // MARK: - UI Setup
@@ -108,6 +104,7 @@ extension GameListViewController: UITableViewDataSource, UITableViewDelegate {
 
 #if DEBUG
 import SwiftUI
+import Combine
 
 struct GameListViewController_Previews: PreviewProvider {
     static var previews: some View {
@@ -122,6 +119,33 @@ struct GameListViewController_Previews: PreviewProvider {
     }
     
     class DummyPresenter: IGameListPresenter {
+        var games: AnyPublisher<[GameViewModel], Never> {
+            Just([
+                GameViewModel(
+                    id: "",
+                    coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "game box sample Title",
+                    releaseDate: Date(),
+                    rating: 4.5),
+                GameViewModel(
+                    id: "",
+                    coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "game box sample Title",
+                    releaseDate: Date(),
+                    rating: 4.5),
+                GameViewModel(
+                    id: "",
+                    coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "game box sample Title",
+                    releaseDate: Date(),
+                    rating: 4.5)
+            ])
+            .eraseToAnyPublisher()
+        }
+        
+        func loadGames() async {
+        }
+        
         func getGame(at index: Int) -> GameModel {
             fatalError()
         }

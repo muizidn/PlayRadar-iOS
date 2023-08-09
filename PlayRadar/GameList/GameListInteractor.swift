@@ -17,6 +17,24 @@ public final class GameListAPIInteractor: GameListInteractor {
     public init() {}
     public func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
         return .success(.init(data: [
+            GameModel(
+                id: "1",
+                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                release: Date(),
+                rating: 4.2),
+            GameModel(
+                id: "2",
+                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                release: Date(),
+                rating: 4.2),
+            GameModel(
+                id: "3",
+                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                release: Date(),
+                rating: 4.2),
             ], page: page, count: 0))
     }
     

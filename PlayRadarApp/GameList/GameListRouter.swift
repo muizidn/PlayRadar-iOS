@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 import PlayRadar
 
 protocol GameListRouter: Router {
@@ -59,12 +60,6 @@ struct GameListRouter_Previews: PreviewProvider {
     static var previews: some View {
         RouterPreviewContainer {
             return GameListTabBarChildRouter(tabBar: UITabBarController())
-        }
-    }
-    
-    class DummyPresenter: IGameListPresenter {
-        func getGame(at index: Int) -> GameModel {
-            fatalError()
         }
     }
 }
