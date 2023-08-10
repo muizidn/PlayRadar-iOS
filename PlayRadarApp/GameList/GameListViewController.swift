@@ -66,9 +66,15 @@ class GameListViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] games in
                 self.games = games
-                self.isLoadingNextGames = false
-                self.loadingLabel.isHidden = true
                 self.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+        
+        presenter.loadingNextGames
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self]  isLoading in
+                self.isLoadingNextGames = isLoading
+                self.loadingLabel.isHidden = !isLoading
             }
             .store(in: &cancellables)
         
@@ -172,6 +178,7 @@ struct GameListViewController_Previews: PreviewProvider {
     }
     
     class DummyPresenter: IGameListPresenter {
+        var loadingNextGames: AnyPublisher<Bool, Never> { Just(false).eraseToAnyPublisher() }
         func nextGames() async {
         }
         

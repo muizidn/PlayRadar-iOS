@@ -10,6 +10,7 @@ import Combine
 
 public protocol IGameListPresenter {
     var games: AnyPublisher<[GameViewModel], Never> { get }
+    var loadingNextGames: AnyPublisher<Bool, Never> { get }
     func loadGames() async
     func nextGames() async
     func getGame(at index: Int) -> GameModel
@@ -23,10 +24,12 @@ public final class GameListPresenter: IGameListPresenter {
     }
     
     public let games: AnyPublisher<[GameViewModel], Never>
+    public let loadingNextGames: AnyPublisher<Bool, Never>
     let error: AnyPublisher<Error, Never>
     
     private let sGames = CurrentValueSubject<[GameViewModel], Never>([])
     private let sError = PassthroughSubject<Error, Never>()
+    private let sLoadingNextGames = PassthroughSubject<Bool, Never>()
     private let sSearch = PassthroughSubject<String, Never>()
     
     private var cancellables = Set<AnyCancellable>()
@@ -42,6 +45,7 @@ public final class GameListPresenter: IGameListPresenter {
     public init(interactor: GameListInteractor, loaderStrategy: LoaderStrategy = .append ) {
         games = sGames.eraseToAnyPublisher()
         error = sError.eraseToAnyPublisher()
+        loadingNextGames = sLoadingNextGames.eraseToAnyPublisher()
         self.interactor = interactor
         self.loaderStrategy = loaderStrategy
         
@@ -80,8 +84,13 @@ public final class GameListPresenter: IGameListPresenter {
     }
     
     public func nextGames() async {
-        guard hasNext else { return }
-        await loadGames()
+        if hasNext {
+            sLoadingNextGames.send(true)
+            defer { sLoadingNextGames.send(false) }
+            await loadGames()
+        } else {
+            sLoadingNextGames.send(false)
+        }
     }
     
     public func searchGames(query: String) async {

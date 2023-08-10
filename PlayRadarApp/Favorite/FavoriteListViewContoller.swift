@@ -124,6 +124,8 @@ struct FavoriteListViewController_Previews: PreviewProvider {
     }
     
     class DummyPresenter: IGameListPresenter {
+        var loadingNextGames: AnyPublisher<Bool, Never> { Just(false).eraseToAnyPublisher() }
+        
         func nextGames() async {
         }
         
