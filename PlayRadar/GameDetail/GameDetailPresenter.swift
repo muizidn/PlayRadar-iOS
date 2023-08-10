@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 public final class GameDetailPresenter {
+    public let isFavorite: AnyPublisher<Bool, Never>
     let error: AnyPublisher<Error, Never>
     
     private let sError = PassthroughSubject<Error, Never>()
@@ -21,18 +22,20 @@ public final class GameDetailPresenter {
     public init(game: GameModel, detailInteractor: GameDetailInteractor, favoriteInteractor: FavoriteGameInteractor) {
         self.game = game
         self.favoriteInteractor = favoriteInteractor
-        error = sError.eraseToAnyPublisher()
         self.detailInteractor = detailInteractor
+        
+        error = sError.eraseToAnyPublisher()
+        isFavorite = sFavorite.eraseToAnyPublisher()
     }
     
-    func getFavorite() {
+    public func getFavorite() {
         Task {
             let isFavorite = await favoriteInteractor.getFavorite(id:game.id)
             await updateFavoriteUI(favorite: isFavorite)
         }
     }
     
-    func getGameDetail() {
+    public func getGameDetail() {
         Task {
             switch await detailInteractor.getGameDetail(id: game.id) {
             case .success(let detail):
@@ -45,7 +48,7 @@ public final class GameDetailPresenter {
         }
     }
     
-    func toggleFavorite(for game: GameViewModel) {
+    public func toggleFavorite() {
         Task {
             var isFavorite = sFavorite.value;
             isFavorite.toggle()

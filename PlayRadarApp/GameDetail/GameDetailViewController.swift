@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Combine
 import PlayRadar
 
 class GameDetailViewController: UIViewController {
     let presenter: GameDetailPresenter
+    
+    private var cancellables = Set<AnyCancellable>()
     
     init(presenter: GameDetailPresenter) {
         self.presenter = presenter
@@ -109,10 +112,26 @@ class GameDetailViewController: UIViewController {
         
         view.backgroundColor = .white
         setupUI()
+        
+        presenter.isFavorite
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] isFavorite in
+                navigationItem.rightBarButtonItem!.image =
+                isFavorite ? UIImage(named: "Favorite_fill") : UIImage(named: "Favorite")
+        }
+            .store(in: &cancellables)
+        
+        
+        presenter.getGameDetail()
+        presenter.getFavorite()
+    }
+    
+    @objc private func toggleFavorite() {
+        presenter.toggleFavorite()
     }
     
     func setupUI() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Favorite"), style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Favorite"), style: .plain, target: self, action: #selector(toggleFavorite))
         title = "Detail"
         
         view.addSubview(scrollView)

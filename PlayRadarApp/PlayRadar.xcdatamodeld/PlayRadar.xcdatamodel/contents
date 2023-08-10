@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22D49" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Favorites" representedClassName="Favorites" syncable="YES">
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
-        <relationship name="game" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Game"/>
     </entity>
     <entity name="Game" representedClassName="Game" syncable="YES">
         <attribute name="gameDescription" optional="YES" attributeType="String"/>
