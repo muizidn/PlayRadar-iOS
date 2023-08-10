@@ -1,0 +1,15 @@
+//
+//  CDFavorite.swift
+//  PlayRadarApp
+//
+//  Created by Muhammad Muizzsuddin on 09/08/23.
+//
+
+import Foundation
+import CoreData
+
+@objc(Favorite)
+final class CDFavorite: NSManagedObject {
+    @NSManaged var id: String
+    @NSManaged var game: CDGame
+}
