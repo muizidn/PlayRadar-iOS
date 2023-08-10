@@ -21,6 +21,9 @@ public final class GameListPresenter: IGameListPresenter {
     
     private let sGames = CurrentValueSubject<[GameViewModel], Never>([])
     private let sError = PassthroughSubject<Error, Never>()
+    private let sSearch = PassthroughSubject<String, Never>()
+    
+    private var cancellables = Set<AnyCancellable>()
     
     private var gamesModel = [GameModel]()
     
@@ -32,6 +35,15 @@ public final class GameListPresenter: IGameListPresenter {
         games = sGames.eraseToAnyPublisher()
         error = sError.eraseToAnyPublisher()
         self.interactor = interactor
+        
+        sSearch
+            .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
+            .sink { [unowned self] query in
+                Task {
+                    await actualSearchGames(query: query)
+                }
+            }
+            .store(in: &cancellables)
     }
     
     public func loadGames() async {
@@ -51,6 +63,10 @@ public final class GameListPresenter: IGameListPresenter {
     }
     
     public func searchGames(query: String) async {
+        sSearch.send(query)
+    }
+    
+    private func actualSearchGames(query: String) async {
         switch await interactor.searchGames(query: query) {
         case .success(let result):
             sGames.send(result.map({ .from($0) }))

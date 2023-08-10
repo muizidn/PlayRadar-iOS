@@ -31,9 +31,9 @@ public final class RemoteGameListInteractor: GameListInteractor {
             return .success(.init(data: resp.results.map({
                 GameModel(
                     id: $0.id.description,
-                    cover: URL(string: $0.background_image),
+                    cover: $0.background_image.flatMap {URL(string: $0)},
                     title: $0.name,
-                    release: $0.released,
+                    release: $0.released ?? Date(),
                     rating: $0.rating
                 )
             }), page: page, count: 10, hasNext: resp.next != nil))
@@ -58,9 +58,9 @@ public final class RemoteGameListInteractor: GameListInteractor {
             return .success(resp.results.map({
                 GameModel(
                     id: $0.id.description,
-                    cover: URL(string: $0.background_image),
+                    cover: $0.background_image.flatMap {URL(string: $0)},
                     title: $0.name,
-                    release: $0.released,
+                    release: $0.released ?? Date(),
                     rating: $0.rating
                 )
             }))
@@ -85,10 +85,10 @@ fileprivate struct GameCodable: Codable {
     
     let id: Int
     let name: String
-    let background_image: String
-    let released: Date
+    let background_image: String?
+    let released: Date?
     let rating: Double
-    let platforms: [Platform]
+    let platforms: [Platform]?
     
     enum CodingKeys: String, CodingKey {
         case id, name, released, rating, platforms, background_image
