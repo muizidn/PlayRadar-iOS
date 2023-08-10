@@ -206,6 +206,7 @@ struct GameDetailViewController_Previews: PreviewProvider {
                     game: GameModel(
                         id: "1",
                         title: "foo",
+                        publisher: "",
                         release: Date(),
                         rating: 2),
                     detailInteractor: DummyDetailInteractor(),
