@@ -27,12 +27,23 @@ class GameListViewController: UIViewController {
     // MARK: - Properties
     
     private var games = [GameViewModel]()
+    private var isLoadingNextGames = false
     
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(GameCell.self, forCellReuseIdentifier: GameCell.reuseIdentifier)
         return tableView
+    }()
+    
+    let loadingLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.backgroundColor = .red
+        label.text = "Loading next games"
+        label.isHidden = true
+        return label
     }()
     
     // MARK: - View Lifecycle
@@ -47,6 +58,8 @@ class GameListViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] games in
                 self.games = games
+                self.isLoadingNextGames = false
+                self.loadingLabel.isHidden = true
                 self.tableView.reloadData()
             }
             .store(in: &cancellables)
@@ -61,16 +74,21 @@ class GameListViewController: UIViewController {
     func setupUI() {
         view.backgroundColor = .white
         view.addSubview(tableView)
+        view.addSubview(loadingLabel)
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            
+            loadingLabel.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: -10),
+            loadingLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            loadingLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            loadingLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
@@ -97,7 +115,9 @@ extension GameListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     private func loadNextGamesIfNeeded(_ row: Int) {
-        if row == games.count - 1 {
+        if !isLoadingNextGames && row == games.count - 1 {
+            isLoadingNextGames = true
+            loadingLabel.isHidden = false
             Task {
                 await presenter.loadGames()
             }
@@ -112,6 +132,7 @@ extension GameListViewController: UITableViewDataSource, UITableViewDelegate {
         router.launchDetail(game: presenter.getGame(at: indexPath.row))
     }
 }
+
 
 #if DEBUG
 import SwiftUI
