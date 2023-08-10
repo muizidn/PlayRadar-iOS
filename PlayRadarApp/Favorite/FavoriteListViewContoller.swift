@@ -127,19 +127,19 @@ struct FavoriteListViewController_Previews: PreviewProvider {
                     id: "",
                     coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                     title: "game box sample Title",
-                    releaseDate: Date(),
+                    releaseDate: Date(timeIntervalSince1970: 0),
                     rating: 4.5),
                 GameViewModel(
                     id: "",
                     coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                     title: "game box sample Title",
-                    releaseDate: Date(),
+                    releaseDate: Date(timeIntervalSince1970: 0),
                     rating: 4.5),
                 GameViewModel(
                     id: "",
                     coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                     title: "game box sample Title",
-                    releaseDate: Date(),
+                    releaseDate: Date(timeIntervalSince1970: 0),
                     rating: 4.5)
             ])
             .eraseToAnyPublisher()

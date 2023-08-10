@@ -17,23 +17,23 @@ public final class RemoteGameListInteractor: GameListInteractor {
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 publisher: "Microsoft Game Studio",
-                release: Date(),
+                release: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
             GameModel(
                 id: "2",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 publisher: "Electronic Arts",
-                release: Date(),
+                release: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
             GameModel(
                 id: "3",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 publisher: "Kyoto Game Studio",
-                release: Date(),
+                release: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
-            ], page: page, count: 0, hasNext: true))
+            ], page: page, count: 3, hasNext: true))
     }
     
     public func searchGames(query: String) async -> Result<[GameModel], Error> {

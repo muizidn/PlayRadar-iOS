@@ -207,7 +207,7 @@ struct GameDetailViewController_Previews: PreviewProvider {
                         id: "1",
                         title: "foo",
                         publisher: "",
-                        release: Date(),
+                        release: Date(timeIntervalSince1970: 0),
                         rating: 2),
                     detailInteractor: DummyDetailInteractor(),
                     favoriteInteractor: DummyFavoriteInteractor()

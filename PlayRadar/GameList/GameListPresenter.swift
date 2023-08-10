@@ -25,6 +25,7 @@ public final class GameListPresenter: IGameListPresenter {
     
     private let interactor: GameListInteractor
     private var nextPage = 1
+    private var hasNext = true
     
     public init(interactor: GameListInteractor) {
         games = sGames.eraseToAnyPublisher()
@@ -33,10 +34,13 @@ public final class GameListPresenter: IGameListPresenter {
     }
     
     public func loadGames() async {
+        guard hasNext else { return }
         switch await interactor.loadGames(page: nextPage) {
         case .success(let result):
             sGames.send(result.data.map({ .from($0) }))
             gamesModel.append(contentsOf: result.data)
+            hasNext = result.hasNext
+            nextPage = result.page + 1
         case .failure(let error):
             sError.send(error)
         }

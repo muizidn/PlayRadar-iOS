@@ -43,22 +43,89 @@ class GameListPresenterTests: XCTestCase {
                 id: "1",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
-                releaseDate: Date(),
+                releaseDate: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
             GameViewModel(
                 id: "1",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
-                releaseDate: Date(),
+                releaseDate: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
             GameViewModel(
                 id: "1",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
-                releaseDate: Date(),
+                releaseDate: Date(timeIntervalSince1970: 0),
                 rating: 4.2)
         ])
     }
+    
+    func testLoadNextPage_1_2() async {
+        var games = [GameViewModel]()
+        
+        presenter.games
+            .sink { _games in
+                games.append(contentsOf: _games)
+            }
+            .store(in: &cancellables)
+        
+        await presenter.loadGames()
+        await presenter.loadGames()
+        
+        XCTAssertEqual(games, [
+            GameViewModel(
+                id: "1",
+                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                releaseDate: Date(timeIntervalSince1970: 0),
+                rating: 4.2),
+            GameViewModel(
+                id: "1",
+                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                releaseDate: Date(timeIntervalSince1970: 0),
+                rating: 4.2),
+            GameViewModel(
+                id: "1",
+                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                releaseDate: Date(timeIntervalSince1970: 0),
+                rating: 4.2),
+            GameViewModel(
+                id: "4",
+                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                releaseDate: Date(timeIntervalSince1970: 0),
+                rating: 4.2),
+            GameViewModel(
+                id: "5",
+                coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                title: "BioShock 2 Remastered Japan Version",
+                releaseDate: Date(timeIntervalSince1970: 0),
+                rating: 4.2)
+        ])
+        XCTAssertEqual(stubInteractor.loadedPages, [1,2])
+    }
+    
+    func testLoadPage_onlyLoadWhenNextPageIsTrue() async {
+        var games = [GameViewModel]()
+        
+        presenter.games
+            .sink { _games in
+                games.append(contentsOf: _games)
+            }
+            .store(in: &cancellables)
+        
+        await presenter.loadGames()
+        await presenter.loadGames()
+        await presenter.loadGames()
+        
+        XCTAssertEqual(games.map({ $0.id }), [
+            "1","2","3","4","5"
+        ])
+        XCTAssertEqual(stubInteractor.loadedPages, [1,2])
+    }
+    
     
     func testSearchGames() async {
         var games = [GameViewModel]()
@@ -75,20 +142,20 @@ class GameListPresenterTests: XCTestCase {
             GameViewModel(
                 id: "1",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "The World Voyage 3 USA Version",
-                releaseDate: Date(),
+                title: "BioShock 2 Remastered Japan Version",
+                releaseDate: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
             GameViewModel(
                 id: "2",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "The World Voyage 3 USA Version",
-                releaseDate: Date(),
+                title: "BioShock 2 Remastered Japan Version",
+                releaseDate: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
             GameViewModel(
                 id: "3",
                 coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "The World Voyage 3 USA Version",
-                releaseDate: Date(),
+                title: "BioShock 2 Remastered Japan Version",
+                releaseDate: Date(timeIntervalSince1970: 0),
                 rating: 4.2)
         ])
     }
@@ -117,30 +184,53 @@ extension GameViewModel: CustomDebugStringConvertible {
 }
 
 final class StubGameListInteractor: GameListInteractor {
+    var loadedPages: [Int] = []
     func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
-        return .success(.init(data: [
-            GameModel(
-                id: "1",
-                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "BioShock 2 Remastered Japan Version",
-                publisher: "Microsoft Game Studio",
-                release: Date(),
-                rating: 4.2),
-            GameModel(
-                id: "2",
-                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "BioShock 2 Remastered Japan Version",
-                publisher: "Electronic Arts",
-                release: Date(),
-                rating: 4.2),
-            GameModel(
-                id: "3",
-                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "BioShock 2 Remastered Japan Version",
-                publisher: "Kyoto Game Studio",
-                release: Date(),
-                rating: 4.2),
-        ], page: page, count: 3))
+        
+        loadedPages.append(page)
+        
+        if page == 1 {
+            return .success(.init(data: [
+                GameModel(
+                    id: "1",
+                    cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "BioShock 2 Remastered Japan Version",
+                    publisher: "Microsoft Game Studio",
+                    release: Date(timeIntervalSince1970: 0),
+                    rating: 4.2),
+                GameModel(
+                    id: "2",
+                    cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "BioShock 2 Remastered Japan Version",
+                    publisher: "Electronic Arts",
+                    release: Date(timeIntervalSince1970: 0),
+                    rating: 4.2),
+                GameModel(
+                    id: "3",
+                    cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "BioShock 2 Remastered Japan Version",
+                    publisher: "Kyoto Game Studio",
+                    release: Date(timeIntervalSince1970: 0),
+                    rating: 4.2),
+            ], page: page, count: 3, hasNext: true))
+        } else {
+            return .success(.init(data: [
+                GameModel(
+                    id: "4",
+                    cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "BioShock 2 Remastered Japan Version",
+                    publisher: "Microsoft Game Studio",
+                    release: Date(timeIntervalSince1970: 0),
+                    rating: 4.2),
+                GameModel(
+                    id: "5",
+                    cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "BioShock 2 Remastered Japan Version",
+                    publisher: "Electronic Arts",
+                    release: Date(timeIntervalSince1970: 0),
+                    rating: 4.2),
+            ], page: page, count: 2, hasNext: false))
+        }
     }
     
     func searchGames(query: String) async -> Result<[GameModel], Error> {
@@ -150,21 +240,21 @@ final class StubGameListInteractor: GameListInteractor {
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 publisher: "Microsoft Game Studio",
-                release: Date(),
+                release: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
             GameModel(
                 id: "2",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 publisher: "Electronic Arts",
-                release: Date(),
+                release: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
             GameModel(
                 id: "3",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
                 publisher: "Kyoto Game Studio",
-                release: Date(),
+                release: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
         ])
     }

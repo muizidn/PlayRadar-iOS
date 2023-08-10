@@ -28,7 +28,6 @@
 		220C65032A83121500CA12B3 /* GameListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C65022A83121500CA12B3 /* GameListInteractor.swift */; };
 		220C65052A83127400CA12B3 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C65042A83127400CA12B3 /* GameModel.swift */; };
 		220C65072A83129E00CA12B3 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C65062A83129E00CA12B3 /* Pagination.swift */; };
-		220C65092A83172700CA12B3 /* GameListAPIInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C65082A83172700CA12B3 /* GameListAPIInteractorTests.swift */; };
 		220C650D2A83184400CA12B3 /* GameDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C650C2A83184400CA12B3 /* GameDetailPresenter.swift */; };
 		220C650F2A831A6A00CA12B3 /* GameDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C650E2A831A6A00CA12B3 /* GameDetailInteractor.swift */; };
 		223FC8142A83268A007B8F02 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8132A83268A007B8F02 /* GameDetailViewController.swift */; };
@@ -44,6 +43,7 @@
 		224C76B32A849DAB00911849 /* GameDetailInteractorRemoteWithLocalFallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B22A849DAB00911849 /* GameDetailInteractorRemoteWithLocalFallback.swift */; };
 		224C76B52A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B42A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift */; };
 		224C76B82A84CDE800911849 /* RemoteGameListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B72A84CDE800911849 /* RemoteGameListInteractor.swift */; };
+		224C76B92A84D03200911849 /* RemoteGameListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C65082A83172700CA12B3 /* RemoteGameListInteractorTests.swift */; };
 		2252A22C2A83D7DF005F21D9 /* GameListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */; };
 		2252A22E2A83D9AB005F21D9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22D2A83D9AB005F21D9 /* Router.swift */; };
 		2252A2302A83DAED005F21D9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */; };
@@ -131,7 +131,7 @@
 		220C65022A83121500CA12B3 /* GameListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListInteractor.swift; sourceTree = "<group>"; };
 		220C65042A83127400CA12B3 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		220C65062A83129E00CA12B3 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
-		220C65082A83172700CA12B3 /* GameListAPIInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListAPIInteractorTests.swift; sourceTree = "<group>"; };
+		220C65082A83172700CA12B3 /* RemoteGameListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGameListInteractorTests.swift; sourceTree = "<group>"; };
 		220C650C2A83184400CA12B3 /* GameDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailPresenter.swift; sourceTree = "<group>"; };
 		220C650E2A831A6A00CA12B3 /* GameDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailInteractor.swift; sourceTree = "<group>"; };
 		223FC8132A83268A007B8F02 /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				220C64B12A824F2700CA12B3 /* GameCellTests.swift */,
+				220C65082A83172700CA12B3 /* RemoteGameListInteractorTests.swift */,
 				224C76B42A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift */,
 			);
 			path = PlayRadarAppTests;
@@ -283,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				220C64EA2A830A5200CA12B3 /* GameListPresenterTests.swift */,
-				220C65082A83172700CA12B3 /* GameListAPIInteractorTests.swift */,
 			);
 			path = PlayRadarTests;
 			sourceTree = "<group>";
@@ -617,6 +617,7 @@
 			files = (
 				220C64B22A824F2700CA12B3 /* GameCellTests.swift in Sources */,
 				224C76B52A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift in Sources */,
+				224C76B92A84D03200911849 /* RemoteGameListInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,7 +649,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				220C65092A83172700CA12B3 /* GameListAPIInteractorTests.swift in Sources */,
 				220C64EB2A830A5200CA12B3 /* GameListPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
