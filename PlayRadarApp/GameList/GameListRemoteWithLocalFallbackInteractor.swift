@@ -22,7 +22,6 @@ final class GameListRemoteWithLocalFallbackInteractor: GameListInteractor {
         let result = await remote.loadGames(page: page)
         switch result {
         case .success(let games):
-            print("Games", games.data[3])
             _ = await local.saveGames(games.data)
             return result
         case .failure:

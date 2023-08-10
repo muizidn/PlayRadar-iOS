@@ -11,11 +11,17 @@ import Combine
 public protocol IGameListPresenter {
     var games: AnyPublisher<[GameViewModel], Never> { get }
     func loadGames() async
+    func nextGames() async
     func getGame(at index: Int) -> GameModel
     func searchGames(query: String) async
 }
 
 public final class GameListPresenter: IGameListPresenter {
+    public enum LoaderStrategy {
+        case append
+        case update
+    }
+    
     public let games: AnyPublisher<[GameViewModel], Never>
     let error: AnyPublisher<Error, Never>
     
@@ -27,14 +33,17 @@ public final class GameListPresenter: IGameListPresenter {
     
     private var gamesModel = [GameModel]()
     
+    private let loaderStrategy: LoaderStrategy
+    
     private let interactor: GameListInteractor
     private var nextPage = 1
     private var hasNext = true
     
-    public init(interactor: GameListInteractor) {
+    public init(interactor: GameListInteractor, loaderStrategy: LoaderStrategy = .append ) {
         games = sGames.eraseToAnyPublisher()
         error = sError.eraseToAnyPublisher()
         self.interactor = interactor
+        self.loaderStrategy = loaderStrategy
         
         sSearch
             .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
@@ -47,19 +56,32 @@ public final class GameListPresenter: IGameListPresenter {
     }
     
     public func loadGames() async {
-        guard hasNext else { return }
         switch await interactor.loadGames(page: nextPage) {
         case .success(let result):
             var games = sGames.value
-            games.append(contentsOf: result.data.map({ .from($0) }))
+            let newGamesViewModel = result.data.map({ GameViewModel.from($0) })
+            switch loaderStrategy {
+            case .append:
+                games.append(contentsOf:  newGamesViewModel)
+                gamesModel.append(contentsOf: result.data)
+            case .update:
+                games = newGamesViewModel
+                gamesModel = result.data
+            }
             sGames.send(games)
-            gamesModel.append(contentsOf: result.data)
             
             hasNext = result.hasNext
-            nextPage = result.page + 1
+            if hasNext {
+                nextPage = result.page + 1
+            }
         case .failure(let error):
             sError.send(error)
         }
+    }
+    
+    public func nextGames() async {
+        guard hasNext else { return }
+        await loadGames()
     }
     
     public func searchGames(query: String) async {

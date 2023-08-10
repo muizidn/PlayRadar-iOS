@@ -53,7 +53,10 @@ class FavoriteListViewController: UIViewController {
                 self.tableView.reloadData()
             }
             .store(in: &cancellables)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         Task {
             await presenter.loadGames()
         }
@@ -121,6 +124,9 @@ struct FavoriteListViewController_Previews: PreviewProvider {
     }
     
     class DummyPresenter: IGameListPresenter {
+        func nextGames() async {
+        }
+        
         var games: AnyPublisher<[GameViewModel], Never> {
             Just([
                 GameViewModel(

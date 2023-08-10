@@ -133,7 +133,7 @@ extension GameListViewController: UITableViewDataSource, UITableViewDelegate {
             isLoadingNextGames = true
             loadingLabel.isHidden = false
             Task {
-                await presenter.loadGames()
+                await presenter.nextGames()
             }
         }
     }
@@ -172,6 +172,9 @@ struct GameListViewController_Previews: PreviewProvider {
     }
     
     class DummyPresenter: IGameListPresenter {
+        func nextGames() async {
+        }
+        
         var games: AnyPublisher<[GameViewModel], Never> {
             Just([
                 GameViewModel(
