@@ -38,7 +38,7 @@ public final class GameListAPIInteractor: GameListInteractor {
                 publisher: "Kyoto Game Studio",
                 release: Date(),
                 rating: 4.2),
-            ], page: page, count: 0))
+            ], page: page, count: 0, hasNext: true))
     }
     
     public func searchGames(query: String) async -> Result<[GameModel], Error> {
