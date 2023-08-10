@@ -12,8 +12,10 @@ final class LocalFavoriteGameInteractor: FavoriteGameInteractor {
     func setFavorite(id: String, favorite: Bool) async {
         do {
             if favorite {
+                guard let game = try await CoreDataDatabase.shared.get(CDGame.self, where: ["id": id]) else { return }
                 try await CoreDataDatabase.shared.save(CDFavorite.self) { e in
                     e.id = id
+                    e.game = game
                 }
             } else {
                 try await CoreDataDatabase.shared.delete(CDFavorite.self, where: ["id": id])
