@@ -49,7 +49,7 @@ enum API {
             ]
         case .search(let query):
             return [
-                "query": query
+                "search": query
             ]
         case .detail:
             return [:]

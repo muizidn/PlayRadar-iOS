@@ -43,7 +43,30 @@ public final class RemoteGameListInteractor: GameListInteractor {
     }
     
     public func searchGames(query: String) async -> Result<[GameModel], Error> {
-        return .success([])
+        do {
+            let (data, response) = try await URLSession.shared.data(for: API.search(query: query).createUrlRequest())
+            guard !((response as! HTTPURLResponse).statusCode >= 400) else {
+                return .failure(NSError(domain: "\(Self.self)", code: 1, userInfo: [
+                    NSLocalizedDescriptionKey: "Not Found"
+                ]))
+            }
+            
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .formatted(decoderDateFormatter)
+            
+            let resp = try decoder.decode(APIResponseBase<[GameCodable]>.self, from: data)
+            return .success(resp.results.map({
+                GameModel(
+                    id: $0.id.description,
+                    cover: URL(string: $0.background_image),
+                    title: $0.name,
+                    release: $0.released,
+                    rating: $0.rating
+                )
+            }))
+        } catch {
+            return .failure(error)
+        }
     }
 }
 
