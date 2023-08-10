@@ -43,7 +43,7 @@ struct GameDetailRouter_Previews: PreviewProvider {
                                     title: "",
                                     release: Date(timeIntervalSince1970: 0),
                                     rating: 2))
-                .launch()
+            .launch()
             return nav
         }
     }

@@ -37,8 +37,11 @@ public final class GameListPresenter: IGameListPresenter {
         guard hasNext else { return }
         switch await interactor.loadGames(page: nextPage) {
         case .success(let result):
-            sGames.send(result.data.map({ .from($0) }))
+            var games = sGames.value
+            games.append(contentsOf: result.data.map({ .from($0) }))
+            sGames.send(games)
             gamesModel.append(contentsOf: result.data)
+            
             hasNext = result.hasNext
             nextPage = result.page + 1
         case .failure(let error):

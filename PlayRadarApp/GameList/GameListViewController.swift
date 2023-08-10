@@ -90,7 +90,18 @@ extension GameListViewController: UITableViewDataSource, UITableViewDelegate {
         
         let game = games[indexPath.row]
         cell.configure(with: game)
+        
+        loadNextGamesIfNeeded(indexPath.row)
+        
         return cell
+    }
+    
+    private func loadNextGamesIfNeeded(_ row: Int) {
+        if row == games.count - 1 {
+            Task {
+                await presenter.loadGames()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
