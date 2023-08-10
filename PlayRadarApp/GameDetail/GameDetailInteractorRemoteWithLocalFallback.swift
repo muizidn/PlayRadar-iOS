@@ -10,9 +10,9 @@ import PlayRadar
 
 final class GameDetailRemoteWithLocalFallbackInteractor: GameDetailInteractor {
     let remote: GameDetailInteractor
-    let local: LocalGameDetailInteractor
+    let local: LocalGameDetailInteracotr
     
-    init(remote: GameDetailInteractor, local: LocalGameDetailInteractor) {
+    init(remote: GameDetailInteractor, local: LocalGameDetailInteracotr) {
         self.remote = remote
         self.local = local
     }

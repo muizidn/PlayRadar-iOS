@@ -10,6 +10,6 @@ import Foundation
 public final class GameDetailAPIInteractor: GameDetailInteractor {
     public init() {}
     public func getGameDetail(id: String) async -> Result<String, Error> {
-        return .success("")
+        return .success("Some world")
     }
 }

@@ -9,11 +9,13 @@ import Foundation
 import Combine
 
 public final class GameDetailPresenter {
+    public let gameDescription: AnyPublisher<String, Never>
     public let isFavorite: AnyPublisher<Bool, Never>
     let error: AnyPublisher<Error, Never>
     
     private let sError = PassthroughSubject<Error, Never>()
     private let sFavorite = CurrentValueSubject<Bool, Never>(false)
+    private let sGameDescription = PassthroughSubject<String, Never>()
     
     private let detailInteractor: GameDetailInteractor
     private let favoriteInteractor: FavoriteGameInteractor
@@ -26,6 +28,7 @@ public final class GameDetailPresenter {
         
         error = sError.eraseToAnyPublisher()
         isFavorite = sFavorite.eraseToAnyPublisher()
+        gameDescription = sGameDescription.eraseToAnyPublisher()
     }
     
     public func getFavorite() {
@@ -39,7 +42,9 @@ public final class GameDetailPresenter {
         Task {
             switch await detailInteractor.getGameDetail(id: game.id) {
             case .success(let detail):
-                print("Success get detail")
+                await MainActor.run { [unowned self] in
+                    sGameDescription.send(detail)
+                }
             case .failure(let error):
                 await MainActor.run { [unowned self] in
                     sError.send(error)

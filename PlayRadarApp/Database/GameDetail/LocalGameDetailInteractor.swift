@@ -8,7 +8,11 @@
 import Foundation
 import PlayRadar
 
-final class LocalGameDetailInteractor: GameDetailInteractor {
+protocol LocalGameDetailInteracotr: GameDetailInteractor {
+    func saveGameDetail(id: String, contentDescription: String) async -> Result<Void, Error>
+}
+
+final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteracotr {
     func getGameDetail(id: String) async -> Result<String, Error> {
         do {
             let desc = try await CoreDataDatabase.shared.get(CDGame.self, where: ["id": id])?.gameDescription

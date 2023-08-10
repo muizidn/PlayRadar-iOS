@@ -118,9 +118,15 @@ class GameDetailViewController: UIViewController {
             .sink { [unowned self] isFavorite in
                 navigationItem.rightBarButtonItem!.image =
                 isFavorite ? UIImage(named: "Favorite_fill") : UIImage(named: "Favorite")
-        }
+            }
             .store(in: &cancellables)
         
+        presenter.gameDescription
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] description in
+                descriptionLabel.text = description
+            }
+            .store(in: &cancellables)
         
         presenter.getGameDetail()
         presenter.getFavorite()
