@@ -107,7 +107,7 @@ public final class GameListPresenter: IGameListPresenter {
         switch await interactor.searchGames(query: query) {
         case .success(let result):
             sGames.send(result.map({ .from($0) }))
-            gamesModel.removeAll(keepingCapacity: true)
+            gamesModel = result
         case .failure(let error):
             sError.send(error)
         }
