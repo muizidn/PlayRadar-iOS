@@ -63,6 +63,15 @@ final class CoreDataDatabase {
         try sharedContext.save()
     }
     
+    func update<T: EntityLoadable>(_ e: T.Type, where: [String:Any], closure: (T) -> Void) async throws {
+        if let existing = try await get(e, where: `where`) {
+            closure(existing)
+            try sharedContext.save()
+        } else {
+            try await save(e, closure: closure)
+        }
+    }
+    
     func delete<T: EntityLoadable>(_ e: T.Type, where: [String:Any]) async throws {
         guard let e = try await get(e, where: `where`) else { return }
         sharedContext.delete(e)

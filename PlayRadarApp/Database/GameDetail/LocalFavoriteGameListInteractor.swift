@@ -15,7 +15,11 @@ final class LocalFavoriteGameListInteractor: GameListInteractor {
             let data = favorites.map { favorite in
                 favorite.game
             }.map { game in
-                GameModel(id: game.id, title: game.title, release: game.release, rating: game.rating)
+                GameModel(id: game.id,
+                          cover: game.cover,
+                          title: game.title,
+                          release: game.releaseDate,
+                          rating: game.rating)
             }
             return .success(.init(data: data, page: 1, count: data.count, hasNext: false))
         } catch {

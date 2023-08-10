@@ -13,7 +13,7 @@ final class LocalGameListInteractor: GameListInteractor {
         do {
             let games = try await CoreDataDatabase.shared.fetch(CDGame.self)
             let data = games.map { game in
-                GameModel(id: game.id, title: game.title, release: game.release, rating: game.rating)
+                GameModel(id: game.id, title: game.title, release: game.releaseDate, rating: game.rating)
             }
             return .success(.init(data: data, page: 1, count: data.count, hasNext: false))
         } catch {
@@ -25,7 +25,13 @@ final class LocalGameListInteractor: GameListInteractor {
     func saveGames(_ games: [GameModel]) async -> Result<Void, Error> {
         do {
             for game in games {
-                
+                try await CoreDataDatabase.shared.update(CDGame.self, where: ["id": game.id], closure: { e in
+                    e.id = game.id
+                    e.title = game.title
+                    e.cover = game.cover
+                    e.rating = game.rating
+                    e.releaseDate = game.release
+                })
             }
             return .success(())
         } catch {
