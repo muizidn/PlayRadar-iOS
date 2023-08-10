@@ -26,7 +26,7 @@ final class FavoriteTabBarChildRouter: NSObject, FavoriteListRouter {
     func launch() -> UIViewController {
         let vc = FavoriteListViewController(
             presenter: GameListPresenter(
-                interactor: RemoteGameListInteractor()
+                interactor: LocalFavoriteGameListInteractor()
             ),
             router: WeakProxy(self)
         )

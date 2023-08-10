@@ -41,6 +41,21 @@ final class CoreDataDatabase {
         return try sharedContext.fetch(fetchReq).first
     }
     
+    func fetch<T: EntityLoadable>(_ e: T.Type, where: [String:Any] = [:]) async throws -> [T] {
+        var predicates: [NSPredicate] = []
+
+        for (key, value) in `where` {
+            let predicate = NSPredicate(format: "%K == %@", key, value as! NSObject)
+            predicates.append(predicate)
+        }
+
+        let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: predicates)
+        
+        let fetchReq = NSFetchRequest<T>(entityName: T.entityName)
+        fetchReq.predicate = compoundPredicate
+        return try sharedContext.fetch(fetchReq)
+    }
+    
     func save<T: EntityLoadable>(_ e: T.Type, closure: (T) -> Void) async throws {
         let e = T.entity(sharedContext)
         closure(e)
