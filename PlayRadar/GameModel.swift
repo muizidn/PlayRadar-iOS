@@ -12,7 +12,6 @@ public struct GameModel {
         id: String,
         cover: URL? = nil,
         title: String,
-        publisher: String,
         release: Date,
         rating: Double
     ) {
@@ -21,13 +20,11 @@ public struct GameModel {
         self.title = title
         self.release = release
         self.rating = rating
-        self.publisher = publisher
     }
     
     public let id: String
     public let cover: URL?
     public let title: String
-    public let publisher: String
     public let release: Date
     public let rating: Double
 }

@@ -41,7 +41,6 @@ struct GameDetailRouter_Previews: PreviewProvider {
                                  game: GameModel(
                                     id: "1",
                                     title: "",
-                                    publisher: "",
                                     release: Date(timeIntervalSince1970: 0),
                                     rating: 2))
                 .launch()

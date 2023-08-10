@@ -33,7 +33,6 @@ public final class RemoteGameListInteractor: GameListInteractor {
                     id: $0.id.description,
                     cover: URL(string: $0.background_image),
                     title: $0.name,
-                    publisher: "Foo",
                     release: $0.released,
                     rating: $0.rating
                 )
