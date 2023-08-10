@@ -46,6 +46,14 @@ class GameListViewController: UIViewController {
         return label
     }()
     
+    private lazy var searchField: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.placeholder = "Search"
+        searchBar.delegate = self
+        return searchBar
+    }()
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -73,6 +81,7 @@ class GameListViewController: UIViewController {
     
     func setupUI() {
         view.backgroundColor = .white
+        view.addSubview(searchField)
         view.addSubview(tableView)
         view.addSubview(loadingLabel)
         
@@ -81,7 +90,11 @@ class GameListViewController: UIViewController {
         tableView.separatorStyle = .none
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            searchField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            
+            tableView.topAnchor.constraint(equalTo: searchField.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             
@@ -92,6 +105,7 @@ class GameListViewController: UIViewController {
         ])
     }
 }
+
 
 // MARK: - UITableViewDataSource & UITableViewDelegate
 
@@ -133,6 +147,11 @@ extension GameListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+extension GameListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+}
 
 #if DEBUG
 import SwiftUI
