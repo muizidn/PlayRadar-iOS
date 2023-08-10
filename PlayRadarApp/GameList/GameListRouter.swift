@@ -27,7 +27,7 @@ final class GameListTabBarChildRouter: NSObject, GameListRouter {
     func launch() -> UIViewController {
         let vc = GameListViewController(
             presenter: GameListPresenter(
-                interactor: GameListAPIInteractor()
+                interactor: RemoteGameListInteractor()
             ),
             router: WeakProxy(self)
         )

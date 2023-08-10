@@ -1,5 +1,5 @@
 //
-//  GameListAPIInteractorTests.swift
+//  RemoteGameListInteractorTests.swift
 //  PlayRadarTests
 //
 //  Created by Muhammad Muizzsuddin on 09/08/23.
@@ -15,7 +15,7 @@ class GameListInteractorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        interactor = GameListAPIInteractor()
+        interactor = RemoteGameListInteractor()
     }
     
     override func tearDown() {
