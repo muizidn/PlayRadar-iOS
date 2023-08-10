@@ -151,6 +151,9 @@ struct FavoriteListViewController_Previews: PreviewProvider {
         func getGame(at index: Int) -> GameModel {
             fatalError()
         }
+        
+        func searchGames(query: String) async {
+        }
     }
     class DummyRouter: DummyRouterBase ,FavoriteListRouter {
         func launchDetail(game: GameModel) {

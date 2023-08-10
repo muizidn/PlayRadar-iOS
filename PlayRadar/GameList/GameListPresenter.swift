@@ -12,6 +12,7 @@ public protocol IGameListPresenter {
     var games: AnyPublisher<[GameViewModel], Never> { get }
     func loadGames() async
     func getGame(at index: Int) -> GameModel
+    func searchGames(query: String) async
 }
 
 public final class GameListPresenter: IGameListPresenter {
@@ -53,6 +54,9 @@ public final class GameListPresenter: IGameListPresenter {
         switch await interactor.searchGames(query: query) {
         case .success(let result):
             sGames.send(result.map({ .from($0) }))
+            gamesModel.removeAll(keepingCapacity: true)
+            hasNext = false
+            nextPage = 1
         case .failure(let error):
             sError.send(error)
         }

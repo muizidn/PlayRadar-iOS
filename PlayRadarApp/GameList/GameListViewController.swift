@@ -149,7 +149,9 @@ extension GameListViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension GameListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        Task {
+            await presenter.searchGames(query: searchText)
+        }
     }
 }
 
@@ -199,6 +201,9 @@ struct GameListViewController_Previews: PreviewProvider {
         
         func getGame(at index: Int) -> GameModel {
             fatalError()
+        }
+        
+        func searchGames(query: String) async {
         }
     }
     class DummyRouter: GameListRouter {
