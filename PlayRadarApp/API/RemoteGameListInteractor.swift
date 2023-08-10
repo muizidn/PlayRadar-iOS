@@ -9,34 +9,67 @@ import Foundation
 import PlayRadar
 
 public final class RemoteGameListInteractor: GameListInteractor {
+    private let decoderDateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        return df
+    }()
     public init() {}
     public func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
-        return .success(.init(data: [
-            GameModel(
-                id: "1",
-                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "BioShock 2 Remastered Japan Version",
-                publisher: "Microsoft Game Studio",
-                release: Date(timeIntervalSince1970: 0),
-                rating: 4.2),
-            GameModel(
-                id: "2",
-                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "BioShock 2 Remastered Japan Version",
-                publisher: "Electronic Arts",
-                release: Date(timeIntervalSince1970: 0),
-                rating: 4.2),
-            GameModel(
-                id: "3",
-                cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                title: "BioShock 2 Remastered Japan Version",
-                publisher: "Kyoto Game Studio",
-                release: Date(timeIntervalSince1970: 0),
-                rating: 4.2),
-            ], page: page, count: 3, hasNext: true))
+        do {
+            let (data, response) = try await URLSession.shared.data(for: API.games(page: page, count: 10).createUrlRequest())
+            guard !((response as! HTTPURLResponse).statusCode >= 400) else {
+                return .failure(NSError(domain: "\(Self.self)", code: 1, userInfo: [
+                    NSLocalizedDescriptionKey: "Not Found"
+                ]))
+            }
+            
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .formatted(decoderDateFormatter)
+            
+            let resp = try decoder.decode(APIResponseBase<[GameCodable]>.self, from: data)
+            return .success(.init(data: resp.results.map({
+                GameModel(
+                    id: $0.id.description,
+                    cover: URL(string: $0.background_image),
+                    title: $0.name,
+                    publisher: "Foo",
+                    release: $0.released,
+                    rating: $0.rating
+                )
+            }), page: page, count: 10, hasNext: resp.next != nil))
+        } catch {
+            return .failure(error)
+        }
     }
     
     public func searchGames(query: String) async -> Result<[GameModel], Error> {
         return .success([])
     }
 }
+
+
+
+fileprivate struct GameCodable: Codable {
+    struct Platform: Codable {
+        struct PlatformInfo: Codable {
+            let id: Int
+            let name: String
+        }
+        
+        let platform: PlatformInfo
+        let released_at: String?
+    }
+    
+    let id: Int
+    let name: String
+    let background_image: String
+    let released: Date
+    let rating: Double
+    let platforms: [Platform]
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, released, rating, platforms, background_image
+    }
+}
+
