@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PlayRadar
 
 public final class GameDetailAPIInteractor: GameDetailInteractor {
     public init() {}
