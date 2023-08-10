@@ -8,40 +8,59 @@
 import Foundation
 import Combine
 
-final class GameDetailPresenter {
+public final class GameDetailPresenter {
     let error: AnyPublisher<Error, Never>
     
     private let sError = PassthroughSubject<Error, Never>()
+    private let sFavorite = CurrentValueSubject<Bool, Never>(false)
     
-    private let interactor: GameDetailInteractor
-    private var favorites: Set<String> = []
+    private let detailInteractor: GameDetailInteractor
+    private let favoriteInteractor: FavoriteGameInteractor
     private let game: GameModel
     
-    init(game: GameModel, interactor: GameDetailInteractor) {
+    public init(game: GameModel, detailInteractor: GameDetailInteractor, favoriteInteractor: FavoriteGameInteractor) {
         self.game = game
+        self.favoriteInteractor = favoriteInteractor
         error = sError.eraseToAnyPublisher()
-        self.interactor = interactor
+        self.detailInteractor = detailInteractor
     }
     
-    func getGameDetail() async {
-        switch await interactor.getGameDetail(id: game.id) {
-        case .success(let detail):
-            print("Success get detail")
-        case .failure(let error):
-            sError.send(error)
+    func getFavorite() {
+        Task {
+            let isFavorite = await favoriteInteractor.getFavorite(id:game.id)
+            await updateFavoriteUI(favorite: isFavorite)
+        }
+    }
+    
+    func getGameDetail() {
+        Task {
+            switch await detailInteractor.getGameDetail(id: game.id) {
+            case .success(let detail):
+                print("Success get detail")
+            case .failure(let error):
+                await MainActor.run { [unowned self] in
+                    sError.send(error)
+                }
+            }
         }
     }
     
     func toggleFavorite(for game: GameViewModel) {
-        if favorites.contains(game.id) {
-            favorites.remove(game.id)
-        } else {
-            favorites.insert(game.id)
+        Task {
+            var isFavorite = sFavorite.value;
+            isFavorite.toggle()
+            
+            await favoriteInteractor.setFavorite(
+                id:game.id,
+                favorite: isFavorite
+            )
+            
+            await updateFavoriteUI(favorite: isFavorite)
         }
-        
-        updateFavoriteUI()
     }
     
-    private func updateFavoriteUI() {
+    @MainActor
+    private func updateFavoriteUI(favorite: Bool) {
+        sFavorite.send(favorite)
     }
 }

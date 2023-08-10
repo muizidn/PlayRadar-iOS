@@ -41,7 +41,7 @@ final class FavoriteTabBarChildRouter: NSObject, FavoriteListRouter {
     }
     
     func launchDetail(game: GameModel) {
-        let router = PushGameDetailRouter(navigationController: viewController.navigationController!)
+        let router = PushGameDetailRouter(navigationController: viewController.navigationController!, game: game)
         router.launch()
     }
 }

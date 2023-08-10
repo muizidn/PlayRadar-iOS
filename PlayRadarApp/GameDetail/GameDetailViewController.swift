@@ -6,8 +6,20 @@
 //
 
 import UIKit
+import PlayRadar
 
 class GameDetailViewController: UIViewController {
+    let presenter: GameDetailPresenter
+    
+    init(presenter: GameDetailPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - UI Elements
     
     let coverImageView: UIImageView = {
@@ -164,9 +176,35 @@ import SwiftUI
 struct GameDetailViewController_Previews: PreviewProvider {
     static var previews: some View {
         ControllerPreviewContainer {
-            let vc = GameDetailViewController()
+            let vc = GameDetailViewController(
+                presenter: GameDetailPresenter(
+                    game: GameModel(
+                        id: "1",
+                        title: "foo",
+                        release: Date(),
+                        rating: 2),
+                    detailInteractor: DummyDetailInteractor(),
+                    favoriteInteractor: DummyFavoriteInteractor()
+                )
+            )
             vc.viewDidLoad()
             return UINavigationController(rootViewController: vc)
+        }
+    }
+    
+    class DummyDetailInteractor: GameDetailInteractor {
+        func getGameDetail(id: String) async -> Result<String, Error> {
+            fatalError()
+        }
+    }
+    
+    class DummyFavoriteInteractor: FavoriteGameInteractor {
+        func setFavorite(id: String, favorite: Bool) async {
+            fatalError()
+        }
+        
+        func getFavorite(id: String) async -> Bool {
+            fatalError()
         }
     }
 }

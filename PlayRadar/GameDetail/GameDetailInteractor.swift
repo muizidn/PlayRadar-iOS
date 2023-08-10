@@ -7,7 +7,12 @@
 
 import Foundation
 
-protocol GameDetailInteractor {
+public protocol GameDetailInteractor {
     func getGameDetail(id: String) async -> Result<String, Error>
+}
+
+public protocol FavoriteGameInteractor {
+    func setFavorite(id: String,favorite: Bool) async
+    func getFavorite(id: String) async -> Bool
 }
 
