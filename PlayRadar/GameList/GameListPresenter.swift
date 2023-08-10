@@ -41,6 +41,7 @@ public final class GameListPresenter: IGameListPresenter {
     private let interactor: GameListInteractor
     private var nextPage = 1
     private var hasNext = true
+    private var isSearch = false
     
     public init(interactor: GameListInteractor, loaderStrategy: LoaderStrategy = .append ) {
         games = sGames.eraseToAnyPublisher()
@@ -84,6 +85,10 @@ public final class GameListPresenter: IGameListPresenter {
     }
     
     public func nextGames() async {
+        guard !isSearch else {
+            sLoadingNextGames.send(false)
+            return
+        }
         if hasNext {
             sLoadingNextGames.send(true)
             defer { sLoadingNextGames.send(false) }
@@ -94,6 +99,7 @@ public final class GameListPresenter: IGameListPresenter {
     }
     
     public func searchGames(query: String) async {
+        isSearch = !query.isEmpty
         sSearch.send(query)
     }
     
@@ -102,8 +108,6 @@ public final class GameListPresenter: IGameListPresenter {
         case .success(let result):
             sGames.send(result.map({ .from($0) }))
             gamesModel.removeAll(keepingCapacity: true)
-            hasNext = false
-            nextPage = 1
         case .failure(let error):
             sError.send(error)
         }
