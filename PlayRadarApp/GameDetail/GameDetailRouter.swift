@@ -21,7 +21,9 @@ final class PushGameDetailRouter: Router {
     func launch() -> UIViewController {
         vc = GameDetailViewController(presenter: GameDetailPresenter(
             game: game,
-            detailInteractor: GameDetailAPIInteractor(),
+            detailInteractor: GameDetailRemoteWithLocalFallbackInteractor(
+                remote: GameDetailAPIInteractor(),
+                local: LocalGameDetailInteractor()),
             favoriteInteractor: LocalFavoriteGameInteractor()))
         navigationController.pushViewController(vc, animated: true)
         return vc

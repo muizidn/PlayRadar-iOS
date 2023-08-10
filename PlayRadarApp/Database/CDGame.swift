@@ -16,6 +16,6 @@ final class CDGame: NSManagedObject, EntityLoadable {
     @NSManaged var publisher: String
     @NSManaged var release: Date
     @NSManaged var rating: Double
-    @NSManaged var contentDescription: String
+    @NSManaged var gameDescription: String
 }
 
