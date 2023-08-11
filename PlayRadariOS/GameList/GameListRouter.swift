@@ -75,6 +75,12 @@ struct GameListRouter_Previews: PreviewProvider {
 #if DEBUG
 final class UITestingGameListRouter: NSObject, GameListRouter {
     private(set) var viewController: UIViewController!
+    let enableNavigation: Bool
+    
+    init(enableNavigation: Bool) {
+        self.enableNavigation = enableNavigation
+    }
+    
     func launch() -> UIViewController {
         let vc = GameListViewController(
             presenter: GameListPresenter(
@@ -83,11 +89,15 @@ final class UITestingGameListRouter: NSObject, GameListRouter {
             router: WeakProxy(self)
         )
         self.viewController = vc
-        return vc
+        return UINavigationController(rootViewController: vc)
     }
     
-    func launchDetail(game: PlayRadar.GameModel) {
-        
+    func launchDetail(game: GameModel) {
+        guard enableNavigation else { return }
+        let router = UITestingGameDetailRouter(
+            navigationController: viewController.navigationController!,
+            game: game)
+        router.launch()
     }
     
     class MockGameListInteractor: GameListInteractor {

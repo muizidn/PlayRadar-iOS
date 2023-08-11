@@ -20,9 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         router = DashboardRouter()
+        
         #if DEBUG
         if CommandLine.arguments.contains("uitest") {
-            router = UITestingGameListRouter()
+            if CommandLine.arguments.contains("GameList") {
+                router = UITestingGameListRouter(
+                    enableNavigation: CommandLine.arguments.contains("enableNavigation")
+                )
+            }
         }
         #endif
         
