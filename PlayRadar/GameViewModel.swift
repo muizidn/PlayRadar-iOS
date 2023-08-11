@@ -19,15 +19,11 @@ public final class GameViewModel {
         self.coverImage = coverImage
         self.title = title
         self.releaseDate = "Released date \(Self.dateFormatter.string(from: releaseDate))"
-        if Self.hasFractionalPart(rating) {
+        if rating.hasFractionalPart {
             self.rating = rating.description
         } else {
             self.rating = Int(rating).description
         }
-    }
-    
-    static private func hasFractionalPart(_ value: Double) -> Bool {
-        return value != Double(Int(value))
     }
     
     public let id: String

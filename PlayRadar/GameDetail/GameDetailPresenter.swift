@@ -10,6 +10,10 @@ import Combine
 
 public final class GameDetailPresenter {
     public let detail: AnyPublisher<GameDetailModel, Never>
+    public let releaseAt: AnyPublisher<String, Never>
+    public let playCount: AnyPublisher<String, Never>
+    public let rating: AnyPublisher<String, Never>
+    
     public let isFavorite: AnyPublisher<Bool, Never>
     let error: AnyPublisher<Error, Never>
     
@@ -21,6 +25,12 @@ public final class GameDetailPresenter {
     private let favoriteInteractor: FavoriteGameInteractor
     private let game: GameModel
     
+    private static let dateFormatter: DateFormatter = {
+       let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        return df
+    }()
+    
     public init(game: GameModel, detailInteractor: GameDetailInteractor, favoriteInteractor: FavoriteGameInteractor) {
         self.game = game
         self.favoriteInteractor = favoriteInteractor
@@ -28,7 +38,20 @@ public final class GameDetailPresenter {
         
         error = sError.eraseToAnyPublisher()
         isFavorite = sFavorite.eraseToAnyPublisher()
-        detail = sDetail.eraseToAnyPublisher()
+        let detailShared = sDetail.share()
+        detail = detailShared.eraseToAnyPublisher()
+        releaseAt = detailShared
+            .map(\.game.release)
+            .map({ "Released date \(Self.dateFormatter.string(from: $0))" })
+            .eraseToAnyPublisher()
+        playCount = detailShared
+            .map(\.playCount)
+            .map({ "\($0) Played" })
+            .eraseToAnyPublisher()
+        rating = detailShared
+            .map(\.game.rating)
+            .map({ $0.hasFractionalPart ? $0.description : Int($0).description })
+            .eraseToAnyPublisher()
     }
     
     public func getFavorite() {

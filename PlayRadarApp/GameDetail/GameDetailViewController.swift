@@ -128,11 +128,29 @@ class GameDetailViewController: UIViewController {
                     coverImageView.setImage(withURL: url)
                 }
                 gameTitleLabel.text = detail.game.title
-                releaseDateLabel.text = detail.game.release.description
-                ratingLabel.text = detail.game.rating.description
                 publisherLabel.text = detail.publisher
-                playCountLabel.text = detail.playCount.description
                 descriptionLabel.attributedText = .from(html: detail.gameDescription, withFont: descriptionLabel.font)
+            }
+            .store(in: &cancellables)
+        
+        presenter.playCount
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] text in
+                playCountLabel.text = text
+            }
+            .store(in: &cancellables)
+        
+        presenter.rating
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] text in
+                ratingLabel.text = text
+            }
+            .store(in: &cancellables)
+        
+        presenter.releaseAt
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] text in
+                releaseDateLabel.text = text
             }
             .store(in: &cancellables)
         
