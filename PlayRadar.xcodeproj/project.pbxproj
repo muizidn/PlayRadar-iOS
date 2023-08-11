@@ -39,7 +39,7 @@
 		224C76AA2A83FE9500911849 /* NSManagedObject+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76A92A83FE9500911849 /* NSManagedObject+Context.swift */; };
 		224C76AF2A848F5F00911849 /* LocalFavoriteGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76AE2A848F5F00911849 /* LocalFavoriteGameInteractor.swift */; };
 		224C76B12A849C6C00911849 /* LocalGameDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B02A849C6C00911849 /* LocalGameDetailInteractor.swift */; };
-		224C76B32A849DAB00911849 /* GameDetailInteractorRemoteWithLocalFallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B22A849DAB00911849 /* GameDetailInteractorRemoteWithLocalFallback.swift */; };
+		224C76B32A849DAB00911849 /* GameDetailRemoteWithLocalFallbackInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B22A849DAB00911849 /* GameDetailRemoteWithLocalFallbackInteractor.swift */; };
 		224C76B52A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B42A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift */; };
 		224C76B82A84CDE800911849 /* RemoteGameListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B72A84CDE800911849 /* RemoteGameListInteractor.swift */; };
 		224C76B92A84D03200911849 /* RemoteGameListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C65082A83172700CA12B3 /* RemoteGameListInteractorTests.swift */; };
@@ -150,7 +150,7 @@
 		224C76AB2A848EC700911849 /* RemoteGameDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGameDetailInteractor.swift; sourceTree = "<group>"; };
 		224C76AE2A848F5F00911849 /* LocalFavoriteGameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFavoriteGameInteractor.swift; sourceTree = "<group>"; };
 		224C76B02A849C6C00911849 /* LocalGameDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalGameDetailInteractor.swift; sourceTree = "<group>"; };
-		224C76B22A849DAB00911849 /* GameDetailInteractorRemoteWithLocalFallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailInteractorRemoteWithLocalFallback.swift; sourceTree = "<group>"; };
+		224C76B22A849DAB00911849 /* GameDetailRemoteWithLocalFallbackInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailRemoteWithLocalFallbackInteractor.swift; sourceTree = "<group>"; };
 		224C76B42A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailRemoteWithLocalFallbackInteractorTests.swift; sourceTree = "<group>"; };
 		224C76B72A84CDE800911849 /* RemoteGameListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGameListInteractor.swift; sourceTree = "<group>"; };
 		224C76BA2A84E44800911849 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -381,7 +381,7 @@
 			children = (
 				223FC8132A83268A007B8F02 /* GameDetailViewController.swift */,
 				22B2C64D2A83E49600CFF952 /* GameDetailRouter.swift */,
-				224C76B22A849DAB00911849 /* GameDetailInteractorRemoteWithLocalFallback.swift */,
+				224C76B22A849DAB00911849 /* GameDetailRemoteWithLocalFallbackInteractor.swift */,
 			);
 			path = GameDetail;
 			sourceTree = "<group>";
@@ -608,7 +608,7 @@
 				224C76AF2A848F5F00911849 /* LocalFavoriteGameInteractor.swift in Sources */,
 				224C76A62A83FCCA00911849 /* CDFavorite.swift in Sources */,
 				220C649C2A824F2500CA12B3 /* DashboardViewController.swift in Sources */,
-				224C76B32A849DAB00911849 /* GameDetailInteractorRemoteWithLocalFallback.swift in Sources */,
+				224C76B32A849DAB00911849 /* GameDetailRemoteWithLocalFallbackInteractor.swift in Sources */,
 				224C76C42A85AD9F00911849 /* RemoteGameDetailInteractor.swift in Sources */,
 				224C76BB2A84E44800911849 /* API.swift in Sources */,
 				220C64CF2A8250DB00CA12B3 /* UIImageView+Extension.swift in Sources */,
