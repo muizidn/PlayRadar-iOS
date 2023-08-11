@@ -5,6 +5,12 @@ Welcome to PlayRadar, an exceptional application designed to immerse you in the 
 
 ## A Glimpse of Features
 
+| Game List | Detail | Favorites |
+|-----------|--------|-----------|
+| ![Game List](screenshoots/game_list.png) | ![Detail](screenshoots/detail.png) | ![Favorites](screenshoots/favorite.png) |
+
+
+
 1. **Game Listing**: Explore an extensive array of games, complete with eye-catching cover images, engaging titles, release dates, and ratings.
 2. **Game Details**: Delve deep into the intricacies of your beloved games, including comprehensive publisher insights, play count statistics, and vivid game descriptions.
 3. **Favorites List**: Curate your personal collection of favorites, ensuring you keep an organized track of the games you hold dear.
