@@ -271,7 +271,7 @@ struct GameDetailViewController_Previews: PreviewProvider {
     
     class DummyDetailInteractor: GameDetailInteractor {
         func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
-            fatalError()
+            return .success(.init(game: GameModel(id: "12", title: "Fake Title", release: Date(), rating: 123), publisher: "Bethesda", playCount: 100000212, gameDescription: Array(repeating: "<p>This is fake description</p>", count: 100).joined()))
         }
     }
     
@@ -281,7 +281,7 @@ struct GameDetailViewController_Previews: PreviewProvider {
         }
         
         func getFavorite(id: String) async -> Bool {
-            fatalError()
+            return false
         }
     }
 }
