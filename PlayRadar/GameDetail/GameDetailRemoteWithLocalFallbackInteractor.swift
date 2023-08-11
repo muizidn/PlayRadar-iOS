@@ -6,18 +6,17 @@
 //
 
 import Foundation
-import PlayRadar
 
-final class GameDetailRemoteWithLocalFallbackInteractor: GameDetailInteractor {
+public final class GameDetailRemoteWithLocalFallbackInteractor: GameDetailInteractor {
     let remote: GameDetailInteractor
     let local: LocalGameDetailInteracotr
     
-    init(remote: GameDetailInteractor, local: LocalGameDetailInteracotr) {
+    public init(remote: GameDetailInteractor, local: LocalGameDetailInteracotr) {
         self.remote = remote
         self.local = local
     }
     
-    func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
+    public func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
         let result = await remote.getGameDetail(id: id)
         switch result {
         case .success(let detail):

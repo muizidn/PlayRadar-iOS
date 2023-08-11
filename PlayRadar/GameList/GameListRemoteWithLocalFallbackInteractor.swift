@@ -6,19 +6,18 @@
 //
 
 import Foundation
-import PlayRadar
 
-final class GameListRemoteWithLocalFallbackInteractor: GameListInteractor {
+public final class GameListRemoteWithLocalFallbackInteractor: GameListInteractor {
     let remote: GameListInteractor
     let local: LocalGameListInteractor
     
-    init(remote: GameListInteractor, local: LocalGameListInteractor) {
+    public init(remote: GameListInteractor, local: LocalGameListInteractor) {
         self.remote = remote
         self.local = local
     }
     
     
-    func loadGames(page: Int) async -> Result<PlayRadar.Pagination<PlayRadar.GameModel>, Error> {
+    public func loadGames(page: Int) async -> Result<PlayRadar.Pagination<PlayRadar.GameModel>, Error> {
         let result = await remote.loadGames(page: page)
         switch result {
         case .success(let games):
@@ -35,7 +34,7 @@ final class GameListRemoteWithLocalFallbackInteractor: GameListInteractor {
         }
     }
     
-    func searchGames(query: String) async -> Result<[PlayRadar.GameModel], Error> {
+    public func searchGames(query: String) async -> Result<[PlayRadar.GameModel], Error> {
         let result = await remote.searchGames(query: query)
         switch result {
         case .success(let games):
