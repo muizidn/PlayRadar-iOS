@@ -55,7 +55,6 @@
 		224C77052A85D9E200911849 /* CoreDataLocalGameListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76C22A85047000911849 /* CoreDataLocalGameListInteractor.swift */; };
 		224C77062A85D9E200911849 /* NSManagedObject+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76A92A83FE9500911849 /* NSManagedObject+Context.swift */; };
 		224C77142A85DAA200911849 /* PlayRadarRemote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C770C2A85DAA200911849 /* PlayRadarRemote.framework */; };
-		224C771B2A85DAA200911849 /* PlayRadarRemoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C771A2A85DAA200911849 /* PlayRadarRemoteTests.swift */; };
 		224C771C2A85DAA200911849 /* PlayRadarRemote.h in Headers */ = {isa = PBXBuildFile; fileRef = 224C770E2A85DAA200911849 /* PlayRadarRemote.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		224C771F2A85DAA200911849 /* PlayRadarRemote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C770C2A85DAA200911849 /* PlayRadarRemote.framework */; };
 		224C77202A85DAA200911849 /* PlayRadarRemote.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 224C770C2A85DAA200911849 /* PlayRadarRemote.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -337,7 +336,6 @@
 		224C770C2A85DAA200911849 /* PlayRadarRemote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayRadarRemote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		224C770E2A85DAA200911849 /* PlayRadarRemote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayRadarRemote.h; sourceTree = "<group>"; };
 		224C77132A85DAA200911849 /* PlayRadarRemoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayRadarRemoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		224C771A2A85DAA200911849 /* PlayRadarRemoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarRemoteTests.swift; sourceTree = "<group>"; };
 		224C772F2A85DB6100911849 /* PlayRadarMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayRadarMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224C77312A85DB6100911849 /* PlayRadarMacOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarMacOSApp.swift; sourceTree = "<group>"; };
 		224C77332A85DB6100911849 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -649,7 +647,6 @@
 			isa = PBXGroup;
 			children = (
 				220C65082A83172700CA12B3 /* RemoteGameListInteractorTests.swift */,
-				224C771A2A85DAA200911849 /* PlayRadarRemoteTests.swift */,
 			);
 			path = PlayRadarRemoteTests;
 			sourceTree = "<group>";
@@ -1296,7 +1293,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				224C778F2A85F17E00911849 /* RemoteGameListInteractorTests.swift in Sources */,
-				224C771B2A85DAA200911849 /* PlayRadarRemoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
