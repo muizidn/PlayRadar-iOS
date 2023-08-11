@@ -31,7 +31,7 @@ final class GameListTabBarChildRouter: NSObject, GameListRouter {
             presenter: GameListPresenter(
                 interactor: GameListRemoteWithLocalFallbackInteractor(
                     remote: RemoteGameListInteractor(httpClient: URLSession.shared),
-                    local: CoreDataLocalGameListInteractor()
+                    local: CoreDataLocalGameListInteractor(databaseClient: CoreDataDatabase.shared)
                 )
             ),
             router: WeakProxy(self)

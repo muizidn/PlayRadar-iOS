@@ -9,10 +9,15 @@ import Foundation
 import PlayRadar
 
 public final class CoreDataLocalGameListInteractor: LocalGameListInteractor {
-    public init() {}
+    private let databaseClient: DatabaseClient
+    
+    public init(databaseClient: DatabaseClient) {
+        self.databaseClient = databaseClient
+    }
+    
     public func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
         do {
-            let games = try await CoreDataDatabase.shared.fetch(CDGame.self)
+            let games = try await databaseClient.fetch(CDGame.self, where: [:])
             let data = games.map { game in
                 GameModel(id: game.id, title: game.title, release: game.releaseDate, rating: game.rating)
             }
@@ -26,7 +31,7 @@ public final class CoreDataLocalGameListInteractor: LocalGameListInteractor {
     public func saveGames(_ games: [GameModel]) async -> Result<Void, Error> {
         do {
             for game in games {
-                try await CoreDataDatabase.shared.update(CDGame.self, where: ["id": game.id], closure: { e in
+                try await databaseClient.update(CDGame.self, where: ["id": game.id], closure: { e in
                     e.id = game.id
                     e.title = game.title
                     e.cover = game.cover
