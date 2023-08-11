@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIImageView {
+    @discardableResult
     func setImage(withURL url: URL) -> AsyncImageReference {
         return AsyncImageReference(url, self)
     }
