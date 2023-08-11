@@ -9,10 +9,15 @@ import Foundation
 import PlayRadar
 
 public final class CoreDataLocalFavoriteGameListInteractor: GameListInteractor {
-    public init() {}
+    private let databaseClient: DatabaseClient
+    
+    public init(databaseClient: DatabaseClient) {
+        self.databaseClient = databaseClient
+    }
+    
     public func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
         do {
-            let favorites = try await CoreDataDatabase.shared.fetch(CDFavorite.self)
+            let favorites = try await databaseClient.fetch(CDFavorite.self, where: [:])
             let data = favorites.map { favorite in
                 favorite.game
             }.map { game in
