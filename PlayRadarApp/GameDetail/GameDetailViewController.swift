@@ -121,10 +121,17 @@ class GameDetailViewController: UIViewController {
             }
             .store(in: &cancellables)
         
-        presenter.gameDescription
+        presenter.detail
             .receive(on: DispatchQueue.main)
-            .sink { [unowned self] description in
-                descriptionLabel.text = description
+            .sink { [unowned self] detail in
+                if let url = detail.game.cover {
+                    coverImageView.setImage(withURL: url)
+                }
+                gameTitleLabel.text = detail.game.title
+                releaseDateLabel.text = detail.game.release.description
+                ratingLabel.text = detail.game.rating.description
+                publisherLabel.text = detail.publisher
+                descriptionLabel.text = detail.gameDescription
             }
             .store(in: &cancellables)
         
