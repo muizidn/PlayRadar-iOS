@@ -26,10 +26,17 @@ struct GameListView: View {
                 }
                 List {
                     ForEach(viewModel.games) { game in
-                        GameCellView(game: game)
-                            .onAppear {
-                                viewModel.loadNextGamesIfNeeded(game)
-                            }
+                        NavigationLink {
+                            GameDetailView(
+                                viewModel: createDetailViewModel(
+                                    forGame: viewModel.getGame(with: game.id)))
+                        } label: {
+                            GameCellView(game: game)
+                                .onAppear {
+                                    viewModel.loadNextGamesIfNeeded(game)
+                                }
+                        }
+
                         
                         // fixme: must be better logic
                         // this is required so that cell.onAppear doesn't call

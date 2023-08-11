@@ -11,7 +11,7 @@ import PlayRadarRemote
 import PlayRadarLocal
 
 struct ContentView: View {
-    @State var items = ["Game List", "Favorite", "Detail?"]
+    @State var items = ["Game List", "Favorite"]
 
     var body: some View {
         NavigationView {
