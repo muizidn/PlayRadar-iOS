@@ -1,40 +1,43 @@
-# PlayRadar: Exploring Games with RAWG API
+# PlayRadar: Unveiling the Gaming World through RAWG API
+😀 Haha, ChatGPT detected ya?
 
-Welcome to PlayRadar, an application designed to provide an immersive experience in the world of gaming by harnessing the power of the RAWG API.
+Welcome to PlayRadar, an exceptional application designed to immerse you in the captivating realm of gaming, all powered by the RAWG API.
 
-## Features at a Glance
+## A Glimpse of Features
 
-1. **Game Listing**: Discover an extensive list of games, complete with cover images, titles, release dates, and ratings.
-2. **Game Details**: Dive deep into the details of your favorite games, including publisher information, play count, and game descriptions.
-3. **Favorites List**: Create your personal favorites list, allowing you to keep track of games you love.
-4. **Favorite Toggling**: Easily toggle games as favorites with a simple click.
+1. **Game Listing**: Explore an extensive array of games, complete with eye-catching cover images, engaging titles, release dates, and ratings.
+2. **Game Details**: Delve deep into the intricacies of your beloved games, including comprehensive publisher insights, play count statistics, and vivid game descriptions.
+3. **Favorites List**: Curate your personal collection of favorites, ensuring you keep an organized track of the games you hold dear.
+4. **Favorite Toggling**: Seamlessly mark and unmark games as favorites with a simple tap.
 
-## Tech Stack
+## Cutting-edge Technology Stack
 
-PlayRadar is built using modern technologies to ensure a seamless user experience.
+PlayRadar harnesses the power of modern technologies to deliver an unparalleled user experience.
 
-1. **Swift**: The primary programming language that powers the application.
-2. **UIKit**: The foundation for building the app's user interface.
-3. **URLSession**: Leveraged to make efficient network requests to the RAWG API.
-4. **CoreData**: The backbone of the local database, used to store game and favorite information.
-5. **XCTest**: Employs both Unit Tests and UI Tests to ensure the application's functionality.
+1. **Swift**: The backbone of the application, ensuring robust performance and dynamic functionalities.
+2. **UIKit**: The framework that breathes life into the app's elegant user interface.
+3. **SwiftUI**: Leveraged for SwiftUI previews, allowing you to experience the controller's appearance firsthand.
+4. **URLSession**: Empowered to make swift and efficient network requests to the RAWG API.
+5. **CoreData**: The cornerstone of the local database, expertly managing the storage of game and favorite information.
+6. **XCTest**: Employed for both Unit Tests and UI Tests, meticulously validating the app's functionality.
+7. **Dependency Injection**: A strategic approach that enhances testing capabilities, ensuring a sturdy and resilient application.
 
-## Dependency-free Development
+## A Dependency-free Journey
 
-PlayRadar is built without relying on any third-party dependencies. This not only ensures optimal performance but also makes the application more maintainable and secure.
+PlayRadar is meticulously crafted without the reliance on third-party dependencies. This not only guarantees exceptional performance but also instills maintainability and security at its core.
 
-## Architecture Pattern: VIPER
+## Architectural Brilliance: VIPER
 
-The application architecture follows the VIPER pattern, ensuring clear separation of concerns and promoting modularization for easier maintenance and scalability.
+The architecture of the application is artfully based on the VIPER pattern. This meticulous pattern boasts a clear division of responsibilities, fostering modularization that eases maintenance and facilitates future scalability.
 
-## Modularization for Enhanced Functionality
+## Modular Modules for Elevated Excellence
 
-The PlayRadar project is divided into several modules to enhance flexibility and platform independence:
+The PlayRadar project is thoughtfully modularized, enhancing flexibility and cross-platform harmonization:
 
-1. **PlayRadariOS**: The main iOS application module that orchestrates the user interface.
-2. **PlayRadarMacOS**: Ensures that core business logic remains platform-independent.
-3. **PlayRadar**: Contains the core business logic, making it easy to maintain and extend.
-4. **PlayRadarRemote**: Manages API calls to the RAWG API, fetching game data for the app.
-5. **PlayRadarLocal**: Handles data storage in the local database, ensuring seamless access to favorites and game details.
+1. **PlayRadariOS**: The heart of the iOS app, orchestrating the captivating user interface.
+2. **PlayRadarMacOS**: Safeguarding core business logic's platform independence, beckoning the world of macOS.
+3. **PlayRadar**: The epicenter of core business logic, ensuring the app's functionality is as brilliant as its vision.
+4. **PlayRadarRemote**: The conductor of API symphonies, orchestrating data retrieval from the RAWG API. Ready to transition to GraphQL in the future.
+5. **PlayRadarLocal**: The keeper of local database treasures, ensuring seamless access to favorites and game particulars. Poised for a future transition to the Realm framework.
 
-Feel free to explore, contribute, and enjoy the world of gaming with PlayRadar!
+Feel free to embark on a journey of exploration, contribute your insights, and immerse yourself in the rich universe of gaming with PlayRadar!
