@@ -1,5 +1,5 @@
 //
-//  LocalGameListInteractor.swift
+//  CoreDataLocalGameListInteractor.swift
 //  PlayRadarApp
 //
 //  Created by Muhammad Muizzsuddin on 10/08/23.
@@ -8,7 +8,7 @@
 import Foundation
 import PlayRadar
 
-final class LocalGameListInteractor: GameListInteractor {
+final class CoreDataLocalGameListInteractor: LocalGameListInteractor {
     func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
         do {
             let games = try await CoreDataDatabase.shared.fetch(CDGame.self)
