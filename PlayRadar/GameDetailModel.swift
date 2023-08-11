@@ -20,3 +20,5 @@ public struct GameDetailModel {
     public let playCount: Int
     public let gameDescription: String
 }
+
+extension GameDetailModel: Equatable {}

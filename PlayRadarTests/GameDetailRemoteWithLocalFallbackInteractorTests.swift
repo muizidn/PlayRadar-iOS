@@ -101,14 +101,6 @@ func checkResultEqual(_ lhs: Result<GameDetailModel, Error>,_ rhs: Result<GameDe
     }
 }
 
-extension GameDetailModel: Equatable {
-    public static func == (lhs: GameDetailModel, rhs: GameDetailModel) -> Bool {
-        return lhs.game == rhs.game &&
-        lhs.gameDescription == rhs.gameDescription &&
-        lhs.publisher == rhs.publisher
-    }
-}
-
 func FakeGameDetail(_ id: String) -> GameDetailModel {
     return .init(
         game: GameModel(

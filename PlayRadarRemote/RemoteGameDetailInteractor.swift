@@ -12,6 +12,7 @@ public final class RemoteGameDetailInteractor: GameDetailInteractor {
     private let decoderDateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
+        df.timeZone = .gmt
         return df
     }()
     
