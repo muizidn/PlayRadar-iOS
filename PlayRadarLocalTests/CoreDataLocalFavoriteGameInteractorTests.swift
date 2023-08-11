@@ -27,20 +27,20 @@ class CoreDataLocalFavoriteGameInteractorTests: XCTestCase {
     }
 
     func testSetFavorite() async throws {
-        try await spyClient.prefillDatabase(CDGame.self,ids: ["1"])
+        try await spyClient.clearDatabase()
+        try await spyClient.seedDatabase(CDGame.self,ids: ["1"])
         await interactor.setFavorite(id: "1", favorite: true)
 
         XCTAssertTrue(spyClient.saveCalled)
-        try await spyClient.clearDatabase()
     }
 
     func testRemoveFavorite() async throws {
-        try await spyClient.prefillDatabase(CDGame.self,ids: ["1"])
-        try await spyClient.prefillDatabase(CDFavorite.self,ids: ["1"])
+        try await spyClient.clearDatabase()
+        try await spyClient.seedDatabase(CDGame.self,ids: ["1"])
+        try await spyClient.seedDatabase(CDFavorite.self,ids: ["1"])
         await interactor.setFavorite(id: "1", favorite: false)
 
         XCTAssertTrue(spyClient.deleteCalled)
-        try await spyClient.clearDatabase()
     }
     
     // implement other test case

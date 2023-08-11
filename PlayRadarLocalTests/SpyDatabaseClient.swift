@@ -46,10 +46,10 @@ class SpyDatabaseClient: DatabaseClient {
         try await spied.update(e, where: `where`, closure: closure)
     }
     
-    func prefillDatabase<T: EntityLoadable & SetWithId>(_ e: T.Type,ids: [String]) async throws {
+    func seedDatabase<T: EntityLoadable & FakeFill>(_ e: T.Type,ids: [String]) async throws {
         for id in ids {
             try await CoreDataDatabase.shared.save(T.self) { e in
-                e.id = id
+                e.fillValue(id)
             }
         }
     }
@@ -64,9 +64,24 @@ class SpyDatabaseClient: DatabaseClient {
     }
 }
 
-protocol SetWithId: NSObject {
-    var id: String { get set }
+protocol FakeFill: NSObject {
+    func fillValue(_ text: String)
 }
 
-extension CDGame: SetWithId {}
-extension CDFavorite: SetWithId {}
+extension CDGame: FakeFill {
+    func fillValue(_ text: String) {
+        id = text
+        title = text
+        cover = URL(string: "http://localhost")
+        playCount = 19
+        releaseDate = .init(timeIntervalSince1970: 0)
+        gameDescription = text
+        publisher = text
+        rating = 4.5
+    }
+}
+extension CDFavorite: FakeFill {
+    func fillValue(_ text: String) {
+        id = text
+    }
+}
