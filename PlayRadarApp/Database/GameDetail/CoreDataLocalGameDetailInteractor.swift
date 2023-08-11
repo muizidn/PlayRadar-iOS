@@ -1,5 +1,5 @@
 //
-//  LocalGameDetailInteractor.swift
+//  CoreDataLocalGameDetailInteractor.swift
 //  PlayRadarApp
 //
 //  Created by Muhammad Muizzsuddin on 10/08/23.
@@ -7,10 +7,6 @@
 
 import Foundation
 import PlayRadar
-
-protocol LocalGameDetailInteracotr: GameDetailInteractor {
-    func saveGameDetail(id: String, detail: GameDetailModel) async -> Result<Void, Error>
-}
 
 final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteracotr {
     func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
