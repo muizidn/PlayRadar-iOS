@@ -30,6 +30,7 @@ public final class RemoteGameDetailInteractor: GameDetailInteractor {
             return .success(.init(
                 game: GameModel(
                     id: resp.id.description,
+                    cover: resp.backgroundImage.flatMap({ URL(string: $0) }),
                     title: resp.name,
                     release: resp.released ?? Date(),
                     rating: resp.rating),

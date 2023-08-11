@@ -27,7 +27,7 @@ class GameDetailViewController: UIViewController {
     
     let coverImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .red
         return imageView
@@ -132,7 +132,7 @@ class GameDetailViewController: UIViewController {
                 ratingLabel.text = detail.game.rating.description
                 publisherLabel.text = detail.publisher
                 playCountLabel.text = detail.playCount.description
-                descriptionLabel.text = detail.gameDescription
+                descriptionLabel.attributedText = .from(html: detail.gameDescription, withFont: descriptionLabel.font)
             }
             .store(in: &cancellables)
         
@@ -200,6 +200,32 @@ class GameDetailViewController: UIViewController {
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -20)
         ])
+    }
+}
+
+extension NSAttributedString {
+    static func from(html: String, withFont font: UIFont) -> NSAttributedString? {
+        guard let data = html.data(using: .utf8) else {
+            return nil
+        }
+        
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue
+        ]
+        
+        do {
+            let attributedString = try NSAttributedString(data: data, options: options, documentAttributes: nil)
+            
+            // Apply the label's font to the entire attributed string
+            let mutableAttributedString = NSMutableAttributedString(attributedString: attributedString)
+            mutableAttributedString.addAttribute(.font, value: font, range: NSRange(location: 0, length: mutableAttributedString.length))
+            
+            return mutableAttributedString
+        } catch {
+            print("Error converting HTML to NSAttributedString: \(error)")
+            return nil
+        }
     }
 }
 
