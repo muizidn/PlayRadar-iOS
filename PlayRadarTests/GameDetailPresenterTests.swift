@@ -105,6 +105,42 @@ class GameDetailPresenterTests: XCTestCase {
         
         XCTAssertFalse(isFavorite)
     }
+    
+    func testSetFavoriteCallInteractorSetFavorite_True() async throws {
+        var isFavorite = false
+        
+        presenter.isFavorite.sink { _isFavorite in
+            isFavorite = _isFavorite
+        }
+        .store(in: &cancellables)
+        
+        stubFavoriteInteractor.getFavoriteResult = false
+        presenter.getFavorite()
+        try await Task.sleep(for: .seconds(1))
+        presenter.toggleFavorite()
+        try await Task.sleep(for: .seconds(1))
+        
+        XCTAssertTrue(isFavorite)
+        XCTAssertTrue(stubFavoriteInteractor.setFavoriteValue)
+    }
+    
+    func testSetFavoriteCallInteractorSetFavorite_False() async throws {
+        var isFavorite = false
+        
+        presenter.isFavorite.sink { _isFavorite in
+            isFavorite = _isFavorite
+        }
+        .store(in: &cancellables)
+        
+        stubFavoriteInteractor.getFavoriteResult = true
+        presenter.getFavorite()
+        try await Task.sleep(for: .seconds(1))
+        presenter.toggleFavorite()
+        try await Task.sleep(for: .seconds(1))
+        
+        XCTAssertFalse(isFavorite)
+        XCTAssertFalse(stubFavoriteInteractor.setFavoriteValue)
+    }
 }
 
 
@@ -121,7 +157,8 @@ final class StubGameFavoriteInteractor: FavoriteGameInteractor {
         return getFavoriteResult
     }
     
+    var setFavoriteValue = false
     func setFavorite(id: String, favorite: Bool) async {
-        
+        setFavoriteValue = favorite
     }
 }
