@@ -30,6 +30,7 @@ class GameDetailViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .red
+        imageView.clipsToBounds = true
         return imageView
     }()
     
