@@ -9,60 +9,73 @@ import XCTest
 
 final class GameListTests: XCTestCase {
 
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        app = XCUIApplication()
+    }
+    
+    override func tearDown() {
+        app = nil
+        super.tearDown()
+    }
+
     func testCheckShowListGames() throws {
-        
-        let app = XCUIApplication()
-        app.launchArguments = ["uitest", "GameList"]
-        app.launch()
-        
-        let tablesQuery = app.tables
-        XCTAssertTrue(tablesQuery.staticTexts["Game 1"].exists)
-        XCTAssertTrue(tablesQuery.staticTexts["Game 2"].exists)
-        XCTAssertTrue(tablesQuery.staticTexts["Game 3"].exists)
+        app.launch(args: ["uitest", "GameList"])
+        verifyGamesAreDisplayed(["Game 1", "Game 2", "Game 3"])
     }
     
     func testOnTapNavigateToDetail() throws {
-        let app = XCUIApplication()
-        app.launchArguments = ["uitest", "GameList","enableNavigation"]
-        app.launch()
+        app.launch(args: ["uitest", "GameList", "enableNavigation"])
         
+        tapOnGame("Game 1")
+        verifyDetailScreen(1)
+        tapBackButton()
+        
+        tapOnGame("Game 2")
+        verifyDetailScreen(2)
+        tapBackButton()
+
+        tapOnGame("Game 3")
+        verifyDetailScreen(3)
+        tapBackButton()
+    }
+    
+    // Utility functions
+    
+    func verifyGamesAreDisplayed(_ gameNames: [String]) {
         let tablesQuery = app.tables
-        tablesQuery.staticTexts["Game 1"].tap()
-        
-        let detailNavigationBar = app.navigationBars["Detail"]
-        detailNavigationBar.staticTexts["Detail"].tap()
-        detailNavigationBar.children(matching: .button).element(boundBy: 1).tap()
+        for gameName in gameNames {
+            XCTAssertTrue(tablesQuery.staticTexts[gameName].exists)
+        }
+    }
+    
+    func tapOnGame(_ gameName: String) {
+        XCTAssertTrue(app.tables.staticTexts[gameName].exists)
+        app.tables.staticTexts[gameName].tap()
+    }
+    
+    func verifyDetailScreen(_ id: Int) {
+        XCTAssertTrue(app.navigationBars["Detail"].exists)
         
         let scrollViewsQuery = app.scrollViews
         let elementsQuery = scrollViewsQuery.otherElements
-        elementsQuery.staticTexts["publisher 1"].tap()
-        elementsQuery.staticTexts["Game 1"].tap()
+        XCTAssertTrue(elementsQuery.staticTexts["Game \(id)"].exists)
+        XCTAssertTrue(elementsQuery.staticTexts["publisher \(id)"].exists)
         
         let releasedDate19700101StaticText = elementsQuery.staticTexts["Released date 1970-01-01"]
-        releasedDate19700101StaticText.tap()
+        XCTAssertTrue(releasedDate19700101StaticText.exists)
         
-        let staticText = elementsQuery.staticTexts["1 Played"]
-        staticText.tap()
-        elementsQuery.staticTexts["description 1"].tap()
+        let staticText = elementsQuery.staticTexts["\(id) Played"]
+        XCTAssertTrue(staticText.exists)
         
-        let gamesForYouButton = detailNavigationBar.buttons["Games For You"]
-        gamesForYouButton.tap()
-        
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Game 2"]/*[[".cells.staticTexts[\"Game 2\"]",".staticTexts[\"Game 2\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        elementsQuery.staticTexts["publisher 2"].tap()
-        elementsQuery.staticTexts["Game 2"].tap()
-        releasedDate19700101StaticText.tap()
-        scrollViewsQuery.otherElements.containing(.staticText, identifier:"publisher 2").children(matching: .other).element.tap()
-        elementsQuery.staticTexts["description 2"].tap()
-        gamesForYouButton.tap()
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Game 3"]/*[[".cells.staticTexts[\"Game 3\"]",".staticTexts[\"Game 3\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        elementsQuery.staticTexts["publisher 3"].tap()
-        elementsQuery.staticTexts["Game 3"].tap()
-        releasedDate19700101StaticText.tap()
-        staticText.tap()
-        elementsQuery.staticTexts["description 3"].tap()
-        gamesForYouButton.tap()
-                
+        XCTAssertTrue(elementsQuery.staticTexts["description \(id)"].exists)
     }
     
+    func tapBackButton() {
+        let detailNavBar = app.navigationBars["Detail"]
+        let gamesForYouButton = detailNavBar.buttons["Games For You"]
+        gamesForYouButton.tap()
+    }
 }

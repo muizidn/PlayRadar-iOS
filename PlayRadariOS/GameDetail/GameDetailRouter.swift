@@ -83,7 +83,7 @@ fileprivate class MockInteractor: GameDetailInteractor, FavoriteGameInteractor {
                 title: "Game \(id)",
                 release: Date(timeIntervalSince1970: 0), rating: 1),
             publisher: "publisher \(id)",
-            playCount: 1,
+            playCount: Int(id) ?? 1,
             gameDescription: "description \(id)"))
     }
     
