@@ -34,6 +34,7 @@ public final class RemoteGameDetailInteractor: GameDetailInteractor {
                     release: resp.released ?? Date(),
                     rating: resp.rating),
                 publisher: resp.publishers.first?.name ?? "",
+                playCount: resp.playCount,
                 gameDescription: resp.gameDescription))
         } catch {
             return .failure(error)

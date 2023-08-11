@@ -131,6 +131,7 @@ class GameDetailViewController: UIViewController {
                 releaseDateLabel.text = detail.game.release.description
                 ratingLabel.text = detail.game.rating.description
                 publisherLabel.text = detail.publisher
+                playCountLabel.text = detail.playCount.description
                 descriptionLabel.text = detail.gameDescription
             }
             .store(in: &cancellables)

@@ -27,6 +27,7 @@ final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteracotr {
                     release: game.releaseDate,
                     rating: game.rating),
                 publisher: game.publisher,
+                playCount: Int(game.playCount),
                 gameDescription: game.gameDescription))
         } catch {
             return .failure(error)
@@ -37,6 +38,7 @@ final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteracotr {
         do {
             try await CoreDataDatabase.shared.save(CDGame.self, closure: { e in
                 e.id = id
+                e.playCount = Int16(detail.playCount)
                 e.gameDescription = detail.gameDescription
                 e.publisher = detail.publisher
             })
