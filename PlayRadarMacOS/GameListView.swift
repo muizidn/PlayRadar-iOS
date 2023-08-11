@@ -18,13 +18,35 @@ struct GameListView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                List(viewModel.games) { game in
-                    GameCellView(game: game)
+                HStack {
+                    TextField("Search any games you want", text: $viewModel.searchText)
+                    Button("Search") {
+                        viewModel.searchGames()
+                    }
+                }
+                List {
+                    ForEach(viewModel.games) { game in
+                        GameCellView(game: game)
+                            .onAppear {
+                                viewModel.loadNextGamesIfNeeded(game)
+                            }
+                        
+                        // fixme: must be better logic
+                        // this is required so that cell.onAppear doesn't call
+                        // the loadNextGamesIfNeeded continuously
+                        if game.id == viewModel.games.last?.id {
+                            Color.clear.frame(height: 1)
+                        }
+                    }
                 }
                 .listStyle(PlainListStyle())
+                
+                if viewModel.isLoadingNextGames {
+                    Text("Loading next games")
+                        .padding()
+                }
             }
             .frame(minWidth: 400, minHeight: 300)
-            .searchable(text: $viewModel.searchText)
             .padding()
             .onAppear {
                 viewModel.loadGames()
