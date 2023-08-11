@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-protocol EntityLoadable: NSManagedObject {
+public protocol EntityLoadable: NSManagedObject {
     static var entityName: String { get }
 }
 

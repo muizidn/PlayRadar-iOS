@@ -19,7 +19,7 @@ class GameDetailRemoteWithLocalFallbackInteractorTests: XCTestCase {
         }
     }
     
-    class StubLocal: LocalGameDetailInteracotr {
+    class StubLocal: LocalGameDetailInteractor {
         var getGameDetailCalled = false
         var saveGameDetailCalled = false
         var savedId: String = ""

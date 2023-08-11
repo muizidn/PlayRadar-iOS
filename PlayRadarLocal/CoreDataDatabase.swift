@@ -8,14 +8,13 @@
 import Foundation
 import CoreData
 
-final class CoreDataDatabase {
-    static let shared = CoreDataDatabase()
+public final class CoreDataDatabase: DatabaseClient {
+    public static let shared = CoreDataDatabase()
     
     private lazy var sharedContext = persistentContainer.newBackgroundContext()
     
     private init() {}
     
-    private let frameworkBundleID   = "com.muiz.idn.PlayRadarLocal"
     private let modelName           = "PlayRadar"
     
     private lazy var persistentContainer: NSPersistentContainer = {
@@ -35,7 +34,7 @@ final class CoreDataDatabase {
         return container
     }()
     
-    func get<T: EntityLoadable>(_ e: T.Type, where: [String:Any]) async throws -> T? {
+    public func get<T: EntityLoadable>(_ e: T.Type, where: [String:Any]) async throws -> T? {
         var predicates: [NSPredicate] = []
         
         for (key, value) in `where` {
@@ -51,7 +50,7 @@ final class CoreDataDatabase {
         return try sharedContext.fetch(fetchReq).first
     }
     
-    func fetch<T: EntityLoadable>(_ e: T.Type, where: [String:Any] = [:]) async throws -> [T] {
+    public func fetch<T: EntityLoadable>(_ e: T.Type, where: [String:Any] = [:]) async throws -> [T] {
         var predicates: [NSPredicate] = []
         
         for (key, value) in `where` {
@@ -66,14 +65,14 @@ final class CoreDataDatabase {
         return try sharedContext.fetch(fetchReq)
     }
     
-    func save<T: EntityLoadable>(_ e: T.Type, closure: (T) -> Void) async throws {
+    public func save<T: EntityLoadable>(_ e: T.Type, closure: (T) -> Void) async throws {
         let e = T.entity(sharedContext)
         closure(e)
         
         try sharedContext.save()
     }
     
-    func update<T: EntityLoadable>(_ e: T.Type, where: [String:Any], closure: (T) -> Void) async throws {
+    public func update<T: EntityLoadable>(_ e: T.Type, where: [String:Any], closure: (T) -> Void) async throws {
         if let existing = try await get(e, where: `where`) {
             closure(existing)
             try sharedContext.save()
@@ -82,7 +81,7 @@ final class CoreDataDatabase {
         }
     }
     
-    func delete<T: EntityLoadable>(_ e: T.Type, where: [String:Any]) async throws {
+    public func delete<T: EntityLoadable>(_ e: T.Type, where: [String:Any]) async throws {
         guard let e = try await get(e, where: `where`) else { return }
         sharedContext.delete(e)
         try sharedContext.save()

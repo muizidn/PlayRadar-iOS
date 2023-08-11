@@ -9,9 +9,9 @@ import Foundation
 
 public final class GameDetailRemoteWithLocalFallbackInteractor: GameDetailInteractor {
     let remote: GameDetailInteractor
-    let local: LocalGameDetailInteracotr
+    let local: LocalGameDetailInteractor
     
-    public init(remote: GameDetailInteractor, local: LocalGameDetailInteracotr) {
+    public init(remote: GameDetailInteractor, local: LocalGameDetailInteractor) {
         self.remote = remote
         self.local = local
     }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol LocalGameDetailInteracotr: GameDetailInteractor {
+public protocol LocalGameDetailInteractor: GameDetailInteractor {
     func saveGameDetail(id: String, detail: GameDetailModel) async -> Result<Void, Error>
 }

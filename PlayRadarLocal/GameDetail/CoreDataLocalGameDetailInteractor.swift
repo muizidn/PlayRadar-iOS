@@ -8,11 +8,16 @@
 import Foundation
 import PlayRadar
 
-public final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteracotr {
-    public init() {}
+public final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteractor {
+    private let databaseClient: DatabaseClient
+    
+    public init(databaseClient: DatabaseClient) {
+        self.databaseClient = databaseClient
+    }
+    
     public func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
         do {
-            guard let game = try await CoreDataDatabase.shared.get(CDGame.self, where: ["id": id]) else {
+            guard let game = try await databaseClient.get(CDGame.self, where: ["id": id]) else {
                 return .failure(NSError(domain: "LocalGameDetail", code: 1, userInfo: [
                     NSLocalizedDescriptionKey: "not found in local"
                 ]))
@@ -33,7 +38,7 @@ public final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteracotr 
     
     public func saveGameDetail(id: String, detail: GameDetailModel) async -> Result<Void, Error> {
         do {
-            try await CoreDataDatabase.shared.save(CDGame.self, closure: { e in
+            try await databaseClient.save(CDGame.self, closure: { e in
                 e.id = id
                 e.playCount = Int16(detail.playCount)
                 e.gameDescription = detail.gameDescription
