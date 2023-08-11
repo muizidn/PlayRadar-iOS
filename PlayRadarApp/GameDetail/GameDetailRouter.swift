@@ -7,6 +7,7 @@
 
 import UIKit
 import PlayRadar
+import PlayRadarLocal
 
 final class PushGameDetailRouter: Router {
     private var vc: GameDetailViewController!

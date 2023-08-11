@@ -8,8 +8,9 @@
 import Foundation
 import PlayRadar
 
-final class CoreDataLocalFavoriteGameListInteractor: GameListInteractor {
-    func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
+public final class CoreDataLocalFavoriteGameListInteractor: GameListInteractor {
+    public init() {}
+    public func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
         do {
             let favorites = try await CoreDataDatabase.shared.fetch(CDFavorite.self)
             let data = favorites.map { favorite in
@@ -28,7 +29,7 @@ final class CoreDataLocalFavoriteGameListInteractor: GameListInteractor {
         
     }
     // FIXME: this is violation of Interface Segregation Principle
-    func searchGames(query: String) async -> Result<[GameModel], Error> {
+    public func searchGames(query: String) async -> Result<[GameModel], Error> {
         fatalError()
     }
 }

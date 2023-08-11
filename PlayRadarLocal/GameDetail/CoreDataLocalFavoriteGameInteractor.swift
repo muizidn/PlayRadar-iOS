@@ -8,8 +8,9 @@
 import Foundation
 import PlayRadar
 
-final class CoreDataLocalFavoriteGameInteractor: FavoriteGameInteractor {
-    func setFavorite(id: String, favorite: Bool) async {
+public final class CoreDataLocalFavoriteGameInteractor: FavoriteGameInteractor {
+    public init() {}
+    public func setFavorite(id: String, favorite: Bool) async {
         do {
             if favorite {
                 guard let game = try await CoreDataDatabase.shared.get(CDGame.self, where: ["id": id]) else { return }
@@ -25,7 +26,7 @@ final class CoreDataLocalFavoriteGameInteractor: FavoriteGameInteractor {
         }
     }
     
-    func getFavorite(id: String) async -> Bool {
+    public func getFavorite(id: String) async -> Bool {
         do {
             return try await CoreDataDatabase.shared.get(CDFavorite.self, where: ["id": id]) != nil
         } catch {

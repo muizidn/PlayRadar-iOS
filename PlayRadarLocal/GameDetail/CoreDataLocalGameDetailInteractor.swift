@@ -8,8 +8,9 @@
 import Foundation
 import PlayRadar
 
-final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteracotr {
-    func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
+public final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteracotr {
+    public init() {}
+    public func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
         do {
             guard let game = try await CoreDataDatabase.shared.get(CDGame.self, where: ["id": id]) else {
                 return .failure(NSError(domain: "LocalGameDetail", code: 1, userInfo: [
@@ -30,7 +31,7 @@ final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteracotr {
         }
     }
     
-    func saveGameDetail(id: String, detail: GameDetailModel) async -> Result<Void, Error> {
+    public func saveGameDetail(id: String, detail: GameDetailModel) async -> Result<Void, Error> {
         do {
             try await CoreDataDatabase.shared.save(CDGame.self, closure: { e in
                 e.id = id

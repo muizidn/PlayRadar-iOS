@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import PlayRadar
+import PlayRadarLocal
 
 protocol FavoriteListRouter: Router {
     func launchDetail(game: GameModel)

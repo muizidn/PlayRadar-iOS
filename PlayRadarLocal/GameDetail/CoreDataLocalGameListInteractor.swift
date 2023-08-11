@@ -8,8 +8,9 @@
 import Foundation
 import PlayRadar
 
-final class CoreDataLocalGameListInteractor: LocalGameListInteractor {
-    func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
+public final class CoreDataLocalGameListInteractor: LocalGameListInteractor {
+    public init() {}
+    public func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
         do {
             let games = try await CoreDataDatabase.shared.fetch(CDGame.self)
             let data = games.map { game in
@@ -22,7 +23,7 @@ final class CoreDataLocalGameListInteractor: LocalGameListInteractor {
         
     }
     
-    func saveGames(_ games: [GameModel]) async -> Result<Void, Error> {
+    public func saveGames(_ games: [GameModel]) async -> Result<Void, Error> {
         do {
             for game in games {
                 try await CoreDataDatabase.shared.update(CDGame.self, where: ["id": game.id], closure: { e in
@@ -40,7 +41,7 @@ final class CoreDataLocalGameListInteractor: LocalGameListInteractor {
     }
     
     // FIXME: this is violation of Interface Segregation Principle
-    func searchGames(query: String) async -> Result<[GameModel], Error> {
+    public func searchGames(query: String) async -> Result<[GameModel], Error> {
         fatalError()
     }
 }

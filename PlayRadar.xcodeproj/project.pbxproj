@@ -33,18 +33,11 @@
 		223FC8142A83268A007B8F02 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8132A83268A007B8F02 /* GameDetailViewController.swift */; };
 		223FC8182A832FEB007B8F02 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8172A832FEB007B8F02 /* GameListViewController.swift */; };
 		223FC81A2A8334C2007B8F02 /* FavoriteListViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8192A8334C2007B8F02 /* FavoriteListViewContoller.swift */; };
-		224C76A62A83FCCA00911849 /* CDFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76A52A83FCCA00911849 /* CDFavorite.swift */; };
-		224C76A82A83FCF300911849 /* CDGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76A72A83FCF300911849 /* CDGame.swift */; };
-		224C76AA2A83FE9500911849 /* NSManagedObject+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76A92A83FE9500911849 /* NSManagedObject+Context.swift */; };
-		224C76AF2A848F5F00911849 /* CoreDataLocalFavoriteGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76AE2A848F5F00911849 /* CoreDataLocalFavoriteGameInteractor.swift */; };
-		224C76B12A849C6C00911849 /* CoreDataLocalGameDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B02A849C6C00911849 /* CoreDataLocalGameDetailInteractor.swift */; };
 		224C76B52A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B42A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift */; };
 		224C76B82A84CDE800911849 /* RemoteGameListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B72A84CDE800911849 /* RemoteGameListInteractor.swift */; };
 		224C76B92A84D03200911849 /* RemoteGameListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C65082A83172700CA12B3 /* RemoteGameListInteractorTests.swift */; };
 		224C76BB2A84E44800911849 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76BA2A84E44800911849 /* API.swift */; };
 		224C76BD2A84E8F200911849 /* APIResponseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76BC2A84E8F200911849 /* APIResponseBase.swift */; };
-		224C76BF2A8502F500911849 /* CoreDataLocalFavoriteGameListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76BE2A8502F400911849 /* CoreDataLocalFavoriteGameListInteractor.swift */; };
-		224C76C32A85047000911849 /* CoreDataLocalGameListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76C22A85047000911849 /* CoreDataLocalGameListInteractor.swift */; };
 		224C76C42A85AD9F00911849 /* RemoteGameDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76AB2A848EC700911849 /* RemoteGameDetailInteractor.swift */; };
 		224C76C62A85AEA200911849 /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76C52A85AEA200911849 /* GameDetailModel.swift */; };
 		224C76C82A85C0B600911849 /* GameDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76C72A85C0B600911849 /* GameDetailPresenterTests.swift */; };
@@ -54,6 +47,19 @@
 		224C76D02A85D7C600911849 /* FavoriteGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76CF2A85D7C600911849 /* FavoriteGameInteractor.swift */; };
 		224C76D12A85D8EA00911849 /* GameDetailRemoteWithLocalFallbackInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B22A849DAB00911849 /* GameDetailRemoteWithLocalFallbackInteractor.swift */; };
 		224C76D22A85D8EA00911849 /* GameListRemoteWithLocalFallbackInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76C02A85045100911849 /* GameListRemoteWithLocalFallbackInteractor.swift */; };
+		224C76E02A85D9A300911849 /* PlayRadarLocal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C76D82A85D9A300911849 /* PlayRadarLocal.framework */; };
+		224C76E72A85D9A300911849 /* PlayRadarLocalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76E62A85D9A300911849 /* PlayRadarLocalTests.swift */; };
+		224C76E82A85D9A300911849 /* PlayRadarLocal.h in Headers */ = {isa = PBXBuildFile; fileRef = 224C76DA2A85D9A300911849 /* PlayRadarLocal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		224C76EB2A85D9A300911849 /* PlayRadarLocal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C76D82A85D9A300911849 /* PlayRadarLocal.framework */; };
+		224C76EC2A85D9A300911849 /* PlayRadarLocal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 224C76D82A85D9A300911849 /* PlayRadarLocal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		224C76FF2A85D9E200911849 /* CoreDataDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C6562A83FA3C00CFF952 /* CoreDataDatabase.swift */; };
+		224C77002A85D9E200911849 /* CoreDataLocalFavoriteGameListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76BE2A8502F400911849 /* CoreDataLocalFavoriteGameListInteractor.swift */; };
+		224C77012A85D9E200911849 /* CDFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76A52A83FCCA00911849 /* CDFavorite.swift */; };
+		224C77022A85D9E200911849 /* CoreDataLocalFavoriteGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76AE2A848F5F00911849 /* CoreDataLocalFavoriteGameInteractor.swift */; };
+		224C77032A85D9E200911849 /* CDGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76A72A83FCF300911849 /* CDGame.swift */; };
+		224C77042A85D9E200911849 /* CoreDataLocalGameDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B02A849C6C00911849 /* CoreDataLocalGameDetailInteractor.swift */; };
+		224C77052A85D9E200911849 /* CoreDataLocalGameListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76C22A85047000911849 /* CoreDataLocalGameListInteractor.swift */; };
+		224C77062A85D9E200911849 /* NSManagedObject+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76A92A83FE9500911849 /* NSManagedObject+Context.swift */; };
 		2252A22C2A83D7DF005F21D9 /* GameListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */; };
 		2252A22E2A83D9AB005F21D9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22D2A83D9AB005F21D9 /* Router.swift */; };
 		2252A2302A83DAED005F21D9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */; };
@@ -61,7 +67,6 @@
 		22B2C64E2A83E49600CFF952 /* GameDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C64D2A83E49600CFF952 /* GameDetailRouter.swift */; };
 		22B2C6502A83E78200CFF952 /* WeakProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C64F2A83E78200CFF952 /* WeakProxy.swift */; };
 		22B2C6552A83F9D900CFF952 /* PlayRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C6532A83F9D800CFF952 /* PlayRadar.xcdatamodeld */; };
-		22B2C6572A83FA3C00CFF952 /* CoreDataDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C6562A83FA3C00CFF952 /* CoreDataDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +105,27 @@
 			remoteGlobalIDString = 220C64D92A830A5100CA12B3;
 			remoteInfo = PlayRadar;
 		};
+		224C76E12A85D9A300911849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 220C648C2A824F2500CA12B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 224C76D72A85D9A300911849;
+			remoteInfo = PlayRadarLocal;
+		};
+		224C76E32A85D9A300911849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 220C648C2A824F2500CA12B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 220C64932A824F2500CA12B3;
+			remoteInfo = PlayRadarApp;
+		};
+		224C76E92A85D9A300911849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 220C648C2A824F2500CA12B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 224C76D72A85D9A300911849;
+			remoteInfo = PlayRadarLocal;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -110,6 +136,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				220C64FE2A830E7100CA12B3 /* PlayRadar.framework in Embed Frameworks */,
+				224C76EC2A85D9A300911849 /* PlayRadarLocal.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +194,10 @@
 		224C76CB2A85D68F00911849 /* LocalGameDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalGameDetailInteractor.swift; sourceTree = "<group>"; };
 		224C76CD2A85D6DA00911849 /* LocalGameListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalGameListInteractor.swift; sourceTree = "<group>"; };
 		224C76CF2A85D7C600911849 /* FavoriteGameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGameInteractor.swift; sourceTree = "<group>"; };
+		224C76D82A85D9A300911849 /* PlayRadarLocal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlayRadarLocal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		224C76DA2A85D9A300911849 /* PlayRadarLocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayRadarLocal.h; sourceTree = "<group>"; };
+		224C76DF2A85D9A300911849 /* PlayRadarLocalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayRadarLocalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		224C76E62A85D9A300911849 /* PlayRadarLocalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarLocalTests.swift; sourceTree = "<group>"; };
 		2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListRouter.swift; sourceTree = "<group>"; };
 		2252A22D2A83D9AB005F21D9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
@@ -183,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				220C64FD2A830E7100CA12B3 /* PlayRadar.framework in Frameworks */,
+				224C76EB2A85D9A300911849 /* PlayRadarLocal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +247,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		224C76D52A85D9A300911849 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C76DC2A85D9A300911849 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224C76E02A85D9A300911849 /* PlayRadarLocal.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -226,6 +273,8 @@
 				220C64BA2A824F2700CA12B3 /* PlayRadarAppUITests */,
 				220C64DB2A830A5200CA12B3 /* PlayRadar */,
 				220C64E92A830A5200CA12B3 /* PlayRadarTests */,
+				224C76D92A85D9A300911849 /* PlayRadarLocal */,
+				224C76E52A85D9A300911849 /* PlayRadarLocalTests */,
 				220C64952A824F2500CA12B3 /* Products */,
 				220C64FC2A830E7100CA12B3 /* Frameworks */,
 			);
@@ -239,6 +288,8 @@
 				220C64B72A824F2700CA12B3 /* PlayRadarAppUITests.xctest */,
 				220C64DA2A830A5100CA12B3 /* PlayRadar.framework */,
 				220C64E32A830A5200CA12B3 /* PlayRadarTests.xctest */,
+				224C76D82A85D9A300911849 /* PlayRadarLocal.framework */,
+				224C76DF2A85D9A300911849 /* PlayRadarLocalTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,7 +310,6 @@
 				22B2C6532A83F9D800CFF952 /* PlayRadar.xcdatamodeld */,
 				220C64CE2A8250DB00CA12B3 /* UIImageView+Extension.swift */,
 				224C76B62A84CDD300911849 /* API */,
-				22B2C6582A83FBAB00CFF952 /* Database */,
 				220C64A32A824F2700CA12B3 /* Assets.xcassets */,
 				220C64A52A824F2700CA12B3 /* LaunchScreen.storyboard */,
 				220C64A82A824F2700CA12B3 /* Info.plist */,
@@ -362,6 +412,27 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		224C76D92A85D9A300911849 /* PlayRadarLocal */ = {
+			isa = PBXGroup;
+			children = (
+				224C76AD2A848F4D00911849 /* GameDetail */,
+				22B2C6562A83FA3C00CFF952 /* CoreDataDatabase.swift */,
+				224C76A52A83FCCA00911849 /* CDFavorite.swift */,
+				224C76A72A83FCF300911849 /* CDGame.swift */,
+				224C76A92A83FE9500911849 /* NSManagedObject+Context.swift */,
+				224C76DA2A85D9A300911849 /* PlayRadarLocal.h */,
+			);
+			path = PlayRadarLocal;
+			sourceTree = "<group>";
+		};
+		224C76E52A85D9A300911849 /* PlayRadarLocalTests */ = {
+			isa = PBXGroup;
+			children = (
+				224C76E62A85D9A300911849 /* PlayRadarLocalTests.swift */,
+			);
+			path = PlayRadarLocalTests;
+			sourceTree = "<group>";
+		};
 		2252A2312A83E0B2005F21D9 /* GameList */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,18 +469,6 @@
 			path = GameDetail;
 			sourceTree = "<group>";
 		};
-		22B2C6582A83FBAB00CFF952 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				224C76AD2A848F4D00911849 /* GameDetail */,
-				22B2C6562A83FA3C00CFF952 /* CoreDataDatabase.swift */,
-				224C76A52A83FCCA00911849 /* CDFavorite.swift */,
-				224C76A72A83FCF300911849 /* CDGame.swift */,
-				224C76A92A83FE9500911849 /* NSManagedObject+Context.swift */,
-			);
-			path = Database;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -418,6 +477,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				220C64EC2A830A5200CA12B3 /* PlayRadar.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C76D32A85D9A300911849 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224C76E82A85D9A300911849 /* PlayRadarLocal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +504,7 @@
 			);
 			dependencies = (
 				220C65002A830E7100CA12B3 /* PBXTargetDependency */,
+				224C76EA2A85D9A300911849 /* PBXTargetDependency */,
 			);
 			name = PlayRadarApp;
 			productName = PlayRadarApp;
@@ -516,6 +584,43 @@
 			productReference = 220C64E32A830A5200CA12B3 /* PlayRadarTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		224C76D72A85D9A300911849 /* PlayRadarLocal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 224C76ED2A85D9A300911849 /* Build configuration list for PBXNativeTarget "PlayRadarLocal" */;
+			buildPhases = (
+				224C76D32A85D9A300911849 /* Headers */,
+				224C76D42A85D9A300911849 /* Sources */,
+				224C76D52A85D9A300911849 /* Frameworks */,
+				224C76D62A85D9A300911849 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlayRadarLocal;
+			productName = PlayRadarLocal;
+			productReference = 224C76D82A85D9A300911849 /* PlayRadarLocal.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		224C76DE2A85D9A300911849 /* PlayRadarLocalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 224C76F02A85D9A300911849 /* Build configuration list for PBXNativeTarget "PlayRadarLocalTests" */;
+			buildPhases = (
+				224C76DB2A85D9A300911849 /* Sources */,
+				224C76DC2A85D9A300911849 /* Frameworks */,
+				224C76DD2A85D9A300911849 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				224C76E22A85D9A300911849 /* PBXTargetDependency */,
+				224C76E42A85D9A300911849 /* PBXTargetDependency */,
+			);
+			name = PlayRadarLocalTests;
+			productName = PlayRadarLocalTests;
+			productReference = 224C76DF2A85D9A300911849 /* PlayRadarLocalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -544,6 +649,13 @@
 						CreatedOnToolsVersion = 14.3;
 						TestTargetID = 220C64932A824F2500CA12B3;
 					};
+					224C76D72A85D9A300911849 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					224C76DE2A85D9A300911849 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 220C64932A824F2500CA12B3;
+					};
 				};
 			};
 			buildConfigurationList = 220C648F2A824F2500CA12B3 /* Build configuration list for PBXProject "PlayRadar" */;
@@ -564,6 +676,8 @@
 				220C64B62A824F2700CA12B3 /* PlayRadarAppUITests */,
 				220C64D92A830A5100CA12B3 /* PlayRadar */,
 				220C64E22A830A5200CA12B3 /* PlayRadarTests */,
+				224C76D72A85D9A300911849 /* PlayRadarLocal */,
+				224C76DE2A85D9A300911849 /* PlayRadarLocalTests */,
 			);
 		};
 /* End PBXProject section */
@@ -606,6 +720,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		224C76D62A85D9A300911849 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C76DD2A85D9A300911849 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -613,31 +741,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				224C76A82A83FCF300911849 /* CDGame.swift in Sources */,
 				220C64CB2A82501100CA12B3 /* GameCell.swift in Sources */,
-				224C76B12A849C6C00911849 /* CoreDataLocalGameDetailInteractor.swift in Sources */,
-				224C76AF2A848F5F00911849 /* CoreDataLocalFavoriteGameInteractor.swift in Sources */,
-				224C76A62A83FCCA00911849 /* CDFavorite.swift in Sources */,
 				220C649C2A824F2500CA12B3 /* DashboardViewController.swift in Sources */,
 				224C76C42A85AD9F00911849 /* RemoteGameDetailInteractor.swift in Sources */,
 				224C76BB2A84E44800911849 /* API.swift in Sources */,
 				220C64CF2A8250DB00CA12B3 /* UIImageView+Extension.swift in Sources */,
-				224C76AA2A83FE9500911849 /* NSManagedObject+Context.swift in Sources */,
 				22B2C6502A83E78200CFF952 /* WeakProxy.swift in Sources */,
 				2252A22E2A83D9AB005F21D9 /* Router.swift in Sources */,
 				224C76BD2A84E8F200911849 /* APIResponseBase.swift in Sources */,
 				224C76B82A84CDE800911849 /* RemoteGameListInteractor.swift in Sources */,
 				2252A22C2A83D7DF005F21D9 /* GameListRouter.swift in Sources */,
-				22B2C6572A83FA3C00CFF952 /* CoreDataDatabase.swift in Sources */,
 				2252A2352A83E0EA005F21D9 /* FavoriteListRouter.swift in Sources */,
 				223FC8182A832FEB007B8F02 /* GameListViewController.swift in Sources */,
 				22B2C6552A83F9D900CFF952 /* PlayRadar.xcdatamodeld in Sources */,
-				224C76BF2A8502F500911849 /* CoreDataLocalFavoriteGameListInteractor.swift in Sources */,
 				220C64982A824F2500CA12B3 /* AppDelegate.swift in Sources */,
 				223FC8142A83268A007B8F02 /* GameDetailViewController.swift in Sources */,
 				220C649A2A824F2500CA12B3 /* SceneDelegate.swift in Sources */,
 				22B2C64E2A83E49600CFF952 /* GameDetailRouter.swift in Sources */,
-				224C76C32A85047000911849 /* CoreDataLocalGameListInteractor.swift in Sources */,
 				220C64D12A8251EB00CA12B3 /* PreviewContainer.swift in Sources */,
 				223FC81A2A8334C2007B8F02 /* FavoriteListViewContoller.swift in Sources */,
 				2252A2302A83DAED005F21D9 /* DashboardRouter.swift in Sources */,
@@ -693,6 +813,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		224C76D42A85D9A300911849 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224C77032A85D9E200911849 /* CDGame.swift in Sources */,
+				224C76FF2A85D9E200911849 /* CoreDataDatabase.swift in Sources */,
+				224C77002A85D9E200911849 /* CoreDataLocalFavoriteGameListInteractor.swift in Sources */,
+				224C77012A85D9E200911849 /* CDFavorite.swift in Sources */,
+				224C77052A85D9E200911849 /* CoreDataLocalGameListInteractor.swift in Sources */,
+				224C77062A85D9E200911849 /* NSManagedObject+Context.swift in Sources */,
+				224C77042A85D9E200911849 /* CoreDataLocalGameDetailInteractor.swift in Sources */,
+				224C77022A85D9E200911849 /* CoreDataLocalFavoriteGameInteractor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C76DB2A85D9A300911849 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224C76E72A85D9A300911849 /* PlayRadarLocalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -720,6 +863,21 @@
 			isa = PBXTargetDependency;
 			target = 220C64D92A830A5100CA12B3 /* PlayRadar */;
 			targetProxy = 220C64FF2A830E7100CA12B3 /* PBXContainerItemProxy */;
+		};
+		224C76E22A85D9A300911849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 224C76D72A85D9A300911849 /* PlayRadarLocal */;
+			targetProxy = 224C76E12A85D9A300911849 /* PBXContainerItemProxy */;
+		};
+		224C76E42A85D9A300911849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 220C64932A824F2500CA12B3 /* PlayRadarApp */;
+			targetProxy = 224C76E32A85D9A300911849 /* PBXContainerItemProxy */;
+		};
+		224C76EA2A85D9A300911849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 224C76D72A85D9A300911849 /* PlayRadarLocal */;
+			targetProxy = 224C76E92A85D9A300911849 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -852,6 +1010,7 @@
 		220C64C22A824F2700CA12B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -879,6 +1038,7 @@
 		220C64C32A824F2700CA12B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1081,6 +1241,108 @@
 			};
 			name = Release;
 		};
+		224C76EE2A85D9A300911849 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = SDSLU2QT5X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarLocal;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		224C76EF2A85D9A300911849 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = SDSLU2QT5X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarLocal;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		224C76F12A85D9A300911849 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SDSLU2QT5X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarLocalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlayRadarApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PlayRadarApp";
+			};
+			name = Debug;
+		};
+		224C76F22A85D9A300911849 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SDSLU2QT5X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarLocalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlayRadarApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PlayRadarApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1134,6 +1396,24 @@
 			buildConfigurations = (
 				220C64F62A830A5200CA12B3 /* Debug */,
 				220C64F72A830A5200CA12B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		224C76ED2A85D9A300911849 /* Build configuration list for PBXNativeTarget "PlayRadarLocal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				224C76EE2A85D9A300911849 /* Debug */,
+				224C76EF2A85D9A300911849 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		224C76F02A85D9A300911849 /* Build configuration list for PBXNativeTarget "PlayRadarLocalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				224C76F12A85D9A300911849 /* Debug */,
+				224C76F22A85D9A300911849 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
