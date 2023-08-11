@@ -38,6 +38,8 @@ The architecture of the application is artfully based on the VIPER pattern. This
 
 ## Modular Modules for Elevated Excellence
 
+![Diagram](screenshoots/diagram.png)
+
 The PlayRadar project is thoughtfully modularized, enhancing flexibility and cross-platform harmonization:
 
 1. **PlayRadariOS**: The heart of the iOS app, orchestrating the captivating user interface.
