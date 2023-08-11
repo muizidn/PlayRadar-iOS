@@ -89,6 +89,8 @@
 		224C778D2A85EE5F00911849 /* PlayRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C6532A83F9D800CFF952 /* PlayRadar.xcdatamodeld */; };
 		224C778E2A85F17300911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B42A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift */; };
 		224C778F2A85F17E00911849 /* RemoteGameListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C65082A83172700CA12B3 /* RemoteGameListInteractorTests.swift */; };
+		224C77912A85F2DF00911849 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77902A85F2DF00911849 /* HTTPClient.swift */; };
+		224C77932A85F30300911849 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77922A85F30300911849 /* URLSession+Extension.swift */; };
 		2252A22C2A83D7DF005F21D9 /* GameListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */; };
 		2252A22E2A83D9AB005F21D9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22D2A83D9AB005F21D9 /* Router.swift */; };
 		2252A2302A83DAED005F21D9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */; };
@@ -353,6 +355,8 @@
 		224C77612A85DC9000911849 /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
 		224C777D2A85E70D00911849 /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
 		224C777F2A85E74C00911849 /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
+		224C77902A85F2DF00911849 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		224C77922A85F30300911849 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListRouter.swift; sourceTree = "<group>"; };
 		2252A22D2A83D9AB005F21D9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
@@ -514,6 +518,7 @@
 				22B2C64F2A83E78200CFF952 /* WeakProxy.swift */,
 				220C64CA2A82501100CA12B3 /* GameCell.swift */,
 				220C64D02A8251EB00CA12B3 /* PreviewContainer.swift */,
+				224C77922A85F30300911849 /* URLSession+Extension.swift */,
 				220C64CE2A8250DB00CA12B3 /* UIImageView+Extension.swift */,
 				220C64A32A824F2700CA12B3 /* Assets.xcassets */,
 				220C64A52A824F2700CA12B3 /* LaunchScreen.storyboard */,
@@ -632,6 +637,7 @@
 			children = (
 				224C76B72A84CDE800911849 /* RemoteGameListInteractor.swift */,
 				224C76AB2A848EC700911849 /* RemoteGameDetailInteractor.swift */,
+				224C77902A85F2DF00911849 /* HTTPClient.swift */,
 				224C76BC2A84E8F200911849 /* APIResponseBase.swift */,
 				224C76BA2A84E44800911849 /* API.swift */,
 				224C770E2A85DAA200911849 /* PlayRadarRemote.h */,
@@ -1186,6 +1192,7 @@
 				220C649C2A824F2500CA12B3 /* DashboardViewController.swift in Sources */,
 				220C64CF2A8250DB00CA12B3 /* UIImageView+Extension.swift in Sources */,
 				22B2C6502A83E78200CFF952 /* WeakProxy.swift in Sources */,
+				224C77932A85F30300911849 /* URLSession+Extension.swift in Sources */,
 				2252A22E2A83D9AB005F21D9 /* Router.swift in Sources */,
 				2252A22C2A83D7DF005F21D9 /* GameListRouter.swift in Sources */,
 				2252A2352A83E0EA005F21D9 /* FavoriteListRouter.swift in Sources */,
@@ -1277,6 +1284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				224C77282A85DAB600911849 /* APIResponseBase.swift in Sources */,
+				224C77912A85F2DF00911849 /* HTTPClient.swift in Sources */,
 				224C77272A85DAB600911849 /* RemoteGameDetailInteractor.swift in Sources */,
 				224C772A2A85DAB600911849 /* API.swift in Sources */,
 				224C77292A85DAB600911849 /* RemoteGameListInteractor.swift in Sources */,

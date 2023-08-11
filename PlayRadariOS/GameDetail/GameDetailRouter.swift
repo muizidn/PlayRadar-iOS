@@ -24,7 +24,7 @@ final class PushGameDetailRouter: Router {
         vc = GameDetailViewController(presenter: GameDetailPresenter(
             game: game,
             detailInteractor: GameDetailRemoteWithLocalFallbackInteractor(
-                remote: RemoteGameDetailInteractor(),
+                remote: RemoteGameDetailInteractor(httpClient: URLSession.shared),
                 local: CoreDataLocalGameDetailInteractor()),
             favoriteInteractor: CoreDataLocalFavoriteGameInteractor()))
         navigationController.pushViewController(vc, animated: true)

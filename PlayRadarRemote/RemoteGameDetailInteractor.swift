@@ -14,13 +14,19 @@ public final class RemoteGameDetailInteractor: GameDetailInteractor {
         df.dateFormat = "yyyy-MM-dd"
         return df
     }()
-    public init() {}
+    
+    private let httpClient: HTTPClient
+    
+    public init(httpClient: HTTPClient) {
+        self.httpClient = httpClient
+    }
+    
     public func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
         do {
-            let (data, response) = try await URLSession.shared.data(for: API.detail(id: id).createUrlRequest())
-            guard !((response as! HTTPURLResponse).statusCode >= 400) else {
+            let (data, response) = try await httpClient.performRequest(API.detail(id: id).createUrlRequest())
+            guard response == .success else {
                 return .failure(NSError(domain: "\(Self.self)", code: 1, userInfo: [
-                    NSLocalizedDescriptionKey: "Not Found"
+                    NSLocalizedDescriptionKey: "problem!"
                 ]))
             }
             
@@ -42,7 +48,6 @@ public final class RemoteGameDetailInteractor: GameDetailInteractor {
         }
     }
 }
-
 
 private struct PublisherCodable: Codable {
     let name: String
