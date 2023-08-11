@@ -12,13 +12,23 @@ public final class RemoteGameListInteractor: GameListInteractor {
     private let decoderDateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
+        df.timeZone = .gmt
         return df
     }()
-    public init() {}
+    
+    private let httpClient: HTTPClient
+    
+    public init(httpClient: HTTPClient) {
+        self.httpClient = httpClient
+    }
+    
     public func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
         do {
-            let (data, response) = try await URLSession.shared.data(for: API.games(page: page, count: 10).createUrlRequest())
-            guard !((response as! HTTPURLResponse).statusCode >= 400) else {
+            let (data, response) = try await httpClient.performRequest(
+                API.games(page: page, count: 10)
+                    .createUrlRequest()
+            )
+            guard response == .success else {
                 return .failure(NSError(domain: "\(Self.self)", code: 1, userInfo: [
                     NSLocalizedDescriptionKey: "Not Found"
                 ]))
@@ -44,10 +54,13 @@ public final class RemoteGameListInteractor: GameListInteractor {
     
     public func searchGames(query: String) async -> Result<[GameModel], Error> {
         do {
-            let (data, response) = try await URLSession.shared.data(for: API.search(query: query).createUrlRequest())
-            guard !((response as! HTTPURLResponse).statusCode >= 400) else {
+            let (data, response) = try await httpClient.performRequest(
+                API.search(query: query)
+                    .createUrlRequest()
+            )
+            guard response == .success else {
                 return .failure(NSError(domain: "\(Self.self)", code: 1, userInfo: [
-                    NSLocalizedDescriptionKey: "Not Found"
+                    NSLocalizedDescriptionKey: "problem!"
                 ]))
             }
             

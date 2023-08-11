@@ -30,7 +30,7 @@ final class GameListTabBarChildRouter: NSObject, GameListRouter {
         let vc = GameListViewController(
             presenter: GameListPresenter(
                 interactor: GameListRemoteWithLocalFallbackInteractor(
-                    remote: RemoteGameListInteractor(),
+                    remote: RemoteGameListInteractor(httpClient: URLSession.shared),
                     local: CoreDataLocalGameListInteractor()
                 )
             ),
