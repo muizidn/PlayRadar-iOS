@@ -7,6 +7,7 @@
 
 import UIKit
 import PlayRadar
+import PlayRadarRemote
 import PlayRadarLocal
 
 final class PushGameDetailRouter: Router {

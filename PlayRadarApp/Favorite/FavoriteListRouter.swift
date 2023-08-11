@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import PlayRadar
+import PlayRadarRemote
 import PlayRadarLocal
 
 protocol FavoriteListRouter: Router {

@@ -9,6 +9,7 @@ import UIKit
 import Combine
 import PlayRadar
 import PlayRadarLocal
+import PlayRadarRemote
 
 protocol GameListRouter: Router {
     func launchDetail(game: GameModel)
