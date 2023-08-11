@@ -118,6 +118,7 @@ func FakeGameDetail(_ id: String) -> GameDetailModel {
             release: Date(timeIntervalSince1970: 0),
             rating: 1),
         publisher: id,
+        playCount: 21,
         gameDescription: id
     )
 }

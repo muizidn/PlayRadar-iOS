@@ -65,13 +65,3 @@ class RemoteGameGameListInteractorTests: XCTestCase {
         }
     }
 }
-
-extension GameModel: Equatable {
-    public static func == (lhs: GameModel, rhs: GameModel) -> Bool {
-        return lhs.id == rhs.id &&
-        lhs.cover == rhs.cover &&
-        lhs.title == rhs.title &&
-        lhs.release == rhs.release &&
-        lhs.rating == rhs.rating
-    }
-}

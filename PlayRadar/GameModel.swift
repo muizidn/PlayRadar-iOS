@@ -28,3 +28,5 @@ public struct GameModel {
     public let release: Date
     public let rating: Double
 }
+
+extension GameModel: Equatable {}
