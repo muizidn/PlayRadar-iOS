@@ -38,8 +38,12 @@ public final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteractor 
     
     public func saveGameDetail(id: String, detail: GameDetailModel) async -> Result<Void, Error> {
         do {
-            try await databaseClient.save(CDGame.self, closure: { e in
+            try await databaseClient.update(CDGame.self,where: ["id": id], closure: { e in
                 e.id = id
+                e.cover = detail.game.cover
+                e.title = detail.game.title
+                e.rating = detail.game.rating
+                e.releaseDate = detail.game.release
                 e.playCount = Int16(detail.playCount)
                 e.gameDescription = detail.gameDescription
                 e.publisher = detail.publisher

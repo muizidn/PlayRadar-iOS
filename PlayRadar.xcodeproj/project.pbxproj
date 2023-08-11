@@ -96,6 +96,7 @@
 		224C77C32A86177500911849 /* SpyDatabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77C22A86177500911849 /* SpyDatabaseClient.swift */; };
 		224C77C52A8617F400911849 /* CoreDataLocalFavoriteGameListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77C42A8617F400911849 /* CoreDataLocalFavoriteGameListInteractorTests.swift */; };
 		224C77C72A861C5F00911849 /* CoreDataLocalGameListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77C62A861C5F00911849 /* CoreDataLocalGameListInteractorTests.swift */; };
+		224C77C92A861CCB00911849 /* CoreDataLocalGameDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77C82A861CCB00911849 /* CoreDataLocalGameDetailInteractorTests.swift */; };
 		2252A22C2A83D7DF005F21D9 /* GameListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */; };
 		2252A22E2A83D9AB005F21D9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22D2A83D9AB005F21D9 /* Router.swift */; };
 		2252A2302A83DAED005F21D9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */; };
@@ -367,6 +368,7 @@
 		224C77C22A86177500911849 /* SpyDatabaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyDatabaseClient.swift; sourceTree = "<group>"; };
 		224C77C42A8617F400911849 /* CoreDataLocalFavoriteGameListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLocalFavoriteGameListInteractorTests.swift; sourceTree = "<group>"; };
 		224C77C62A861C5F00911849 /* CoreDataLocalGameListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLocalGameListInteractorTests.swift; sourceTree = "<group>"; };
+		224C77C82A861CCB00911849 /* CoreDataLocalGameDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLocalGameDetailInteractorTests.swift; sourceTree = "<group>"; };
 		2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListRouter.swift; sourceTree = "<group>"; };
 		2252A22D2A83D9AB005F21D9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 			children = (
 				224C76E62A85D9A300911849 /* CoreDataLocalFavoriteGameInteractorTests.swift */,
 				224C77C62A861C5F00911849 /* CoreDataLocalGameListInteractorTests.swift */,
+				224C77C82A861CCB00911849 /* CoreDataLocalGameDetailInteractorTests.swift */,
 				224C77C42A8617F400911849 /* CoreDataLocalFavoriteGameListInteractorTests.swift */,
 				224C77C22A86177500911849 /* SpyDatabaseClient.swift */,
 			);
@@ -1294,6 +1297,7 @@
 				224C77C52A8617F400911849 /* CoreDataLocalFavoriteGameListInteractorTests.swift in Sources */,
 				224C77C72A861C5F00911849 /* CoreDataLocalGameListInteractorTests.swift in Sources */,
 				224C77C32A86177500911849 /* SpyDatabaseClient.swift in Sources */,
+				224C77C92A861CCB00911849 /* CoreDataLocalGameDetailInteractorTests.swift in Sources */,
 				224C76E72A85D9A300911849 /* CoreDataLocalFavoriteGameInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
