@@ -1,13 +1,13 @@
 //
 //  GameDetailRemoteWithLocalFallbackInteractorTests.swift
-//  PlayRadarAppTests
+//  PlayRadariOSTests
 //
 //  Created by Muhammad Muizzsuddin on 10/08/23.
 //
 
 import Foundation
 import XCTest
-@testable import PlayRadarApp
+@testable import PlayRadariOS
 import PlayRadar
 
 class GameDetailRemoteWithLocalFallbackInteractorTests: XCTestCase {

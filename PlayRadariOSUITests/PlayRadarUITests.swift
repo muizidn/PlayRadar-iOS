@@ -1,13 +1,13 @@
 //
-//  PlayRadarAppUITests.swift
-//  PlayRadarAppUITests
+//  PlayRadariOSUITests.swift
+//  PlayRadariOSUITests
 //
 //  Created by Muhammad Muizzsuddin on 08/08/23.
 //
 
 import XCTest
 
-final class PlayRadarAppUITests: XCTestCase {
+final class PlayRadariOSUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

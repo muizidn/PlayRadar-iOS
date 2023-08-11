@@ -1,20 +1,20 @@
 //
-//  GameListViewController.swift
-//  PlayRadarApp
+//  FavoriteListViewController.swift
+//  PlayRadariOS
 //
 //  Created by Muhammad Muizzsuddin on 09/08/23.
 //
 
 import UIKit
+import Combine
 import PlayRadar
 
-class GameListViewController: UIViewController {
+class FavoriteListViewController: UIViewController {
     
     private let presenter: GameListPresenter
-    private let router: GameListRouter
-    private var cancellables = Set<AnyCancellable>()
+    private let router: FavoriteListRouter
     
-    init(presenter: GameListPresenter, router: GameListRouter) {
+    init(presenter: GameListPresenter, router: FavoriteListRouter) {
         self.presenter = presenter
         self.router = router
         super.init(nibName: nil, bundle: nil)
@@ -26,9 +26,6 @@ class GameListViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var games = [GameViewModel]()
-    private var isLoadingNextGames = false
-    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,23 +33,10 @@ class GameListViewController: UIViewController {
         return tableView
     }()
     
-    let loadingLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
-        label.backgroundColor = .red
-        label.text = "Loading next games"
-        label.isHidden = true
-        return label
-    }()
+    private var games: [GameViewModel] = []
     
-    private lazy var searchField: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.placeholder = "Search"
-        searchBar.delegate = self
-        return searchBar
-    }()
+    private var cancellables = Set<AnyCancellable>()
+    
     
     // MARK: - View Lifecycle
     
@@ -60,8 +44,8 @@ class GameListViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
-        title = "Games For You"
-     
+        title = "Favorite Games"
+        
         presenter.games
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] games in
@@ -69,15 +53,10 @@ class GameListViewController: UIViewController {
                 self.tableView.reloadData()
             }
             .store(in: &cancellables)
-        
-        presenter.loadingNextGames
-            .receive(on: DispatchQueue.main)
-            .sink { [unowned self]  isLoading in
-                self.isLoadingNextGames = isLoading
-                self.loadingLabel.isHidden = !isLoading
-            }
-            .store(in: &cancellables)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         Task {
             await presenter.loadGames()
         }
@@ -87,35 +66,24 @@ class GameListViewController: UIViewController {
     
     func setupUI() {
         view.backgroundColor = .white
-        view.addSubview(searchField)
         view.addSubview(tableView)
-        view.addSubview(loadingLabel)
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
         NSLayoutConstraint.activate([
-            searchField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            searchField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            searchField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            
-            tableView.topAnchor.constraint(equalTo: searchField.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            
-            loadingLabel.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: -10),
-            loadingLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            loadingLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            loadingLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
 
-
 // MARK: - UITableViewDataSource & UITableViewDelegate
 
-extension GameListViewController: UITableViewDataSource, UITableViewDelegate {
+extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return games.count
     }
@@ -128,20 +96,7 @@ extension GameListViewController: UITableViewDataSource, UITableViewDelegate {
         
         let game = games[indexPath.row]
         cell.configure(with: game)
-        
-        loadNextGamesIfNeeded(indexPath.row)
-        
         return cell
-    }
-    
-    private func loadNextGamesIfNeeded(_ row: Int) {
-        if !isLoadingNextGames && row == games.count - 1 {
-            isLoadingNextGames = true
-            loadingLabel.isHidden = false
-            Task {
-                await presenter.nextGames()
-            }
-        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -153,22 +108,13 @@ extension GameListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension GameListViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        Task {
-            await presenter.searchGames(query: searchText)
-        }
-    }
-}
-
 #if DEBUG
 import SwiftUI
-import Combine
 
-struct GameListViewController_Previews: PreviewProvider {
+struct FavoriteListViewController_Previews: PreviewProvider {
     static var previews: some View {
         ControllerPreviewContainer {
-            let vc = GameListViewController(
+            let vc = FavoriteListViewController(
                 presenter: GameListPresenter(interactor: DummyInteractor()),
                 router: DummyRouter()
             )
@@ -224,12 +170,9 @@ struct GameListViewController_Previews: PreviewProvider {
             ])
         }
     }
-    
-    class DummyRouter: GameListRouter {
-        func launch() -> UIViewController {
-            return UIViewController()
-        }
+    class DummyRouter: DummyRouterBase ,FavoriteListRouter {
         func launchDetail(game: GameModel) {
+            
         }
     }
 }

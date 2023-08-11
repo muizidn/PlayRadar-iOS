@@ -1,6 +1,6 @@
 //
 //  CoreDataLocalFavoriteGameListInteractor.swift
-//  PlayRadarApp
+//  PlayRadariOS
 //
 //  Created by Muhammad Muizzsuddin on 10/08/23.
 //

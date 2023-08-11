@@ -1,12 +1,12 @@
 //
 //  GameCellTests.swift
-//  PlayRadarAppTests
+//  PlayRadariOSTests
 //
 //  Created by Muhammad Muizzsuddin on 08/08/23.
 //
 
 import XCTest
-@testable import PlayRadarApp
+@testable import PlayRadariOS
 import PlayRadar
 
 class GameCellTests: XCTestCase {
