@@ -16,10 +16,8 @@ enum API {
     
     var method: String {
         switch self {
-        case .games, .search:
+        case .games, .search,.detail:
             return "GET"
-        case .detail:
-            return "POST"
         }
     }
     
