@@ -89,7 +89,6 @@ class GameDetailViewController: UIViewController {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = lorem
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

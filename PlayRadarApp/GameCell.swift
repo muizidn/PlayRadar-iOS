@@ -110,13 +110,21 @@ class GameCell: UITableViewCell {
         
     }
     
+    private var asyncImageRef: AsyncImageReference?
+    
     func configure(with game: GameViewModel) {
         if let image = game.coverImage {
-            coverImageView.setImage(withURL: image)
+            asyncImageRef = coverImageView.setImage(withURL: image)
         }
         titleLabel.text = game.title
         releaseDateLabel.text = game.releaseDate.description
         ratingLabel.text = game.rating.description
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        coverImageView.image = nil
+        asyncImageRef = nil
     }
 }
 

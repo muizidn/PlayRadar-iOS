@@ -31,7 +31,6 @@
 		220C650D2A83184400CA12B3 /* GameDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C650C2A83184400CA12B3 /* GameDetailPresenter.swift */; };
 		220C650F2A831A6A00CA12B3 /* GameDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C650E2A831A6A00CA12B3 /* GameDetailInteractor.swift */; };
 		223FC8142A83268A007B8F02 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8132A83268A007B8F02 /* GameDetailViewController.swift */; };
-		223FC8162A832BD1007B8F02 /* lorem_ipsum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8152A832BD1007B8F02 /* lorem_ipsum.swift */; };
 		223FC8182A832FEB007B8F02 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8172A832FEB007B8F02 /* GameListViewController.swift */; };
 		223FC81A2A8334C2007B8F02 /* FavoriteListViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8192A8334C2007B8F02 /* FavoriteListViewContoller.swift */; };
 		224C76A62A83FCCA00911849 /* CDFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76A52A83FCCA00911849 /* CDFavorite.swift */; };
@@ -142,7 +141,6 @@
 		220C650C2A83184400CA12B3 /* GameDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailPresenter.swift; sourceTree = "<group>"; };
 		220C650E2A831A6A00CA12B3 /* GameDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailInteractor.swift; sourceTree = "<group>"; };
 		223FC8132A83268A007B8F02 /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
-		223FC8152A832BD1007B8F02 /* lorem_ipsum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lorem_ipsum.swift; sourceTree = "<group>"; };
 		223FC8172A832FEB007B8F02 /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
 		223FC8192A8334C2007B8F02 /* FavoriteListViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewContoller.swift; sourceTree = "<group>"; };
 		224C76A52A83FCCA00911849 /* CDFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDFavorite.swift; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 				2252A22D2A83D9AB005F21D9 /* Router.swift */,
 				2252A2332A83E0E1005F21D9 /* Favorite */,
 				22B2C64C2A83E48C00CFF952 /* GameDetail */,
-				223FC8152A832BD1007B8F02 /* lorem_ipsum.swift */,
 				22B2C64F2A83E78200CFF952 /* WeakProxy.swift */,
 				220C64CA2A82501100CA12B3 /* GameCell.swift */,
 				220C64D02A8251EB00CA12B3 /* PreviewContainer.swift */,
@@ -605,7 +602,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				224C76A82A83FCF300911849 /* CDGame.swift in Sources */,
-				223FC8162A832BD1007B8F02 /* lorem_ipsum.swift in Sources */,
 				220C64CB2A82501100CA12B3 /* GameCell.swift in Sources */,
 				224C76B12A849C6C00911849 /* LocalGameDetailInteractor.swift in Sources */,
 				224C76AF2A848F5F00911849 /* LocalFavoriteGameInteractor.swift in Sources */,

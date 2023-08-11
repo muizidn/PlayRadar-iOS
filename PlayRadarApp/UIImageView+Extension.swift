@@ -8,28 +8,42 @@
 import UIKit
 
 extension UIImageView {
+    func setImage(withURL url: URL) -> AsyncImageReference {
+        return AsyncImageReference(url, self)
+    }
+}
+
+class AsyncImageReference {
+    weak var imageView: UIImageView?
+    private let url: URL
+    init(_ url: URL, _ imageView: UIImageView) {
+        self.imageView = imageView
+        self.url = url
+        setImage(withURL: url)
+    }
+    
     func setImage(withURL url: URL, placeholder: UIImage? = nil) {
-        if let cachedImage = getCachedImage(forURL: url) {
-            self.image = cachedImage
+        if let cachedImage = getAsyncImageReference(forURL: url) {
+            imageView?.image = cachedImage
             return
         }
         
         if let placeholderImage = placeholder {
-            self.image = placeholderImage
+            imageView?.image = placeholderImage
         }
         
-        DispatchQueue.global().async {
+        DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url),
                let image = UIImage(data: data) {
-                self.cacheImage(image, forURL: url)
-                DispatchQueue.main.async {
-                    self.image = image
+                self?.cacheImage(image, forURL: url)
+                DispatchQueue.main.async { [weak self] in
+                    self?.imageView?.image = image
                 }
             }
         }
     }
     
-    private func getCachedImage(forURL url: URL) -> UIImage? {
+    private func getAsyncImageReference(forURL url: URL) -> UIImage? {
         let cacheDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
         let fileName = url.lastPathComponent
         
