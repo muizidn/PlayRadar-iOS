@@ -11,10 +11,10 @@ import PlayRadar
 
 class FavoriteListViewController: UIViewController {
     
-    private let presenter: IGameListPresenter
+    private let presenter: GameListPresenter
     private let router: FavoriteListRouter
     
-    init(presenter: IGameListPresenter, router: FavoriteListRouter) {
+    init(presenter: GameListPresenter, router: FavoriteListRouter) {
         self.presenter = presenter
         self.router = router
         super.init(nibName: nil, bundle: nil)
@@ -115,7 +115,7 @@ struct FavoriteListViewController_Previews: PreviewProvider {
     static var previews: some View {
         ControllerPreviewContainer {
             let vc = FavoriteListViewController(
-                presenter: DummyPresenter(),
+                presenter: GameListPresenter(interactor: DummyInteractor()),
                 router: DummyRouter()
             )
             vc.viewDidLoad()
@@ -123,44 +123,51 @@ struct FavoriteListViewController_Previews: PreviewProvider {
         }
     }
     
-    class DummyPresenter: IGameListPresenter {
-        var loadingNextGames: AnyPublisher<Bool, Never> { Just(false).eraseToAnyPublisher() }
-        
-        func nextGames() async {
+    class DummyInteractor: GameListInteractor {
+        func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
+            return .success(.init(data: [
+                GameModel(
+                    id: "1",
+                    cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "BioShock 2 Remastered Japan Version",
+                    release: Date(timeIntervalSince1970: 0),
+                    rating: 4.2),
+                GameModel(
+                    id: "2",
+                    cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "BioShock 2 Remastered Japan Version",
+                    release: Date(timeIntervalSince1970: 0),
+                    rating: 4.2),
+                GameModel(
+                    id: "3",
+                    cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "BioShock 2 Remastered Japan Version",
+                    release: Date(timeIntervalSince1970: 0),
+                    rating: 4.2),
+            ], page: page, count: 3, hasNext: true))
         }
         
-        var games: AnyPublisher<[GameViewModel], Never> {
-            Just([
-                GameViewModel(
-                    id: "",
-                    coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                    title: "game box sample Title",
-                    releaseDate: Date(timeIntervalSince1970: 0),
-                    rating: 4.5),
-                GameViewModel(
-                    id: "",
-                    coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                    title: "game box sample Title",
-                    releaseDate: Date(timeIntervalSince1970: 0),
-                    rating: 4.5),
-                GameViewModel(
-                    id: "",
-                    coverImage: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
-                    title: "game box sample Title",
-                    releaseDate: Date(timeIntervalSince1970: 0),
-                    rating: 4.5)
+        func searchGames(query: String) async -> Result<[GameModel], Error> {
+            return .success([
+                GameModel(
+                    id: "1",
+                    cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "BioShock 2 Remastered Japan Version",
+                    release: Date(timeIntervalSince1970: 0),
+                    rating: 4.2),
+                GameModel(
+                    id: "2",
+                    cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "BioShock 2 Remastered Japan Version",
+                    release: Date(timeIntervalSince1970: 0),
+                    rating: 4.2),
+                GameModel(
+                    id: "3",
+                    cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
+                    title: "BioShock 2 Remastered Japan Version",
+                    release: Date(timeIntervalSince1970: 0),
+                    rating: 4.2),
             ])
-            .eraseToAnyPublisher()
-        }
-        
-        func loadGames() async {
-        }
-        
-        func getGame(at index: Int) -> GameModel {
-            fatalError()
-        }
-        
-        func searchGames(query: String) async {
         }
     }
     class DummyRouter: DummyRouterBase ,FavoriteListRouter {

@@ -8,16 +8,7 @@
 import Foundation
 import Combine
 
-public protocol IGameListPresenter {
-    var games: AnyPublisher<[GameViewModel], Never> { get }
-    var loadingNextGames: AnyPublisher<Bool, Never> { get }
-    func loadGames() async
-    func nextGames() async
-    func getGame(at index: Int) -> GameModel
-    func searchGames(query: String) async
-}
-
-public final class GameListPresenter: IGameListPresenter {
+public final class GameListPresenter {
     public enum LoaderStrategy {
         case append
         case update
