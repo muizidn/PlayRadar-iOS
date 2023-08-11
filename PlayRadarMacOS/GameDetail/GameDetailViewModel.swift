@@ -36,6 +36,7 @@ class GameDetailViewModel: ObservableObject {
     private func setupBindings() {
         presenter.detail
             .map(\.game.cover)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] coverURL in
                 self?.coverImage = coverURL
             }
@@ -43,27 +44,34 @@ class GameDetailViewModel: ObservableObject {
 
         presenter.detail
             .map(\.publisher)
+            .receive(on: DispatchQueue.main)
             .assign(to: &$publisher)
 
         presenter.detail
             .map(\.game.title)
+            .receive(on: DispatchQueue.main)
             .assign(to: &$gameTitle)
 
         presenter.releaseAt
+            .receive(on: DispatchQueue.main)
             .assign(to: &$releaseDate)
 
         presenter.rating
+            .receive(on: DispatchQueue.main)
             .assign(to: &$rating)
 
         presenter.playCount
+            .receive(on: DispatchQueue.main)
             .assign(to: &$playCount)
 
         presenter.detail
             .map(\.gameDescription)
             .map { NSAttributedString(string: $0) }
+            .receive(on: DispatchQueue.main)
             .assign(to: &$gameDescription)
 
         presenter.isFavorite
+            .receive(on: DispatchQueue.main)
             .assign(to: &$isFavorite)
     }
     
