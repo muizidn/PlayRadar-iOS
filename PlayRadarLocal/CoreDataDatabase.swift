@@ -15,24 +15,34 @@ final class CoreDataDatabase {
     
     private init() {}
     
-    private(set) lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "PlayRadar")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+    private let frameworkBundleID   = "com.muiz.idn.PlayRadarLocal"
+    private let modelName           = "PlayRadar"
+    
+    private lazy var persistentContainer: NSPersistentContainer = {
+        
+        let frameworkBundle = Bundle(for: Self.self)
+        let modelURL = frameworkBundle.url(forResource: modelName, withExtension: "momd")!
+        let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL)
+        
+        let container = NSPersistentContainer(name: self.modelName, managedObjectModel: managedObjectModel!)
+        container.loadPersistentStores { storeDescription, error in
+            
+            if let error = error {
+                fatalError("Unable to load persistent stores: \(error)")
             }
-        })
+        }
+        
         return container
     }()
     
     func get<T: EntityLoadable>(_ e: T.Type, where: [String:Any]) async throws -> T? {
         var predicates: [NSPredicate] = []
-
+        
         for (key, value) in `where` {
             let predicate = NSPredicate(format: "%K == %@", key, value as! NSObject)
             predicates.append(predicate)
         }
-
+        
         let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: predicates)
         
         let fetchReq = NSFetchRequest<T>(entityName: T.entityName)
@@ -43,12 +53,12 @@ final class CoreDataDatabase {
     
     func fetch<T: EntityLoadable>(_ e: T.Type, where: [String:Any] = [:]) async throws -> [T] {
         var predicates: [NSPredicate] = []
-
+        
         for (key, value) in `where` {
             let predicate = NSPredicate(format: "%K == %@", key, value as! NSObject)
             predicates.append(predicate)
         }
-
+        
         let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: predicates)
         
         let fetchReq = NSFetchRequest<T>(entityName: T.entityName)
