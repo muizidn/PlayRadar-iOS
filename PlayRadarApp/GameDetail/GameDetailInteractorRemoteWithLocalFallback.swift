@@ -17,11 +17,11 @@ final class GameDetailRemoteWithLocalFallbackInteractor: GameDetailInteractor {
         self.local = local
     }
     
-    func getGameDetail(id: String) async -> Result<String, Error> {
+    func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
         let result = await remote.getGameDetail(id: id)
         switch result {
         case .success(let detail):
-            _ = await local.saveGameDetail(id: id, contentDescription: detail)
+            _ = await local.saveGameDetail(id: id, detail: detail)
             return result
         case .failure:
             let localResult = await local.getGameDetail(id: id)

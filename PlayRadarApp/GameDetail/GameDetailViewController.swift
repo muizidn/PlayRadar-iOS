@@ -218,7 +218,7 @@ struct GameDetailViewController_Previews: PreviewProvider {
     }
     
     class DummyDetailInteractor: GameDetailInteractor {
-        func getGameDetail(id: String) async -> Result<String, Error> {
+        func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
             fatalError()
         }
     }

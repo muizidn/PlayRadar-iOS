@@ -43,7 +43,7 @@ public final class GameDetailPresenter {
             switch await detailInteractor.getGameDetail(id: game.id) {
             case .success(let detail):
                 await MainActor.run { [unowned self] in
-                    sGameDescription.send(detail)
+                    sGameDescription.send(detail.gameDescription)
                 }
             case .failure(let error):
                 await MainActor.run { [unowned self] in

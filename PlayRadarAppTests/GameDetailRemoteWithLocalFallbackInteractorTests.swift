@@ -12,9 +12,9 @@ import PlayRadar
 
 class GameDetailRemoteWithLocalFallbackInteractorTests: XCTestCase {
     class StubRemote: GameDetailInteractor {
-        var getGameDetailResult: Result<String, Error> = .success("RemoteDetail")
+        var getGameDetailResult: Result<GameDetailModel, Error> = .success(FakeGameDetail("RemoteDetail"))
         var getGameDetailCalled = false
-        func getGameDetail(id: String) async -> Result<String, Error> {
+        func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
             getGameDetailCalled = true
             return getGameDetailResult
         }
@@ -25,16 +25,16 @@ class GameDetailRemoteWithLocalFallbackInteractorTests: XCTestCase {
         var saveGameDetailCalled = false
         var savedId: String = ""
         var savedContentDescription: String = ""
-        var getGameDetailResult: Result<String, Error> = .success("LocalDetail")
+        var getGameDetailResult: Result<GameDetailModel, Error> = .success(FakeGameDetail("LocalDetail"))
         
-        func saveGameDetail(id: String, contentDescription: String) async -> Result<Void, Error> {
+        func saveGameDetail(id: String, detail: GameDetailModel) async -> Result<Void, Error> {
             saveGameDetailCalled = true
             savedId = id
-            savedContentDescription = contentDescription
+            savedContentDescription = detail.gameDescription
             return .success(())
         }
         
-        func getGameDetail(id: String) async -> Result<String, Error> {
+        func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
             getGameDetailCalled = true
             return getGameDetailResult
         }
@@ -48,7 +48,7 @@ class GameDetailRemoteWithLocalFallbackInteractorTests: XCTestCase {
         
         let result = await interactor.getGameDetail(id: "123")
         
-        XCTAssertTrue(checkResultEqual(result, .success("RemoteDetail")))
+        XCTAssertTrue(checkResultEqual(result, .success(FakeGameDetail("RemoteDetail"))))
         XCTAssertTrue(mockRemote.getGameDetailCalled)
         XCTAssertTrue(mockLocal.saveGameDetailCalled)
     }
@@ -63,7 +63,7 @@ class GameDetailRemoteWithLocalFallbackInteractorTests: XCTestCase {
         
         let result = await interactor.getGameDetail(id: "123")
         
-        XCTAssertTrue(checkResultEqual(result, .success("LocalDetail")))
+        XCTAssertTrue(checkResultEqual(result, .success(FakeGameDetail("LocalDetail"))))
         XCTAssertTrue(mockRemote.getGameDetailCalled)
         XCTAssertFalse(mockLocal.saveGameDetailCalled)
     }
@@ -91,7 +91,7 @@ func FakeError(_ reason: String) -> Error {
     ])
 }
 
-func checkResultEqual(_ lhs: Result<String, Error>,_ rhs: Result<String, Error>) -> Bool {
+func checkResultEqual(_ lhs: Result<GameDetailModel, Error>,_ rhs: Result<GameDetailModel, Error>) -> Bool {
     switch (lhs, rhs) {
     case let (.success(lhsValue), .success(rhsValue)):
         return lhsValue == rhsValue
@@ -100,4 +100,24 @@ func checkResultEqual(_ lhs: Result<String, Error>,_ rhs: Result<String, Error>)
     default:
         return false
     }
+}
+
+extension GameDetailModel: Equatable {
+    public static func == (lhs: GameDetailModel, rhs: GameDetailModel) -> Bool {
+        return lhs.game == rhs.game &&
+        lhs.gameDescription == rhs.gameDescription &&
+        lhs.publisher == rhs.publisher
+    }
+}
+
+func FakeGameDetail(_ id: String) -> GameDetailModel {
+    return .init(
+        game: GameModel(
+            id: id,
+            title: id,
+            release: Date(timeIntervalSince1970: 0),
+            rating: 1),
+        publisher: id,
+        gameDescription: id
+    )
 }

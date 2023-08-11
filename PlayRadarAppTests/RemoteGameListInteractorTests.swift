@@ -34,21 +34,18 @@ class RemoteGameGameListInteractorTests: XCTestCase {
                     id: "1",
                     cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                     title: "BioShock 2 Remastered Japan Version",
-                    publisher: "Microsoft Game Studio",
                     release: Date(timeIntervalSince1970: 0),
                     rating: 4.2),
                 GameModel(
                     id: "2",
                     cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                     title: "BioShock 2 Remastered Japan Version",
-                    publisher: "Electronic Arts",
                     release: Date(timeIntervalSince1970: 0),
                     rating: 4.2),
                 GameModel(
                     id: "3",
                     cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                     title: "BioShock 2 Remastered Japan Version",
-                    publisher: "Kyoto Game Studio",
                     release: Date(timeIntervalSince1970: 0),
                     rating: 4.2),
             ], "Games should not be empty")
@@ -72,7 +69,6 @@ class RemoteGameGameListInteractorTests: XCTestCase {
 extension GameModel: Equatable {
     public static func == (lhs: GameModel, rhs: GameModel) -> Bool {
         return lhs.id == rhs.id &&
-        lhs.publisher == rhs.publisher &&
         lhs.cover == rhs.cover &&
         lhs.title == rhs.title &&
         lhs.release == rhs.release &&

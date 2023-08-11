@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol GameDetailInteractor {
-    func getGameDetail(id: String) async -> Result<String, Error>
+    func getGameDetail(id: String) async -> Result<GameDetailModel, Error>
 }
 
 public protocol FavoriteGameInteractor {

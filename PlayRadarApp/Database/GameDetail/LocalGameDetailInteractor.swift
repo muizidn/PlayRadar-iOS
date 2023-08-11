@@ -9,24 +9,36 @@ import Foundation
 import PlayRadar
 
 protocol LocalGameDetailInteracotr: GameDetailInteractor {
-    func saveGameDetail(id: String, contentDescription: String) async -> Result<Void, Error>
+    func saveGameDetail(id: String, detail: GameDetailModel) async -> Result<Void, Error>
 }
 
 final class CoreDataLocalGameDetailInteractor: LocalGameDetailInteracotr {
-    func getGameDetail(id: String) async -> Result<String, Error> {
+    func getGameDetail(id: String) async -> Result<GameDetailModel, Error> {
         do {
-            let desc = try await CoreDataDatabase.shared.get(CDGame.self, where: ["id": id])?.gameDescription
-            return .success(desc ?? "")
+            guard let game = try await CoreDataDatabase.shared.get(CDGame.self, where: ["id": id]) else {
+                return .failure(NSError(domain: "LocalGameDetail", code: 1, userInfo: [
+                    NSLocalizedDescriptionKey: "not found in local"
+                ]))
+            }
+            return .success(.init(
+                game: GameModel(
+                    id: game.id,
+                    title: game.title,
+                    release: game.releaseDate,
+                    rating: game.rating),
+                publisher: game.publisher,
+                gameDescription: game.gameDescription))
         } catch {
             return .failure(error)
         }
     }
     
-    func saveGameDetail(id: String, contentDescription: String) async -> Result<Void, Error> {
+    func saveGameDetail(id: String, detail: GameDetailModel) async -> Result<Void, Error> {
         do {
             try await CoreDataDatabase.shared.save(CDGame.self, closure: { e in
                 e.id = id
-                e.gameDescription = contentDescription
+                e.gameDescription = detail.gameDescription
+                e.publisher = detail.publisher
             })
             return .success(())
         } catch {

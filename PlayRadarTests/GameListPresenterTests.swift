@@ -24,6 +24,7 @@ class GameListPresenterTests: XCTestCase {
     override func tearDown() {
         cancellables.removeAll()
         presenter = nil
+        cancellables = []
         super.tearDown()
     }
 
@@ -65,12 +66,12 @@ class GameListPresenterTests: XCTestCase {
         
         presenter.games
             .sink { _games in
-                games.append(contentsOf: _games)
+                games = _games
             }
             .store(in: &cancellables)
         
         await presenter.loadGames()
-        await presenter.loadGames()
+        await presenter.nextGames()
         
         XCTAssertEqual(games, [
             GameViewModel(
@@ -112,13 +113,13 @@ class GameListPresenterTests: XCTestCase {
         
         presenter.games
             .sink { _games in
-                games.append(contentsOf: _games)
+                games = _games
             }
             .store(in: &cancellables)
         
         await presenter.loadGames()
-        await presenter.loadGames()
-        await presenter.loadGames()
+        await presenter.nextGames()
+        await presenter.nextGames()
         
         XCTAssertEqual(games.map({ $0.id }), [
             "1","2","3","4","5"
@@ -127,7 +128,7 @@ class GameListPresenterTests: XCTestCase {
     }
     
     
-    func testSearchGames() async {
+    func testSearchGames() async throws {
         var games = [GameViewModel]()
         
         presenter.games
@@ -137,6 +138,7 @@ class GameListPresenterTests: XCTestCase {
             .store(in: &cancellables)
         
         await presenter.searchGames(query: "The World Voyage")
+        try await Task.sleep(for: .seconds(2))
         
         XCTAssertEqual(games, [
             GameViewModel(
@@ -189,47 +191,45 @@ final class StubGameListInteractor: GameListInteractor {
         
         loadedPages.append(page)
         
-        if page == 1 {
+        switch page {
+        case 1:
             return .success(.init(data: [
                 GameModel(
                     id: "1",
                     cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                     title: "BioShock 2 Remastered Japan Version",
-                    publisher: "Microsoft Game Studio",
                     release: Date(timeIntervalSince1970: 0),
                     rating: 4.2),
                 GameModel(
                     id: "2",
                     cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                     title: "BioShock 2 Remastered Japan Version",
-                    publisher: "Electronic Arts",
                     release: Date(timeIntervalSince1970: 0),
                     rating: 4.2),
                 GameModel(
                     id: "3",
                     cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                     title: "BioShock 2 Remastered Japan Version",
-                    publisher: "Kyoto Game Studio",
                     release: Date(timeIntervalSince1970: 0),
                     rating: 4.2),
             ], page: page, count: 3, hasNext: true))
-        } else {
+        case 2:
             return .success(.init(data: [
                 GameModel(
                     id: "4",
                     cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                     title: "BioShock 2 Remastered Japan Version",
-                    publisher: "Microsoft Game Studio",
                     release: Date(timeIntervalSince1970: 0),
                     rating: 4.2),
                 GameModel(
                     id: "5",
                     cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                     title: "BioShock 2 Remastered Japan Version",
-                    publisher: "Electronic Arts",
                     release: Date(timeIntervalSince1970: 0),
                     rating: 4.2),
             ], page: page, count: 2, hasNext: false))
+        default:
+            return .success(.init(data: [], page: page, count: 0, hasNext: false))
         }
     }
     
@@ -239,21 +239,18 @@ final class StubGameListInteractor: GameListInteractor {
                 id: "1",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
-                publisher: "Microsoft Game Studio",
                 release: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
             GameModel(
                 id: "2",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
-                publisher: "Electronic Arts",
                 release: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
             GameModel(
                 id: "3",
                 cover: URL(string: "https://media.rawg.io/media/resize/420/-/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg"),
                 title: "BioShock 2 Remastered Japan Version",
-                publisher: "Kyoto Game Studio",
                 release: Date(timeIntervalSince1970: 0),
                 rating: 4.2),
         ])
