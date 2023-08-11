@@ -65,6 +65,23 @@
 		224C77282A85DAB600911849 /* APIResponseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76BC2A84E8F200911849 /* APIResponseBase.swift */; };
 		224C77292A85DAB600911849 /* RemoteGameListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B72A84CDE800911849 /* RemoteGameListInteractor.swift */; };
 		224C772A2A85DAB600911849 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76BA2A84E44800911849 /* API.swift */; };
+		224C77322A85DB6100911849 /* PlayRadarMacOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77312A85DB6100911849 /* PlayRadarMacOSApp.swift */; };
+		224C77342A85DB6100911849 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77332A85DB6100911849 /* ContentView.swift */; };
+		224C77362A85DB6400911849 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224C77352A85DB6400911849 /* Assets.xcassets */; };
+		224C77392A85DB6400911849 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224C77382A85DB6400911849 /* Preview Assets.xcassets */; };
+		224C773B2A85DB6400911849 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C773A2A85DB6400911849 /* Persistence.swift */; };
+		224C773E2A85DB6400911849 /* PlayRadarMacOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 224C773C2A85DB6400911849 /* PlayRadarMacOS.xcdatamodeld */; };
+		224C77492A85DB6400911849 /* PlayRadarMacOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77482A85DB6400911849 /* PlayRadarMacOSTests.swift */; };
+		224C77532A85DB6400911849 /* PlayRadarMacOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77522A85DB6400911849 /* PlayRadarMacOSUITests.swift */; };
+		224C77552A85DB6400911849 /* PlayRadarMacOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77542A85DB6400911849 /* PlayRadarMacOSUITestsLaunchTests.swift */; };
+		224C77602A85DBE300911849 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C775F2A85DBE200911849 /* GameListView.swift */; };
+		224C77622A85DC9100911849 /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C77612A85DC9000911849 /* GameListViewModel.swift */; };
+		224C77702A85DCFE00911849 /* PlayRadar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220C64DA2A830A5100CA12B3 /* PlayRadar.framework */; };
+		224C77712A85DCFE00911849 /* PlayRadar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 220C64DA2A830A5100CA12B3 /* PlayRadar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		224C77752A85DFFD00911849 /* PlayRadarRemote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C770C2A85DAA200911849 /* PlayRadarRemote.framework */; };
+		224C77762A85DFFD00911849 /* PlayRadarRemote.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 224C770C2A85DAA200911849 /* PlayRadarRemote.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		224C77792A85E0B700911849 /* PlayRadarLocal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224C76D82A85D9A300911849 /* PlayRadarLocal.framework */; };
+		224C777A2A85E0B700911849 /* PlayRadarLocal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 224C76D82A85D9A300911849 /* PlayRadarLocal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2252A22C2A83D7DF005F21D9 /* GameListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */; };
 		2252A22E2A83D9AB005F21D9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22D2A83D9AB005F21D9 /* Router.swift */; };
 		2252A2302A83DAED005F21D9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */; };
@@ -152,6 +169,41 @@
 			remoteGlobalIDString = 224C770B2A85DAA200911849;
 			remoteInfo = PlayRadarRemote;
 		};
+		224C77452A85DB6400911849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 220C648C2A824F2500CA12B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 224C772E2A85DB6100911849;
+			remoteInfo = PlayRadarMacOS;
+		};
+		224C774F2A85DB6400911849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 220C648C2A824F2500CA12B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 224C772E2A85DB6100911849;
+			remoteInfo = PlayRadarMacOS;
+		};
+		224C77722A85DCFE00911849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 220C648C2A824F2500CA12B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 220C64D92A830A5100CA12B3;
+			remoteInfo = PlayRadar;
+		};
+		224C77772A85DFFD00911849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 220C648C2A824F2500CA12B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 224C770B2A85DAA200911849;
+			remoteInfo = PlayRadarRemote;
+		};
+		224C777B2A85E0B700911849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 220C648C2A824F2500CA12B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 224C76D72A85D9A300911849;
+			remoteInfo = PlayRadarLocal;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -164,6 +216,19 @@
 				220C64FE2A830E7100CA12B3 /* PlayRadar.framework in Embed Frameworks */,
 				224C76EC2A85D9A300911849 /* PlayRadarLocal.framework in Embed Frameworks */,
 				224C77202A85DAA200911849 /* PlayRadarRemote.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C77742A85DCFE00911849 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				224C777A2A85E0B700911849 /* PlayRadarLocal.framework in Embed Frameworks */,
+				224C77712A85DCFE00911849 /* PlayRadar.framework in Embed Frameworks */,
+				224C77762A85DFFD00911849 /* PlayRadarRemote.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +294,21 @@
 		224C770E2A85DAA200911849 /* PlayRadarRemote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayRadarRemote.h; sourceTree = "<group>"; };
 		224C77132A85DAA200911849 /* PlayRadarRemoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayRadarRemoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		224C771A2A85DAA200911849 /* PlayRadarRemoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarRemoteTests.swift; sourceTree = "<group>"; };
+		224C772F2A85DB6100911849 /* PlayRadarMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayRadarMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		224C77312A85DB6100911849 /* PlayRadarMacOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarMacOSApp.swift; sourceTree = "<group>"; };
+		224C77332A85DB6100911849 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		224C77352A85DB6400911849 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		224C77382A85DB6400911849 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		224C773A2A85DB6400911849 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		224C773D2A85DB6400911849 /* PlayRadarMacOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayRadarMacOS.xcdatamodel; sourceTree = "<group>"; };
+		224C773F2A85DB6400911849 /* PlayRadarMacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlayRadarMacOS.entitlements; sourceTree = "<group>"; };
+		224C77442A85DB6400911849 /* PlayRadarMacOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayRadarMacOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		224C77482A85DB6400911849 /* PlayRadarMacOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarMacOSTests.swift; sourceTree = "<group>"; };
+		224C774E2A85DB6400911849 /* PlayRadarMacOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayRadarMacOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		224C77522A85DB6400911849 /* PlayRadarMacOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarMacOSUITests.swift; sourceTree = "<group>"; };
+		224C77542A85DB6400911849 /* PlayRadarMacOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadarMacOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		224C775F2A85DBE200911849 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
+		224C77612A85DC9000911849 /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
 		2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListRouter.swift; sourceTree = "<group>"; };
 		2252A22D2A83D9AB005F21D9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
@@ -309,6 +389,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		224C772C2A85DB6100911849 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224C77792A85E0B700911849 /* PlayRadarLocal.framework in Frameworks */,
+				224C77702A85DCFE00911849 /* PlayRadar.framework in Frameworks */,
+				224C77752A85DFFD00911849 /* PlayRadarRemote.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C77412A85DB6400911849 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C774B2A85DB6400911849 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -324,6 +428,9 @@
 				224C76E52A85D9A300911849 /* PlayRadarLocalTests */,
 				224C770D2A85DAA200911849 /* PlayRadarRemote */,
 				224C77192A85DAA200911849 /* PlayRadarRemoteTests */,
+				224C77302A85DB6100911849 /* PlayRadarMacOS */,
+				224C77472A85DB6400911849 /* PlayRadarMacOSTests */,
+				224C77512A85DB6400911849 /* PlayRadarMacOSUITests */,
 				220C64952A824F2500CA12B3 /* Products */,
 				220C64FC2A830E7100CA12B3 /* Frameworks */,
 			);
@@ -341,6 +448,9 @@
 				224C76DF2A85D9A300911849 /* PlayRadarLocalTests.xctest */,
 				224C770C2A85DAA200911849 /* PlayRadarRemote.framework */,
 				224C77132A85DAA200911849 /* PlayRadarRemoteTests.xctest */,
+				224C772F2A85DB6100911849 /* PlayRadarMacOS.app */,
+				224C77442A85DB6400911849 /* PlayRadarMacOSTests.xctest */,
+				224C774E2A85DB6400911849 /* PlayRadarMacOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -490,6 +600,47 @@
 				224C771A2A85DAA200911849 /* PlayRadarRemoteTests.swift */,
 			);
 			path = PlayRadarRemoteTests;
+			sourceTree = "<group>";
+		};
+		224C77302A85DB6100911849 /* PlayRadarMacOS */ = {
+			isa = PBXGroup;
+			children = (
+				224C77312A85DB6100911849 /* PlayRadarMacOSApp.swift */,
+				224C77332A85DB6100911849 /* ContentView.swift */,
+				224C775F2A85DBE200911849 /* GameListView.swift */,
+				224C77612A85DC9000911849 /* GameListViewModel.swift */,
+				224C77352A85DB6400911849 /* Assets.xcassets */,
+				224C773A2A85DB6400911849 /* Persistence.swift */,
+				224C773F2A85DB6400911849 /* PlayRadarMacOS.entitlements */,
+				224C773C2A85DB6400911849 /* PlayRadarMacOS.xcdatamodeld */,
+				224C77372A85DB6400911849 /* Preview Content */,
+			);
+			path = PlayRadarMacOS;
+			sourceTree = "<group>";
+		};
+		224C77372A85DB6400911849 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				224C77382A85DB6400911849 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		224C77472A85DB6400911849 /* PlayRadarMacOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				224C77482A85DB6400911849 /* PlayRadarMacOSTests.swift */,
+			);
+			path = PlayRadarMacOSTests;
+			sourceTree = "<group>";
+		};
+		224C77512A85DB6400911849 /* PlayRadarMacOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				224C77522A85DB6400911849 /* PlayRadarMacOSUITests.swift */,
+				224C77542A85DB6400911849 /* PlayRadarMacOSUITestsLaunchTests.swift */,
+			);
+			path = PlayRadarMacOSUITests;
 			sourceTree = "<group>";
 		};
 		2252A2312A83E0B2005F21D9 /* GameList */ = {
@@ -726,6 +877,63 @@
 			productReference = 224C77132A85DAA200911849 /* PlayRadarRemoteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		224C772E2A85DB6100911849 /* PlayRadarMacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 224C77562A85DB6400911849 /* Build configuration list for PBXNativeTarget "PlayRadarMacOS" */;
+			buildPhases = (
+				224C772B2A85DB6100911849 /* Sources */,
+				224C772C2A85DB6100911849 /* Frameworks */,
+				224C772D2A85DB6100911849 /* Resources */,
+				224C77742A85DCFE00911849 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				224C77732A85DCFE00911849 /* PBXTargetDependency */,
+				224C77782A85DFFD00911849 /* PBXTargetDependency */,
+				224C777C2A85E0B700911849 /* PBXTargetDependency */,
+			);
+			name = PlayRadarMacOS;
+			productName = PlayRadarMacOS;
+			productReference = 224C772F2A85DB6100911849 /* PlayRadarMacOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		224C77432A85DB6400911849 /* PlayRadarMacOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 224C77592A85DB6400911849 /* Build configuration list for PBXNativeTarget "PlayRadarMacOSTests" */;
+			buildPhases = (
+				224C77402A85DB6400911849 /* Sources */,
+				224C77412A85DB6400911849 /* Frameworks */,
+				224C77422A85DB6400911849 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				224C77462A85DB6400911849 /* PBXTargetDependency */,
+			);
+			name = PlayRadarMacOSTests;
+			productName = PlayRadarMacOSTests;
+			productReference = 224C77442A85DB6400911849 /* PlayRadarMacOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		224C774D2A85DB6400911849 /* PlayRadarMacOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 224C775C2A85DB6400911849 /* Build configuration list for PBXNativeTarget "PlayRadarMacOSUITests" */;
+			buildPhases = (
+				224C774A2A85DB6400911849 /* Sources */,
+				224C774B2A85DB6400911849 /* Frameworks */,
+				224C774C2A85DB6400911849 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				224C77502A85DB6400911849 /* PBXTargetDependency */,
+			);
+			name = PlayRadarMacOSUITests;
+			productName = PlayRadarMacOSUITests;
+			productReference = 224C774E2A85DB6400911849 /* PlayRadarMacOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -768,6 +976,17 @@
 						CreatedOnToolsVersion = 14.3;
 						TestTargetID = 220C64932A824F2500CA12B3;
 					};
+					224C772E2A85DB6100911849 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					224C77432A85DB6400911849 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 224C772E2A85DB6100911849;
+					};
+					224C774D2A85DB6400911849 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 224C772E2A85DB6100911849;
+					};
 				};
 			};
 			buildConfigurationList = 220C648F2A824F2500CA12B3 /* Build configuration list for PBXProject "PlayRadar" */;
@@ -792,6 +1011,9 @@
 				224C76DE2A85D9A300911849 /* PlayRadarLocalTests */,
 				224C770B2A85DAA200911849 /* PlayRadarRemote */,
 				224C77122A85DAA200911849 /* PlayRadarRemoteTests */,
+				224C772E2A85DB6100911849 /* PlayRadarMacOS */,
+				224C77432A85DB6400911849 /* PlayRadarMacOSTests */,
+				224C774D2A85DB6400911849 /* PlayRadarMacOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -856,6 +1078,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		224C77112A85DAA200911849 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C772D2A85DB6100911849 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224C77392A85DB6400911849 /* Preview Assets.xcassets in Resources */,
+				224C77362A85DB6400911849 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C77422A85DB6400911849 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C774C2A85DB6400911849 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -979,6 +1224,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		224C772B2A85DB6100911849 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224C77602A85DBE300911849 /* GameListView.swift in Sources */,
+				224C773B2A85DB6400911849 /* Persistence.swift in Sources */,
+				224C77622A85DC9100911849 /* GameListViewModel.swift in Sources */,
+				224C77342A85DB6100911849 /* ContentView.swift in Sources */,
+				224C773E2A85DB6400911849 /* PlayRadarMacOS.xcdatamodeld in Sources */,
+				224C77322A85DB6100911849 /* PlayRadarMacOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C77402A85DB6400911849 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224C77492A85DB6400911849 /* PlayRadarMacOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		224C774A2A85DB6400911849 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224C77532A85DB6400911849 /* PlayRadarMacOSUITests.swift in Sources */,
+				224C77552A85DB6400911849 /* PlayRadarMacOSUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1036,6 +1311,31 @@
 			isa = PBXTargetDependency;
 			target = 224C770B2A85DAA200911849 /* PlayRadarRemote */;
 			targetProxy = 224C771D2A85DAA200911849 /* PBXContainerItemProxy */;
+		};
+		224C77462A85DB6400911849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 224C772E2A85DB6100911849 /* PlayRadarMacOS */;
+			targetProxy = 224C77452A85DB6400911849 /* PBXContainerItemProxy */;
+		};
+		224C77502A85DB6400911849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 224C772E2A85DB6100911849 /* PlayRadarMacOS */;
+			targetProxy = 224C774F2A85DB6400911849 /* PBXContainerItemProxy */;
+		};
+		224C77732A85DCFE00911849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 220C64D92A830A5100CA12B3 /* PlayRadar */;
+			targetProxy = 224C77722A85DCFE00911849 /* PBXContainerItemProxy */;
+		};
+		224C77782A85DFFD00911849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 224C770B2A85DAA200911849 /* PlayRadarRemote */;
+			targetProxy = 224C77772A85DFFD00911849 /* PBXContainerItemProxy */;
+		};
+		224C777C2A85E0B700911849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 224C76D72A85D9A300911849 /* PlayRadarLocal */;
+			targetProxy = 224C777B2A85E0B700911849 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1316,12 +1616,16 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1349,12 +1653,16 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1418,12 +1726,16 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarLocal;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1451,12 +1763,16 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarLocal;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1520,12 +1836,16 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarRemote;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1553,12 +1873,16 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarRemote;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1600,6 +1924,142 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlayRadarApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PlayRadarApp";
+			};
+			name = Release;
+		};
+		224C77572A85DB6400911849 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PlayRadarMacOS/PlayRadarMacOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PlayRadarMacOS/Preview Content\"";
+				DEVELOPMENT_TEAM = SDSLU2QT5X;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		224C77582A85DB6400911849 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PlayRadarMacOS/PlayRadarMacOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PlayRadarMacOS/Preview Content\"";
+				DEVELOPMENT_TEAM = SDSLU2QT5X;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		224C775A2A85DB6400911849 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SDSLU2QT5X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarMacOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlayRadarMacOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PlayRadarMacOS";
+			};
+			name = Debug;
+		};
+		224C775B2A85DB6400911849 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SDSLU2QT5X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarMacOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlayRadarMacOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PlayRadarMacOS";
+			};
+			name = Release;
+		};
+		224C775D2A85DB6400911849 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SDSLU2QT5X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarMacOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = PlayRadarMacOS;
+			};
+			name = Debug;
+		};
+		224C775E2A85DB6400911849 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SDSLU2QT5X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muizidn.PlayRadarMacOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = PlayRadarMacOS;
 			};
 			name = Release;
 		};
@@ -1696,9 +2156,46 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		224C77562A85DB6400911849 /* Build configuration list for PBXNativeTarget "PlayRadarMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				224C77572A85DB6400911849 /* Debug */,
+				224C77582A85DB6400911849 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		224C77592A85DB6400911849 /* Build configuration list for PBXNativeTarget "PlayRadarMacOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				224C775A2A85DB6400911849 /* Debug */,
+				224C775B2A85DB6400911849 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		224C775C2A85DB6400911849 /* Build configuration list for PBXNativeTarget "PlayRadarMacOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				224C775D2A85DB6400911849 /* Debug */,
+				224C775E2A85DB6400911849 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		224C773C2A85DB6400911849 /* PlayRadarMacOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				224C773D2A85DB6400911849 /* PlayRadarMacOS.xcdatamodel */,
+			);
+			currentVersion = 224C773D2A85DB6400911849 /* PlayRadarMacOS.xcdatamodel */;
+			path = PlayRadarMacOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		22B2C6532A83F9D800CFF952 /* PlayRadar.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
