@@ -13,6 +13,7 @@ final class GameListTests: XCTestCase {
         
         let app = XCUIApplication()
         app.launchArguments = ["uitest", "GameList"]
+        app.launch()
         
         let tablesQuery = app.tables
         XCTAssertTrue(tablesQuery.staticTexts["Game 1"].exists)
@@ -23,6 +24,7 @@ final class GameListTests: XCTestCase {
     func testOnTapNavigateToDetail() throws {
         let app = XCUIApplication()
         app.launchArguments = ["uitest", "GameList","enableNavigation"]
+        app.launch()
         
         let tablesQuery = app.tables
         tablesQuery.staticTexts["Game 1"].tap()
