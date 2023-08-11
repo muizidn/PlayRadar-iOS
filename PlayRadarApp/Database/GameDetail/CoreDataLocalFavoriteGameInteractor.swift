@@ -1,5 +1,5 @@
 //
-//  LocalFavoriteGameInteractor.swift
+//  CoreDataLocalFavoriteGameInteractor.swift
 //  PlayRadarApp
 //
 //  Created by Muhammad Muizzsuddin on 10/08/23.
@@ -8,7 +8,7 @@
 import Foundation
 import PlayRadar
 
-final class LocalFavoriteGameInteractor: FavoriteGameInteractor {
+final class CoreDataLocalFavoriteGameInteractor: FavoriteGameInteractor {
     func setFavorite(id: String, favorite: Bool) async {
         do {
             if favorite {
