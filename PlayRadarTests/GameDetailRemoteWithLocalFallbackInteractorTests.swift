@@ -7,8 +7,7 @@
 
 import Foundation
 import XCTest
-@testable import PlayRadariOS
-import PlayRadar
+@testable import PlayRadar
 
 class GameDetailRemoteWithLocalFallbackInteractorTests: XCTestCase {
     class StubRemote: GameDetailInteractor {

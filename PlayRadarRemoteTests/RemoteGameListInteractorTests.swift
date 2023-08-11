@@ -7,7 +7,7 @@
 
 import XCTest
 import Combine
-@testable import PlayRadariOS
+@testable import PlayRadarRemote
 import PlayRadar
 
 class RemoteGameGameListInteractorTests: XCTestCase {

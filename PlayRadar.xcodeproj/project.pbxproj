@@ -33,8 +33,6 @@
 		223FC8142A83268A007B8F02 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8132A83268A007B8F02 /* GameDetailViewController.swift */; };
 		223FC8182A832FEB007B8F02 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8172A832FEB007B8F02 /* GameListViewController.swift */; };
 		223FC81A2A8334C2007B8F02 /* FavoriteListViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FC8192A8334C2007B8F02 /* FavoriteListViewContoller.swift */; };
-		224C76B52A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B42A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift */; };
-		224C76B92A84D03200911849 /* RemoteGameListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C65082A83172700CA12B3 /* RemoteGameListInteractorTests.swift */; };
 		224C76C62A85AEA200911849 /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76C52A85AEA200911849 /* GameDetailModel.swift */; };
 		224C76C82A85C0B600911849 /* GameDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76C72A85C0B600911849 /* GameDetailPresenterTests.swift */; };
 		224C76CA2A85D53D00911849 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76C92A85D53D00911849 /* Double+Extension.swift */; };
@@ -89,6 +87,8 @@
 		224C77882A85ED9400911849 /* PlayRadar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220C64DA2A830A5100CA12B3 /* PlayRadar.framework */; };
 		224C77892A85ED9400911849 /* PlayRadar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 220C64DA2A830A5100CA12B3 /* PlayRadar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		224C778D2A85EE5F00911849 /* PlayRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22B2C6532A83F9D800CFF952 /* PlayRadar.xcdatamodeld */; };
+		224C778E2A85F17300911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C76B42A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift */; };
+		224C778F2A85F17E00911849 /* RemoteGameListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C65082A83172700CA12B3 /* RemoteGameListInteractorTests.swift */; };
 		2252A22C2A83D7DF005F21D9 /* GameListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22B2A83D7DF005F21D9 /* GameListRouter.swift */; };
 		2252A22E2A83D9AB005F21D9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22D2A83D9AB005F21D9 /* Router.swift */; };
 		2252A2302A83DAED005F21D9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A22F2A83DAED005F21D9 /* DashboardRouter.swift */; };
@@ -526,8 +526,6 @@
 			isa = PBXGroup;
 			children = (
 				220C64B12A824F2700CA12B3 /* GameCellTests.swift */,
-				220C65082A83172700CA12B3 /* RemoteGameListInteractorTests.swift */,
-				224C76B42A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift */,
 			);
 			path = PlayRadariOSTests;
 			sourceTree = "<group>";
@@ -559,6 +557,7 @@
 		220C64E92A830A5200CA12B3 /* PlayRadarTests */ = {
 			isa = PBXGroup;
 			children = (
+				224C76B42A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift */,
 				220C64EA2A830A5200CA12B3 /* GameListPresenterTests.swift */,
 				224C76C72A85C0B600911849 /* GameDetailPresenterTests.swift */,
 			);
@@ -643,6 +642,7 @@
 		224C77192A85DAA200911849 /* PlayRadarRemoteTests */ = {
 			isa = PBXGroup;
 			children = (
+				220C65082A83172700CA12B3 /* RemoteGameListInteractorTests.swift */,
 				224C771A2A85DAA200911849 /* PlayRadarRemoteTests.swift */,
 			);
 			path = PlayRadarRemoteTests;
@@ -1205,8 +1205,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				220C64B22A824F2700CA12B3 /* GameCellTests.swift in Sources */,
-				224C76B52A84A1B800911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift in Sources */,
-				224C76B92A84D03200911849 /* RemoteGameListInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1245,6 +1243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				220C64EB2A830A5200CA12B3 /* GameListPresenterTests.swift in Sources */,
+				224C778E2A85F17300911849 /* GameDetailRemoteWithLocalFallbackInteractorTests.swift in Sources */,
 				224C76C82A85C0B600911849 /* GameDetailPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1288,6 +1287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224C778F2A85F17E00911849 /* RemoteGameListInteractorTests.swift in Sources */,
 				224C771B2A85DAA200911849 /* PlayRadarRemoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
