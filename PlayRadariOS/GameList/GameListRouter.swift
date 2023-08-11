@@ -71,3 +71,37 @@ struct GameListRouter_Previews: PreviewProvider {
     }
 }
 #endif
+
+#if DEBUG
+final class UITestingGameListRouter: NSObject, GameListRouter {
+    private(set) var viewController: UIViewController!
+    func launch() -> UIViewController {
+        let vc = GameListViewController(
+            presenter: GameListPresenter(
+                interactor: MockGameListInteractor()
+            ),
+            router: WeakProxy(self)
+        )
+        self.viewController = vc
+        return vc
+    }
+    
+    func launchDetail(game: PlayRadar.GameModel) {
+        
+    }
+    
+    class MockGameListInteractor: GameListInteractor {
+        func loadGames(page: Int) async -> Result<Pagination<GameModel>, Error> {
+            return .success(.init(data: [
+                .init(id: "1", title: "Game 1", release: Date(timeIntervalSince1970: 0), rating: 1),
+                .init(id: "2", title: "Game 2", release: Date(timeIntervalSince1970: 0), rating: 2),
+                .init(id: "3", title: "Game 3", release: Date(timeIntervalSince1970: 0), rating: 3)
+            ], page: 1, count: 3, hasNext: false))
+        }
+        
+        func searchGames(query: String) async -> Result<[GameModel], Error> {
+            fatalError()
+        }
+    }
+}
+#endif

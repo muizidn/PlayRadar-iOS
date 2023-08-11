@@ -7,26 +7,17 @@
 
 import XCTest
 
-final class PlayRadarUITestsLaunchTests: XCTestCase {
+final class PlayRadarUITestsGameListTests: XCTestCase {
 
-    override class var runsForEachTargetApplicationUIConfiguration: Bool {
-        true
-    }
-
-    override func setUpWithError() throws {
-        continueAfterFailure = false
-    }
-
-    func testLaunch() throws {
+    func testCheckShowListGames() throws {
+        
         let app = XCUIApplication()
-        app.launch()
-
-        // Insert steps here to perform after app launch but before taking a screenshot,
-        // such as logging into a test account or navigating somewhere in the app
-
-        let attachment = XCTAttachment(screenshot: app.screenshot())
-        attachment.name = "Launch Screen"
-        attachment.lifetime = .keepAlways
-        add(attachment)
+        app.launchArguments = ["uitest"]
+            
+        let tablesQuery = app.tables
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Game 1"]/*[[".cells.staticTexts[\"Game 1\"]",".staticTexts[\"Game 1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Game 2"]/*[[".cells.staticTexts[\"Game 2\"]",".staticTexts[\"Game 2\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Game 3"]/*[[".cells.staticTexts[\"Game 3\"]",".staticTexts[\"Game 3\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
     }
+    
 }
